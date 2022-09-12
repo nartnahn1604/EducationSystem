@@ -23,5 +23,62 @@ namespace IT008_UIT.Views
         {
             InitializeComponent();
         }
+
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            try
+            {
+                if (e.ChangedButton == MouseButton.Left)
+                    this.DragMove();
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
+
+        private void Exit_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            try
+            {
+                if (e.ChangedButton == MouseButton.Left)
+                    System.Environment.Exit(0);
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
+
+        private void Minimize_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            try
+            {
+                if (e.ChangedButton == MouseButton.Left)
+                    this.WindowState = WindowState.Minimized;
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
+
+        private void btn_login_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            try
+            {
+                if (e.ChangedButton == MouseButton.Left)
+                {
+                    if(txt_username.Text == "admin")
+                        if(txt_pass.Password == "admin")
+                            
+                }
+                    this.WindowState = WindowState.Minimized;
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
     }
 }
