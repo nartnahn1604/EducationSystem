@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "IT008_UIT/1.0.0": {
+        "runtime": {
+          "IT008_UIT.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "IT008_UIT/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

@@ -1,5 +1,5 @@
 ﻿IT008_UIT
-1.0.0.0
+
 
 winexe
 C#
@@ -12,9 +12,9 @@ TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 D:\Exercise\IT008\IT008_UIT\App.xaml
 2575916726
 
-61060882295
+41523285174
 1942030480316
 MainWindow.xaml;Views\Login.xaml;
 
-True
+False
 
