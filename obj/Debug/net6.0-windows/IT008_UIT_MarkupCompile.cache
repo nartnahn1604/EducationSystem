@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-D:\Exercise\IT008\IT008_UIT\obj\Debug\net6.0-windows\
+C:\Users\nhaantran\Source\Repos\it008_uit\obj\Debug\net6.0-windows\
 IT008_UIT
 none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
-D:\Exercise\IT008\IT008_UIT\App.xaml
+C:\Users\nhaantran\Source\Repos\it008_uit\App.xaml
 2575916726
 
 41523285174
-1942030480316
+194-200944676
 MainWindow.xaml;Views\Login.xaml;
 
 False
