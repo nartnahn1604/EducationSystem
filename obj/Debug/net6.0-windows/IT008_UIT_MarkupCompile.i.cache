@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 D:\C#\project\App.xaml
-32009819284
+3-92485192
 
-8455743016
+81057951200
 196614998342
-MainWindow.xaml;ResourceXAML\MainResource.xaml;Views\Login.xaml;
+LoginScreen.xaml;MainWindow.xaml;ResourceXAML\MainResource.xaml;
 
 True
 
