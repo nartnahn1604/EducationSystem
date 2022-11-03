@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 D:\C#\project\App.xaml
-3-92485192
+7-1982089022
 
-81057951200
+12-2037208910
 196614998342
-LoginScreen.xaml;MainWindow.xaml;ResourceXAML\MainResource.xaml;
+DatLaiMatKhauScreen.xaml;LoginScreen.xaml;MainWindow.xaml;QuenMatKhauScreen.xaml;ResourceXAML\MainResource.xaml;UserControlGym\CloseWindowButton.xaml;UserControlGym\GoBackButton.xaml;
 
 True
 
