@@ -8,8 +8,31 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Images\Login_Picture.png" />
+    <None Remove="Images\logo_app.png" />
+    <None Remove="Images\logo_app.svg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\logo_app.svg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\Login_Picture.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Model\" />
-    <Folder Include="ViewModel\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MaterialDesignThemes" Version="4.6.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\logo_app.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
 
 </Project>

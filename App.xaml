@@ -2,8 +2,26 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:IT008_UIT"
-             StartupUri="Views/Login.xaml">
+             
+             StartupUri="QuenMatKhauScreen.xaml">
     <Application.Resources>
-         
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Light.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.DeepOrange.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Cyan.xaml" />
+                <ResourceDictionary Source="/ResourceXAML/MainResource.xaml"></ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+            <Style x:Key="Click" TargetType="Button">
+                <Setter Property="Background" Value="#00adb5"></Setter>
+            </Style>
+
+            <Style x:Key="ColorGrid" TargetType="Grid">
+                <Setter Property="Background" Value="#FB8560"></Setter>
+            </Style>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>
+
+

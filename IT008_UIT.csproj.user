@@ -7,15 +7,45 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="Views\Login.xaml.cs">
+    <Compile Update="DatLaiMatKhauScreen.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="LoginScreen.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="QuenMatKhauScreen.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="UserControlGym\CloseWindowButton.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="UserControlGym\GoBackButton.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="DatLaiMatKhauScreen.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="LoginScreen.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\Login.xaml">
+    <Page Update="QuenMatKhauScreen.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ResourceXAML\MainResource.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UserControlGym\CloseWindowButton.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UserControlGym\GoBackButton.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UserControlGym\MenuBarUC.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
