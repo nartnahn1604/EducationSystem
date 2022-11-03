@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-D:\C#\project\obj\Debug\net6.0-windows\
+D:\Exercise\IT008\PROJECT\obj\Debug\net6.0-windows\
 IT008_UIT
 none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
-D:\C#\project\App.xaml
-7-1982089022
+D:\Exercise\IT008\PROJECT\App.xaml
+8181343278
 
-10-1574806031
-196614998342
-DatLaiMatKhauScreen.xaml;LoginScreen.xaml;MainWindow.xaml;QuenMatKhauScreen.xaml;ResourceXAML\MainResource.xaml;UserControlGym\CloseWindowButton.xaml;UserControlGym\GoBackButton.xaml;
+11-428265738
+196-81145197
+DatLaiMatKhauScreen.xaml;LoginScreen.xaml;MainWindow.xaml;QuenMatKhauScreen.xaml;ResourceXAML\MainResource.xaml;UserControlGym\CloseWindowButton.xaml;UserControlGym\GoBackButton.xaml;UserControlGym\MenuBarUC.xaml;
 
 False
 

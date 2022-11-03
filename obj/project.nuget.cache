@@ -1,11 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "RUWSlOgpa6ZyY08xzO2u1yjWFPaunIQ2QT0ahObCmSWq7mJwRWtmmT8sG9O29cEGD2q8gPgx9Jm87eo8JgpIfA==",
+  "dgSpecHash": "yzsMepdM/9vTWHgJ2tw/1ucUKpt8IBRSm6mVWCLdOzIyChd/P8vZgN5iIhZBUA+fBfuJpxNanDwS8NPox1VADQ==",
   "success": true,
-  "projectFilePath": "D:\\C#\\project\\IT008_UIT.csproj",
+  "projectFilePath": "D:\\Exercise\\IT008\\PROJECT\\IT008_UIT.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\nhaantran\\.nuget\\packages\\materialdesigncolors\\2.0.9\\materialdesigncolors.2.0.9.nupkg.sha512",
-    "C:\\Users\\nhaantran\\.nuget\\packages\\materialdesignthemes\\4.6.1\\materialdesignthemes.4.6.1.nupkg.sha512"
+    "C:\\Users\\lovet\\.nuget\\packages\\materialdesigncolors\\2.0.9\\materialdesigncolors.2.0.9.nupkg.sha512",
+    "C:\\Users\\lovet\\.nuget\\packages\\materialdesignthemes\\4.6.1\\materialdesignthemes.4.6.1.nupkg.sha512"
   ],
   "logs": []
 }

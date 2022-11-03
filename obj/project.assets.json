@@ -5,14 +5,10 @@
       "MaterialDesignColors/2.0.9": {
         "type": "package",
         "compile": {
-          "lib/net6.0/MaterialDesignColors.dll": {
-            "related": ".pdb"
-          }
+          "lib/net6.0/MaterialDesignColors.dll": {}
         },
         "runtime": {
-          "lib/net6.0/MaterialDesignColors.dll": {
-            "related": ".pdb"
-          }
+          "lib/net6.0/MaterialDesignColors.dll": {}
         }
       },
       "MaterialDesignThemes/4.6.1": {
@@ -21,14 +17,10 @@
           "MaterialDesignColors": "[2.0.9, 3.0.0)"
         },
         "compile": {
-          "lib/net6.0/MaterialDesignThemes.Wpf.dll": {
-            "related": ".pdb;.xml"
-          }
+          "lib/net6.0/MaterialDesignThemes.Wpf.dll": {}
         },
         "runtime": {
-          "lib/net6.0/MaterialDesignThemes.Wpf.dll": {
-            "related": ".pdb;.xml"
-          }
+          "lib/net6.0/MaterialDesignThemes.Wpf.dll": {}
         },
         "build": {
           "build/MaterialDesignThemes.targets": {}
@@ -104,23 +96,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\nhaantran\\.nuget\\packages\\": {}
+    "C:\\Users\\lovet\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\C#\\project\\IT008_UIT.csproj",
+      "projectUniqueName": "D:\\Exercise\\IT008\\PROJECT\\IT008_UIT.csproj",
       "projectName": "IT008_UIT",
-      "projectPath": "D:\\C#\\project\\IT008_UIT.csproj",
-      "packagesPath": "C:\\Users\\nhaantran\\.nuget\\packages\\",
-      "outputPath": "D:\\C#\\project\\obj\\",
+      "projectPath": "D:\\Exercise\\IT008\\PROJECT\\IT008_UIT.csproj",
+      "packagesPath": "C:\\Users\\lovet\\.nuget\\packages\\",
+      "outputPath": "D:\\Exercise\\IT008\\PROJECT\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\nhaantran\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\lovet\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
-        "net6.0-windows"
+        "net6.0-windows7.0"
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
@@ -153,8 +145,7 @@
           "net47",
           "net471",
           "net472",
-          "net48",
-          "net481"
+          "net48"
         ],
         "assetTargetFallback": true,
         "warn": true,
@@ -166,7 +157,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
       }
     }
   }
