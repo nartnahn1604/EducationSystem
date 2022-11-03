@@ -17,7 +17,7 @@
         FontFamily="{DynamicResource MaterialDesignFont}"
         DataContext="{StaticResource MainVM}"
         Title="MainWindow" Height="720" Width="1280">
-    <Grid>
+    <Grid Style="{DynamicResource ColorGrid}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0.2*"></ColumnDefinition>
             <ColumnDefinition Width="0.8*"></ColumnDefinition>
