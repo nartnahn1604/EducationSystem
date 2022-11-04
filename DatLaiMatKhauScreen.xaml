@@ -50,7 +50,7 @@
             <Button Background="#00ADB5" HorizontalAlignment="Center"
                 Style="{DynamicResource MaterialDesignRaisedButton}" Width="400" Height="50"
                 materialDesign:ShadowAssist.ShadowDepth="Depth2" >
-                Gửi mã
+                Gửi
             </Button>
             <TextBlock Foreground="White" HorizontalAlignment="Center" FontSize="16" Margin="0,10,0,0"
                 Style="{DynamicResource MaterialDesignBody2TextBlock}">
