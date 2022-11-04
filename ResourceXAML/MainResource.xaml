@@ -1,0 +1,13 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:viewmodel="clr-namespace:IT008_UIT.ViewModel"
+                    xmlns:local="clr-namespace:IT008_UIT.ResourceXAML">
+    <viewmodel:MainViewModel x:Key="MainVM"></viewmodel:MainViewModel>
+    <Style x:Key="Click" TargetType="Button">
+        <Setter Property="Background" Value="#00adb5"></Setter>
+    </Style>
+
+    <Style x:Key="ColorGrid" TargetType="Grid">
+        <Setter Property="Background" Value="#FB8560"></Setter>
+    </Style>
+</ResourceDictionary>
