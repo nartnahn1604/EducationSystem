@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:IT008_UIT"
              
-             StartupUri="QuenMatKhauScreen.xaml">
+             StartupUri="MainWindow.xaml">
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -13,13 +13,6 @@
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Cyan.xaml" />
                 <ResourceDictionary Source="/ResourceXAML/MainResource.xaml"></ResourceDictionary>
             </ResourceDictionary.MergedDictionaries>
-            <Style x:Key="Click" TargetType="Button">
-                <Setter Property="Background" Value="#00adb5"></Setter>
-            </Style>
-
-            <Style x:Key="ColorGrid" TargetType="Grid">
-                <Setter Property="Background" Value="#FB8560"></Setter>
-            </Style>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

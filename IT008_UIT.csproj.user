@@ -10,6 +10,9 @@
     <Compile Update="DatLaiMatKhauScreen.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="HopDongCoBanPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="LoginScreen.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -22,9 +25,15 @@
     <Compile Update="UserControlGym\GoBackButton.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="UserControlGym\GoiTapUC.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="DatLaiMatKhauScreen.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="HopDongCoBanPage.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="LoginScreen.xaml">
@@ -43,6 +52,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="UserControlGym\GoBackButton.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UserControlGym\GoiTapUC.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="UserControlGym\MenuBarUC.xaml">

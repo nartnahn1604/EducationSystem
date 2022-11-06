@@ -13,17 +13,23 @@
         TextOptions.TextFormattingMode="Ideal" 
         TextOptions.TextRenderingMode="Auto"  
         WindowStyle="None"
-        Background="{DynamicResource MaterialDesignPaper}"
+        WindowStartupLocation="CenterScreen"
+        Background="#FB8560"
+        ResizeMode="NoResize"
         FontFamily="{DynamicResource MaterialDesignFont}"
         DataContext="{StaticResource MainVM}"
         Title="MainWindow" Height="720" Width="1280">
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="0.2*"></ColumnDefinition>
-            <ColumnDefinition Width="0.8*"></ColumnDefinition>
-        </Grid.ColumnDefinitions>
-        <Grid Grid.Column="0">
-            <uc:MenuBarUC></uc:MenuBarUC>
+        <Grid Style="{DynamicResource ColorGrid}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.2*"></ColumnDefinition>
+                <ColumnDefinition Width="0.8*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.05*"></RowDefinition>
+                <RowDefinition Height="0.95*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <uc:MenuBarUC Grid.Row="0" Grid.RowSpan="2" Panel.ZIndex="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"></uc:MenuBarUC>
+            <uc:CloseWindowButton Grid.RowSpan="2" Grid.ColumnSpan="2"></uc:CloseWindowButton>
+            <Frame Name="Main" Grid.Column="1" Grid.Row="1"/>
         </Grid>
-    </Grid>
 </Window>
