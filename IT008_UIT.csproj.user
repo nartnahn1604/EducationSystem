@@ -7,7 +7,7 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="DatLaiMatKhauScreen.xaml.cs">
+    <Compile Update="DoiMatKhauScreen.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="LoginScreen.xaml.cs">
@@ -16,15 +16,18 @@
     <Compile Update="QuenMatKhauScreen.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="UserControlGym\CloseWindowButton.xaml.cs">
+    <Compile Update="UserControlGym\DynamicChartUC.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="UserControlGym\GoBackButton.xaml.cs">
+    <Compile Update="UserControlGym\PieChartUC.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="UserControlGym\WindowBarUC.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Page Update="DatLaiMatKhauScreen.xaml">
+    <Page Update="DoiMatKhauScreen.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="LoginScreen.xaml">
@@ -39,10 +42,13 @@
     <Page Update="ResourceXAML\MainResource.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="UserControlGym\CloseWindowButton.xaml">
+    <Page Update="UserControlGym\DynamicChartUC.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="UserControlGym\GoBackButton.xaml">
+    <Page Update="UserControlGym\PieChartUC.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UserControlGym\WindowBarUC.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="UserControlGym\MenuBarUC.xaml">

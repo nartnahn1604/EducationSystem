@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 D:\C#\project\it008_uit-hum4nnud3\App.xaml
-8181343278
+9812212103
 
-13-890668617
-196614998342
-DatLaiMatKhauScreen.xaml;LoginScreen.xaml;MainWindow.xaml;QuenMatKhauScreen.xaml;ResourceXAML\MainResource.xaml;UserControlGym\CloseWindowButton.xaml;UserControlGym\GoBackButton.xaml;UserControlGym\MenuBarUC.xaml;
+20502708867
+2061738335530
+DoiMatKhauScreen.xaml;LoginScreen.xaml;MainWindow.xaml;QuenMatKhauScreen.xaml;ResourceXAML\MainResource.xaml;UserControlGym\DynamicChartUC.xaml;UserControlGym\MenuBarUC.xaml;UserControlGym\PieChartUC.xaml;UserControlGym\WindowBarUC.xaml;
 
 True
 
