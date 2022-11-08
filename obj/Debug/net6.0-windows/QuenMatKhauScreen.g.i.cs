@@ -57,7 +57,7 @@ namespace IT008_UIT {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/IT008_UIT;component/quenmatkhauscreen.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/IT008_UIT;V1.0.0.0;component/quenmatkhauscreen.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\QuenMatKhauScreen.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
