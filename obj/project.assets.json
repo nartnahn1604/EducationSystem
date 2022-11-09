@@ -96,24 +96,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Nhan\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\lovet\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\uit\\it008\\PROJECT\\IT008_UIT.csproj",
+      "projectUniqueName": "D:\\Exercise\\IT008\\PROJECT\\IT008_UIT.csproj",
       "projectName": "IT008_UIT",
-      "projectPath": "E:\\uit\\it008\\PROJECT\\IT008_UIT.csproj",
-      "packagesPath": "C:\\Users\\Nhan\\.nuget\\packages\\",
-      "outputPath": "E:\\uit\\it008\\PROJECT\\obj\\",
+      "projectPath": "D:\\Exercise\\IT008\\PROJECT\\IT008_UIT.csproj",
+      "packagesPath": "C:\\Users\\lovet\\.nuget\\packages\\",
+      "outputPath": "D:\\Exercise\\IT008\\PROJECT\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Nhan\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\lovet\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -162,7 +157,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
       }
     }
   }
