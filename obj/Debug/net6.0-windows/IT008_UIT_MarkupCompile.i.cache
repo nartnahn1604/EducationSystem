@@ -4,30 +4,17 @@
 winexe
 C#
 .cs
-<<<<<<< HEAD
 D:\Exercise\IT008\PROJECT\obj\Debug\net6.0-windows\
-=======
-D:\C#\project\it008_uit-hum4nnud3\obj\Debug\net6.0-windows\
->>>>>>> it008/gymchua
 IT008_UIT
 none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
-<<<<<<< HEAD
 D:\Exercise\IT008\PROJECT\App.xaml
-101512433356
+14-134759672
 
-15-1615466856
-196-81145197
-DatLaiMatKhauScreen.xaml;HopDongCoBanPage.xaml;LoginScreen.xaml;MainWindow.xaml;QuenMatKhauScreen.xaml;ResourceXAML\MainResource.xaml;UserControlGym\CloseWindowButton.xaml;UserControlGym\GoBackButton.xaml;UserControlGym\GoiTapUC.xaml;UserControlGym\MenuBarUC.xaml;
-=======
-D:\C#\project\it008_uit-hum4nnud3\App.xaml
-9812212103
+251609554762
+2061645586063
+DatLaiMatKhauScreen.xaml;DoiMatKhauScreen.xaml;HopDongCoBanPage.xaml;LoginScreen.xaml;MainWindow.xaml;QuenMatKhauScreen.xaml;ResourceXAML\MainResource.xaml;UserControlGym\CloseWindowButton.xaml;UserControlGym\DynamicChartUC.xaml;UserControlGym\GoBackButton.xaml;UserControlGym\GoiTapUC.xaml;UserControlGym\MenuBarUC.xaml;UserControlGym\PieChartUC.xaml;UserControlGym\WindowBarUC.xaml;
 
-20502708867
-2061738335530
-DoiMatKhauScreen.xaml;LoginScreen.xaml;MainWindow.xaml;QuenMatKhauScreen.xaml;ResourceXAML\MainResource.xaml;UserControlGym\DynamicChartUC.xaml;UserControlGym\MenuBarUC.xaml;UserControlGym\PieChartUC.xaml;UserControlGym\WindowBarUC.xaml;
->>>>>>> it008/gymchua
-
-True
+False
 

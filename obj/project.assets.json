@@ -2,26 +2,13 @@
   "version": 3,
   "targets": {
     "net6.0-windows7.0": {
-<<<<<<< HEAD
-      "MaterialDesignColors/2.0.9": {
-        "type": "package",
-        "compile": {
-          "lib/net6.0/MaterialDesignColors.dll": {}
-        },
-        "runtime": {
-          "lib/net6.0/MaterialDesignColors.dll": {}
-=======
       "CommunityToolkit.Mvvm/8.0.0": {
         "type": "package",
         "compile": {
-          "lib/net6.0/CommunityToolkit.Mvvm.dll": {
-            "related": ".pdb;.xml"
-          }
+          "lib/net6.0/CommunityToolkit.Mvvm.dll": {}
         },
         "runtime": {
-          "lib/net6.0/CommunityToolkit.Mvvm.dll": {
-            "related": ".pdb;.xml"
-          }
+          "lib/net6.0/CommunityToolkit.Mvvm.dll": {}
         },
         "build": {
           "buildTransitive/netstandard2.1/CommunityToolkit.Mvvm.targets": {}
@@ -34,14 +21,10 @@
           "HarfBuzzSharp.NativeAssets.macOS": "2.8.2.3"
         },
         "compile": {
-          "lib/net6.0/HarfBuzzSharp.dll": {
-            "related": ".pdb;.xml"
-          }
+          "lib/net6.0/HarfBuzzSharp.dll": {}
         },
         "runtime": {
-          "lib/net6.0/HarfBuzzSharp.dll": {
-            "related": ".pdb;.xml"
-          }
+          "lib/net6.0/HarfBuzzSharp.dll": {}
         }
       },
       "HarfBuzzSharp.NativeAssets.macOS/2.8.2.3": {
@@ -85,14 +68,10 @@
       "LiveChartsCore/2.0.0-beta.516": {
         "type": "package",
         "compile": {
-          "lib/net6.0/LiveChartsCore.dll": {
-            "related": ".xml"
-          }
+          "lib/net6.0/LiveChartsCore.dll": {}
         },
         "runtime": {
-          "lib/net6.0/LiveChartsCore.dll": {
-            "related": ".xml"
-          }
+          "lib/net6.0/LiveChartsCore.dll": {}
         }
       },
       "LiveChartsCore.SkiaSharpView/2.0.0-beta.516": {
@@ -103,14 +82,10 @@
           "SkiaSharp.HarfBuzz": "2.88.3"
         },
         "compile": {
-          "lib/net6.0/LiveChartsCore.SkiaSharpView.dll": {
-            "related": ".xml"
-          }
+          "lib/net6.0/LiveChartsCore.SkiaSharpView.dll": {}
         },
         "runtime": {
-          "lib/net6.0/LiveChartsCore.SkiaSharpView.dll": {
-            "related": ".xml"
-          }
+          "lib/net6.0/LiveChartsCore.SkiaSharpView.dll": {}
         }
       },
       "LiveChartsCore.SkiaSharpView.WPF/2.0.0-beta.516": {
@@ -120,14 +95,10 @@
           "SkiaSharp.Views.WPF": "2.88.3"
         },
         "compile": {
-          "lib/netcoreapp3.1/LiveChartsCore.SkiaSharpView.WPF.dll": {
-            "related": ".xml"
-          }
+          "lib/netcoreapp3.1/LiveChartsCore.SkiaSharpView.WPF.dll": {}
         },
         "runtime": {
-          "lib/netcoreapp3.1/LiveChartsCore.SkiaSharpView.WPF.dll": {
-            "related": ".xml"
-          }
+          "lib/netcoreapp3.1/LiveChartsCore.SkiaSharpView.WPF.dll": {}
         },
         "frameworkReferences": [
           "Microsoft.WindowsDesktop.App.WPF"
@@ -136,15 +107,10 @@
       "MaterialDesignColors/2.0.9": {
         "type": "package",
         "compile": {
-          "lib/net6.0/MaterialDesignColors.dll": {
-            "related": ".pdb"
-          }
+          "lib/net6.0/MaterialDesignColors.dll": {}
         },
         "runtime": {
-          "lib/net6.0/MaterialDesignColors.dll": {
-            "related": ".pdb"
-          }
->>>>>>> it008/gymchua
+          "lib/net6.0/MaterialDesignColors.dll": {}
         }
       },
       "MaterialDesignThemes/4.6.1": {
@@ -153,27 +119,14 @@
           "MaterialDesignColors": "[2.0.9, 3.0.0)"
         },
         "compile": {
-<<<<<<< HEAD
           "lib/net6.0/MaterialDesignThemes.Wpf.dll": {}
         },
         "runtime": {
           "lib/net6.0/MaterialDesignThemes.Wpf.dll": {}
-=======
-          "lib/net6.0/MaterialDesignThemes.Wpf.dll": {
-            "related": ".pdb;.xml"
-          }
-        },
-        "runtime": {
-          "lib/net6.0/MaterialDesignThemes.Wpf.dll": {
-            "related": ".pdb;.xml"
-          }
->>>>>>> it008/gymchua
         },
         "build": {
           "build/MaterialDesignThemes.targets": {}
         }
-<<<<<<< HEAD
-=======
       },
       "Microsoft.NETCore.Platforms/2.0.0": {
         "type": "package",
@@ -209,14 +162,10 @@
           "SkiaSharp.NativeAssets.macOS": "2.88.3"
         },
         "compile": {
-          "lib/net6.0/SkiaSharp.dll": {
-            "related": ".pdb;.xml"
-          }
+          "lib/net6.0/SkiaSharp.dll": {}
         },
         "runtime": {
-          "lib/net6.0/SkiaSharp.dll": {
-            "related": ".pdb;.xml"
-          }
+          "lib/net6.0/SkiaSharp.dll": {}
         }
       },
       "SkiaSharp.HarfBuzz/2.88.3": {
@@ -226,14 +175,10 @@
           "SkiaSharp": "2.88.3"
         },
         "compile": {
-          "lib/net6.0/SkiaSharp.HarfBuzz.dll": {
-            "related": ".pdb;.xml"
-          }
+          "lib/net6.0/SkiaSharp.HarfBuzz.dll": {}
         },
         "runtime": {
-          "lib/net6.0/SkiaSharp.HarfBuzz.dll": {
-            "related": ".pdb;.xml"
-          }
+          "lib/net6.0/SkiaSharp.HarfBuzz.dll": {}
         }
       },
       "SkiaSharp.NativeAssets.macOS/2.88.3": {
@@ -281,14 +226,10 @@
           "System.Drawing.Common": "4.5.1"
         },
         "compile": {
-          "lib/netcoreapp3.1/SkiaSharp.Views.Desktop.Common.dll": {
-            "related": ".pdb;.xml"
-          }
+          "lib/netcoreapp3.1/SkiaSharp.Views.Desktop.Common.dll": {}
         },
         "runtime": {
-          "lib/netcoreapp3.1/SkiaSharp.Views.Desktop.Common.dll": {
-            "related": ".pdb;.xml"
-          }
+          "lib/netcoreapp3.1/SkiaSharp.Views.Desktop.Common.dll": {}
         }
       },
       "SkiaSharp.Views.WPF/2.88.3": {
@@ -298,14 +239,10 @@
           "SkiaSharp.Views.Desktop.Common": "2.88.3"
         },
         "compile": {
-          "lib/netcoreapp3.1/SkiaSharp.Views.WPF.dll": {
-            "related": ".pdb;.xml"
-          }
+          "lib/netcoreapp3.1/SkiaSharp.Views.WPF.dll": {}
         },
         "runtime": {
-          "lib/netcoreapp3.1/SkiaSharp.Views.WPF.dll": {
-            "related": ".pdb;.xml"
-          }
+          "lib/netcoreapp3.1/SkiaSharp.Views.WPF.dll": {}
         }
       },
       "System.Drawing.Common/4.5.1": {
@@ -330,13 +267,10 @@
             "rid": "win"
           }
         }
->>>>>>> it008/gymchua
       }
     }
   },
   "libraries": {
-<<<<<<< HEAD
-=======
     "CommunityToolkit.Mvvm/8.0.0": {
       "sha512": "Jiu2g5WUdXRwzhJkHB+B4JBKP5A5+fp8xKiW/ZQo5PI+DruI7MbPEcK9K/Aw0YzTiWRuG6CBluzYIWN5Eo7BkQ==",
       "type": "package",
@@ -550,7 +484,6 @@
         "livechartscore.skiasharpview.wpf.nuspec"
       ]
     },
->>>>>>> it008/gymchua
     "MaterialDesignColors/2.0.9": {
       "sha512": "b4tdvxPZUCKCpxeCNFnF/+2Hug2cd+/SUGYCt+RXRRrobFYZkZQsIjlbsTGy5Hup9yPMMxqFSEXGRIxCm2JZUA==",
       "type": "package",
@@ -610,8 +543,6 @@
         "materialdesignthemes.nuspec",
         "tools/VisualStudioToolsManifest.xml"
       ]
-<<<<<<< HEAD
-=======
     },
     "Microsoft.NETCore.Platforms/2.0.0": {
       "sha512": "VdLJOCXhZaEMY7Hm2GKiULmn7IEPFE4XC5LPSfBVCUIA8YLZVh846gtfBJalsPQF2PlzdD7ecX7DZEulJ402ZQ==",
@@ -879,30 +810,21 @@
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
->>>>>>> it008/gymchua
     }
   },
   "projectFileDependencyGroups": {
     "net6.0-windows7.0": [
-<<<<<<< HEAD
-=======
       "CommunityToolkit.Mvvm >= 8.0.0",
       "LiveChartsCore.SkiaSharpView.WPF >= 2.0.0-beta.516",
->>>>>>> it008/gymchua
       "MaterialDesignThemes >= 4.6.1"
     ]
   },
   "packageFolders": {
-<<<<<<< HEAD
     "C:\\Users\\lovet\\.nuget\\packages\\": {}
-=======
-    "C:\\Users\\nhaantran\\.nuget\\packages\\": {}
->>>>>>> it008/gymchua
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-<<<<<<< HEAD
       "projectUniqueName": "D:\\Exercise\\IT008\\PROJECT\\IT008_UIT.csproj",
       "projectName": "IT008_UIT",
       "projectPath": "D:\\Exercise\\IT008\\PROJECT\\IT008_UIT.csproj",
@@ -915,20 +837,6 @@
       ],
       "originalTargetFrameworks": [
         "net6.0-windows7.0"
-=======
-      "projectUniqueName": "D:\\C#\\project\\it008_uit-hum4nnud3\\IT008_UIT.csproj",
-      "projectName": "IT008_UIT",
-      "projectPath": "D:\\C#\\project\\it008_uit-hum4nnud3\\IT008_UIT.csproj",
-      "packagesPath": "C:\\Users\\nhaantran\\.nuget\\packages\\",
-      "outputPath": "D:\\C#\\project\\it008_uit-hum4nnud3\\obj\\",
-      "projectStyle": "PackageReference",
-      "configFilePaths": [
-        "C:\\Users\\nhaantran\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
-      ],
-      "originalTargetFrameworks": [
-        "net6.0-windows"
->>>>>>> it008/gymchua
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
@@ -950,8 +858,6 @@
       "net6.0-windows7.0": {
         "targetAlias": "net6.0-windows",
         "dependencies": {
-<<<<<<< HEAD
-=======
           "CommunityToolkit.Mvvm": {
             "target": "Package",
             "version": "[8.0.0, )"
@@ -960,7 +866,6 @@
             "target": "Package",
             "version": "[2.0.0-beta.516, )"
           },
->>>>>>> it008/gymchua
           "MaterialDesignThemes": {
             "target": "Package",
             "version": "[4.6.1, )"
@@ -972,12 +877,7 @@
           "net47",
           "net471",
           "net472",
-<<<<<<< HEAD
           "net48"
-=======
-          "net48",
-          "net481"
->>>>>>> it008/gymchua
         ],
         "assetTargetFallback": true,
         "warn": true,
@@ -989,11 +889,7 @@
             "privateAssets": "none"
           }
         },
-<<<<<<< HEAD
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
-=======
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
->>>>>>> it008/gymchua
       }
     }
   }

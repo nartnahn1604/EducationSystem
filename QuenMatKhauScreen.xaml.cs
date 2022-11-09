@@ -12,7 +12,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 ﻿using IT008_UIT.ViewModel;
-using System.Windows;
 
 namespace IT008_UIT
 {

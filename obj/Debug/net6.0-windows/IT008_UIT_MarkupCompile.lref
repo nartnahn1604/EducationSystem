@@ -1,27 +1,17 @@
-<<<<<<< HEAD
-﻿D:\Exercise\IT008\PROJECT\obj\Debug\net6.0-windows\GeneratedInternalTypeHelper.g.cs
+﻿
 FD:\Exercise\IT008\PROJECT\App.xaml;;
 FD:\Exercise\IT008\PROJECT\DatLaiMatKhauScreen.xaml;;
+FD:\Exercise\IT008\PROJECT\DoiMatKhauScreen.xaml;;
 FD:\Exercise\IT008\PROJECT\HopDongCoBanPage.xaml;;
 FD:\Exercise\IT008\PROJECT\LoginScreen.xaml;;
 FD:\Exercise\IT008\PROJECT\MainWindow.xaml;;
 FD:\Exercise\IT008\PROJECT\QuenMatKhauScreen.xaml;;
 FD:\Exercise\IT008\PROJECT\ResourceXAML\MainResource.xaml;;
 FD:\Exercise\IT008\PROJECT\UserControlGym\CloseWindowButton.xaml;;
+FD:\Exercise\IT008\PROJECT\UserControlGym\DynamicChartUC.xaml;;
 FD:\Exercise\IT008\PROJECT\UserControlGym\GoBackButton.xaml;;
 FD:\Exercise\IT008\PROJECT\UserControlGym\GoiTapUC.xaml;;
 FD:\Exercise\IT008\PROJECT\UserControlGym\MenuBarUC.xaml;;
-=======
-﻿
-FD:\C#\project\it008_uit-hum4nnud3\App.xaml;;
-FD:\C#\project\it008_uit-hum4nnud3\DoiMatKhauScreen.xaml;;
-FD:\C#\project\it008_uit-hum4nnud3\LoginScreen.xaml;;
-FD:\C#\project\it008_uit-hum4nnud3\MainWindow.xaml;;
-FD:\C#\project\it008_uit-hum4nnud3\QuenMatKhauScreen.xaml;;
-FD:\C#\project\it008_uit-hum4nnud3\ResourceXAML\MainResource.xaml;;
-FD:\C#\project\it008_uit-hum4nnud3\UserControlGym\MenuBarUC.xaml;;
-FD:\C#\project\it008_uit-hum4nnud3\UserControlGym\PieChartUC.xaml;;
-FD:\C#\project\it008_uit-hum4nnud3\UserControlGym\WindowBarUC.xaml;;
-FD:\C#\project\it008_uit-hum4nnud3\UserControlGym\DynamicChartUC.xaml;;
->>>>>>> it008/gymchua
+FD:\Exercise\IT008\PROJECT\UserControlGym\PieChartUC.xaml;;
+FD:\Exercise\IT008\PROJECT\UserControlGym\WindowBarUC.xaml;;
 

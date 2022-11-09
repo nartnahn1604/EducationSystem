@@ -10,7 +10,7 @@
     <Compile Update="DatLaiMatKhauScreen.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="HopDongCoBanPage.xaml.cs">
+	  <Compile Update="HopDongCoBanPage.xaml.cs"> </Compile>
     <Compile Update="DoiMatKhauScreen.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -26,7 +26,7 @@
     <Compile Update="UserControlGym\GoBackButton.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="UserControlGym\GoiTapUC.xaml.cs">
+		<Compile Update="UserControlGym\GoiTapUC.xaml.cs"></Compile>
     <Compile Update="UserControlGym\DynamicChartUC.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -41,7 +41,7 @@
     <Page Update="DatLaiMatKhauScreen.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="HopDongCoBanPage.xaml">
+	  <Page Update="HopDongCoBanPage.xaml">    </Page>
     <Page Update="DoiMatKhauScreen.xaml">
       <SubType>Designer</SubType>
     </Page>
@@ -63,7 +63,7 @@
     <Page Update="UserControlGym\GoBackButton.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="UserControlGym\GoiTapUC.xaml">
+	  <Page Update="UserControlGym\GoiTapUC.xaml"> </Page>
     <Page Update="UserControlGym\DynamicChartUC.xaml">
       <SubType>Designer</SubType>
     </Page>

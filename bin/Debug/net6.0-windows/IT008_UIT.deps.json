@@ -8,19 +8,14 @@
     ".NETCoreApp,Version=v6.0": {
       "IT008_UIT/1.0.0": {
         "dependencies": {
-<<<<<<< HEAD
-=======
           "CommunityToolkit.Mvvm": "8.0.0",
           "LiveChartsCore.SkiaSharpView.WPF": "2.0.0-beta.516",
->>>>>>> it008/gymchua
           "MaterialDesignThemes": "4.6.1"
         },
         "runtime": {
           "IT008_UIT.dll": {}
         }
       },
-<<<<<<< HEAD
-=======
       "CommunityToolkit.Mvvm/8.0.0": {
         "runtime": {
           "lib/net6.0/CommunityToolkit.Mvvm.dll": {
@@ -102,7 +97,6 @@
           }
         }
       },
->>>>>>> it008/gymchua
       "MaterialDesignColors/2.0.9": {
         "runtime": {
           "lib/net6.0/MaterialDesignColors.dll": {
@@ -121,8 +115,6 @@
             "fileVersion": "4.6.1.0"
           }
         }
-<<<<<<< HEAD
-=======
       },
       "Microsoft.NETCore.Platforms/2.0.0": {},
       "Microsoft.Win32.SystemEvents/4.5.0": {
@@ -211,7 +203,6 @@
           "Microsoft.NETCore.Platforms": "2.0.0",
           "Microsoft.Win32.SystemEvents": "4.5.0"
         }
->>>>>>> it008/gymchua
       }
     }
   },
@@ -221,8 +212,6 @@
       "serviceable": false,
       "sha512": ""
     },
-<<<<<<< HEAD
-=======
     "CommunityToolkit.Mvvm/8.0.0": {
       "type": "package",
       "serviceable": true,
@@ -272,7 +261,6 @@
       "path": "livechartscore.skiasharpview.wpf/2.0.0-beta.516",
       "hashPath": "livechartscore.skiasharpview.wpf.2.0.0-beta.516.nupkg.sha512"
     },
->>>>>>> it008/gymchua
     "MaterialDesignColors/2.0.9": {
       "type": "package",
       "serviceable": true,
@@ -286,8 +274,6 @@
       "sha512": "sha512-Yx3RxIqkwoe1rYxoUZ2iH1YdCly+dA8YAQJ5uknsUVhyVd1rgiXEn6fmtsovGaqKRZwUXGHnh4w7kRagxa8TCg==",
       "path": "materialdesignthemes/4.6.1",
       "hashPath": "materialdesignthemes.4.6.1.nupkg.sha512"
-<<<<<<< HEAD
-=======
     },
     "Microsoft.NETCore.Platforms/2.0.0": {
       "type": "package",
@@ -351,7 +337,6 @@
       "sha512": "sha512-GiyeGi/v4xYDz1vCNFwFvhz9k1XddOG7VD3jxRqzRBCbTHji+s3HxxbxtoymuK4OadEpgotI8zQ5+GEEH9sUEQ==",
       "path": "system.drawing.common/4.5.1",
       "hashPath": "system.drawing.common.4.5.1.nupkg.sha512"
->>>>>>> it008/gymchua
     }
   }
 }
