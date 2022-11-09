@@ -12,8 +12,13 @@
       }
     ],
     "additionalProbingPaths": [
+<<<<<<< HEAD
       "C:\\Users\\lovet\\.dotnet\\store\\|arch|\\|tfm|",
       "C:\\Users\\lovet\\.nuget\\packages"
+=======
+      "C:\\Users\\nhaantran\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\nhaantran\\.nuget\\packages"
+>>>>>>> it008/gymchua
     ],
     "configProperties": {
       "Microsoft.NETCore.DotNetHostPolicy.SetAppPaths": true

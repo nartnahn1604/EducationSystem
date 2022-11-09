@@ -1,6 +1,7 @@
 {
   "format": 1,
   "restore": {
+<<<<<<< HEAD
     "D:\\Exercise\\IT008\\PROJECT\\IT008_UIT.csproj": {}
   },
   "projects": {
@@ -19,6 +20,26 @@
         ],
         "originalTargetFrameworks": [
           "net6.0-windows7.0"
+=======
+    "D:\\C#\\project\\it008_uit-hum4nnud3\\IT008_UIT.csproj": {}
+  },
+  "projects": {
+    "D:\\C#\\project\\it008_uit-hum4nnud3\\IT008_UIT.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\C#\\project\\it008_uit-hum4nnud3\\IT008_UIT.csproj",
+        "projectName": "IT008_UIT",
+        "projectPath": "D:\\C#\\project\\it008_uit-hum4nnud3\\IT008_UIT.csproj",
+        "packagesPath": "C:\\Users\\nhaantran\\.nuget\\packages\\",
+        "outputPath": "D:\\C#\\project\\it008_uit-hum4nnud3\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\nhaantran\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0-windows"
+>>>>>>> it008/gymchua
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
@@ -40,6 +61,17 @@
         "net6.0-windows7.0": {
           "targetAlias": "net6.0-windows",
           "dependencies": {
+<<<<<<< HEAD
+=======
+            "CommunityToolkit.Mvvm": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "LiveChartsCore.SkiaSharpView.WPF": {
+              "target": "Package",
+              "version": "[2.0.0-beta.516, )"
+            },
+>>>>>>> it008/gymchua
             "MaterialDesignThemes": {
               "target": "Package",
               "version": "[4.6.1, )"
@@ -51,7 +83,12 @@
             "net47",
             "net471",
             "net472",
+<<<<<<< HEAD
             "net48"
+=======
+            "net48",
+            "net481"
+>>>>>>> it008/gymchua
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -63,7 +100,11 @@
               "privateAssets": "none"
             }
           },
+<<<<<<< HEAD
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
+=======
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+>>>>>>> it008/gymchua
         }
       }
     }

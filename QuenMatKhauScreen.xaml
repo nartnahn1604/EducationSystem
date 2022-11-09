@@ -19,11 +19,19 @@
         ResizeMode="NoResize"
         WindowStyle="None"
         WindowStartupLocation="CenterScreen"
-        
+        x:Name="QuenMatKhauWindow"
         Title="QuenMatKhauScreen" Height="720" Width="1280">
     <Grid  Style="{DynamicResource ColorGrid}">
-        <uc:CloseWindowButton></uc:CloseWindowButton>
-        <uc:GoBackButton></uc:GoBackButton>
+        <uc:WindowBarUC></uc:WindowBarUC>
+        <Button Background="Transparent" BorderBrush="Transparent" VerticalAlignment="Top" HorizontalAlignment="Left" 
+                Width="70" Height="70"  
+        Style="{StaticResource MaterialDesignFloatingActionMiniDarkButton}" 
+                Command="{Binding BacktoLoginCommand}"
+                CommandParameter="{Binding ElementName=QuenMatKhauWindow}"
+                
+            ToolTip="MaterialDesignFloatingActionMiniDarkButton">
+            <materialDesign:PackIcon Kind="KeyboardBackspace" Foreground="#00ADB5" materialDesign:ShadowAssist.ShadowEdges="All"/>
+        </Button>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Height="600" Width="720">
             <Image Source="/Images/logo_app.png" Stretch="Uniform" Height="100" ></Image>
             <TextBlock Foreground="White" HorizontalAlignment="Center" FontSize="72"
@@ -40,6 +48,8 @@
                 Style="{DynamicResource MaterialDesignFloatingHintTextBox}" />
             <Button Background="#00ADB5" HorizontalAlignment="Center"
                 Style="{DynamicResource MaterialDesignRaisedButton}" Width="400" Height="50"
+                    Command="{Binding QuenMatKhauCommand}"
+                    CommandParameter="{Binding ElementName=QuenMatKhauWindow}"
                 materialDesign:ShadowAssist.ShadowDepth="Depth2" >
                 Gửi mã
             </Button>

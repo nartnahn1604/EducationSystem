@@ -2,5 +2,9 @@
 <Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ImportGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
     <Import Project="$(NuGetPackageRoot)materialdesignthemes\4.6.1\build\MaterialDesignThemes.targets" Condition="Exists('$(NuGetPackageRoot)materialdesignthemes\4.6.1\build\MaterialDesignThemes.targets')" />
+<<<<<<< HEAD
+=======
+    <Import Project="$(NuGetPackageRoot)communitytoolkit.mvvm\8.0.0\buildTransitive\netstandard2.1\CommunityToolkit.Mvvm.targets" Condition="Exists('$(NuGetPackageRoot)communitytoolkit.mvvm\8.0.0\buildTransitive\netstandard2.1\CommunityToolkit.Mvvm.targets')" />
+>>>>>>> it008/gymchua
   </ImportGroup>
 </Project>

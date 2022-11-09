@@ -11,6 +11,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="HopDongCoBanPage.xaml.cs">
+    <Compile Update="DoiMatKhauScreen.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="LoginScreen.xaml.cs">
@@ -26,6 +27,13 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="UserControlGym\GoiTapUC.xaml.cs">
+    <Compile Update="UserControlGym\DynamicChartUC.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="UserControlGym\PieChartUC.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="UserControlGym\WindowBarUC.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -34,6 +42,7 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="HopDongCoBanPage.xaml">
+    <Page Update="DoiMatKhauScreen.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="LoginScreen.xaml">
@@ -55,6 +64,13 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="UserControlGym\GoiTapUC.xaml">
+    <Page Update="UserControlGym\DynamicChartUC.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UserControlGym\PieChartUC.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UserControlGym\WindowBarUC.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="UserControlGym\MenuBarUC.xaml">

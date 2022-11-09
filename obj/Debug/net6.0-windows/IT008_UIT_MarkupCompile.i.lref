@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿D:\Exercise\IT008\PROJECT\obj\Debug\net6.0-windows\GeneratedInternalTypeHelper.g.i.cs
 FD:\Exercise\IT008\PROJECT\App.xaml;;
 FD:\Exercise\IT008\PROJECT\DatLaiMatKhauScreen.xaml;;
@@ -10,4 +11,9 @@ FD:\Exercise\IT008\PROJECT\UserControlGym\CloseWindowButton.xaml;;
 FD:\Exercise\IT008\PROJECT\UserControlGym\GoBackButton.xaml;;
 FD:\Exercise\IT008\PROJECT\UserControlGym\GoiTapUC.xaml;;
 FD:\Exercise\IT008\PROJECT\UserControlGym\MenuBarUC.xaml;;
+=======
+﻿
+
+FD:\C#\project\it008_uit-hum4nnud3\UserControlGym\DynamicChartUC.xaml;;
+>>>>>>> it008/gymchua
 
