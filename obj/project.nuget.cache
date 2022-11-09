@@ -1,10 +1,9 @@
 {
   "version": 2,
-  "dgSpecHash": "f090Xtf/suPJy+uhgEGTefa1Hbm0/k5/359BJZbfQQIfJzY87AtskIsgUZfU5Jgix6frZHw1A4d/S9qee4aqAQ==",
+  "dgSpecHash": "QCAOBqgfrQWJaDcE5N6shyEpavq2vL5OZ8hxtvIyj4+OMWlATVWySqh6FsEv4+iN9dK9FFiWm35mhjjOeJd4vw==",
   "success": true,
-  "projectFilePath": "D:\\C#\\project\\it008_uit-hum4nnud3\\IT008_UIT.csproj",
+  "projectFilePath": "E:\\C#\\project\\it008_uit-hum4nnud3\\IT008_UIT.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\nhaantran\\.nuget\\packages\\communitytoolkit.mvvm\\8.0.0\\communitytoolkit.mvvm.8.0.0.nupkg.sha512",
     "C:\\Users\\nhaantran\\.nuget\\packages\\harfbuzzsharp\\2.8.2.3\\harfbuzzsharp.2.8.2.3.nupkg.sha512",
     "C:\\Users\\nhaantran\\.nuget\\packages\\harfbuzzsharp.nativeassets.macos\\2.8.2.3\\harfbuzzsharp.nativeassets.macos.2.8.2.3.nupkg.sha512",
     "C:\\Users\\nhaantran\\.nuget\\packages\\harfbuzzsharp.nativeassets.win32\\2.8.2.3\\harfbuzzsharp.nativeassets.win32.2.8.2.3.nupkg.sha512",

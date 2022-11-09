@@ -25,75 +25,14 @@
         Title="LoginScreen" Height="720" Width="1280">
 
     <Grid>
+        <materialDesign:Transitioner SelectedIndex="0" AutoApplyTransitionOrigins="True">
+            <Grid>
+                <uc:LoginUC></uc:LoginUC>
+            </Grid>
+            <uc:QuenMatKhauUC></uc:QuenMatKhauUC>
+            <uc:DoiMatKhauUC></uc:DoiMatKhauUC>
+        </materialDesign:Transitioner>
         
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-        </Grid.ColumnDefinitions>
-        <Grid Style="{DynamicResource ColorGrid}">
-            <StackPanel Height="550" Width="550">
-                <Image Source="/Images/logo_app.png" Stretch="Uniform" HorizontalAlignment="Left" Margin="20,0,0,0" Height="100"></Image>
-                <TextBlock Grid.Row="1" FontSize="72" Foreground="White" Margin="20,0,0,0" 
-                Style="{DynamicResource MaterialDesignDisplay4TextBlock}">
-                <Bold>Đăng nhập</Bold>
-                </TextBlock>
-                <TextBlock Grid.Row="1" Margin="20,0,0,30" Foreground="White" VerticalAlignment="Bottom"
-                Style="{DynamicResource MaterialDesignBody2TextBlock}">
-                    Xin chào, đăng nhập để sử dụng ứng dụng nhé!
-                </TextBlock>
-
-                <TextBox HorizontalAlignment="Left" VerticalAlignment="Top" Width="500" Margin="20,0,0,30"  Height="60"
-                        FontSize="24" Foreground="White" BorderBrush="White"
-                        materialDesign:HintAssist.Hint="Email" materialDesign:HintAssist.Foreground="White" 
-                Style="{DynamicResource MaterialDesignFloatingHintTextBox}" />
-                <Grid>
-                    <PasswordBox Grid.Row="2" HorizontalAlignment="Center" Width="500" Margin="0,0,0,0" Height="56"
-                    x:Name="passwordLogin" FontSize="24" Foreground="White" BorderBrush="White" MaxLength="10"
-                    materialDesign:HintAssist.Hint="Mật khẩu mới" materialDesign:HintAssist.Foreground="White"
-                    Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" />
-                    <Button Grid.Row="2" HorizontalAlignment="Right" Margin="0,0,10,0" VerticalAlignment="Bottom"
-                    Background="Transparent"  BorderBrush="Transparent"
-                            Command="{Binding PasswordVisibleCommand}"
-                            CommandParameter="{Binding ElementName=passwordLogin}">
-                        <materialDesign:PackIcon Kind="Eye" Width="25" Height="25"  />
-                    </Button>
-                </Grid>
-                <DockPanel Height="50">
-                    <CheckBox  Foreground="White"  HorizontalAlignment="Left" 
-                      Margin="20,0,0,0" VerticalAlignment="Bottom" FontSize="16"
-                      Style="{StaticResource MaterialDesignCheckBox}">
-                        Nhớ tài khoản
-                    </CheckBox>
-                    <TextBlock  HorizontalAlignment="Right" 
-                       VerticalAlignment="Bottom">
-                <Button Background="Transparent" BorderBrush="Transparent" 
-                        Command="{Binding QuenMatKhauCommand}"
-                        CommandParameter="{Binding ElementName= loginWindow}">
-                    <Label Foreground="White"   FontSize="16">
-                        <Underline><Italic> Quên mật khẩu?</Italic> </Underline>
-                    </Label>
-                </Button>
-                
-                    </TextBlock>
-                </DockPanel>
-                
-                <Button  Background="#00ADB5" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,50,0,0"
-                Style="{DynamicResource MaterialDesignRaisedButton}" Width="400" Height="50"
-                         Command="{Binding DangNhapCommand}"
-                         CommandParameter="{Binding ElementName=loginWindow}"
-                materialDesign:ShadowAssist.ShadowDepth="Depth2" >
-                    Đăng nhập
-                </Button>
-            </StackPanel>
-
-
-        </Grid>
-        <Image Grid.Column="1" Source="\Images\Login_Picture.png">
-        </Image>
-        <Grid Grid.Column="1">
-            <uc:WindowBarUC></uc:WindowBarUC>
-        </Grid>
-
     </Grid>
 
 </Window>

@@ -11,19 +11,22 @@ namespace IT008_UIT.ViewModel
         public ICommand PasswordVisibleCommand { get; set; }
         public LoginViewModel()
         {
-            DangNhapCommand = new RelayCommand<Window>((p) => { return p == null ? false : true; }, (p) =>
+            DangNhapCommand = new RelayCommand<UserControl>((p) => { return p == null ? false : true; }, (p) =>
             {
-                MainWindow homescreen = new MainWindow();
-                homescreen.Show();
-                p.Close();
+                FrameworkElement window = GetWindowParent(p);
+                var w = window as Window;
+                if (w != null)
+                {
+                    MainWindow homescreen = new MainWindow();
+                    homescreen.Show();
+                    w.Close();
+                }
             }
             );
 
-            QuenMatKhauCommand = new RelayCommand<Window>((p) => { return p == null ? false : true; }, (p) =>
+            QuenMatKhauCommand = new RelayCommand<UserControl>((p) => { return p == null ? false : true; }, (p) =>
             {
-                QuenMatKhauScreen quenmatkhauscreen = new QuenMatKhauScreen();
-                quenmatkhauscreen.Show();
-                p.Close();
+
             }
             );
 
@@ -32,6 +35,17 @@ namespace IT008_UIT.ViewModel
 
             }
             );
+        }
+        FrameworkElement GetWindowParent(UserControl p)
+        {
+            FrameworkElement parent = p;
+
+            while (parent.Parent != null)
+            {
+                parent = parent.Parent as FrameworkElement;
+            }
+
+            return parent;
         }
     }
 }

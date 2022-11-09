@@ -7,19 +7,22 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="DoiMatKhauScreen.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Update="LoginScreen.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="QuenMatKhauScreen.xaml.cs">
+    <Compile Update="UserControlGym\DoiMatKhauUC.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="UserControlGym\DynamicChartUC.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="UserControlGym\LoginUC.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="UserControlGym\PieChartUC.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="UserControlGym\QuenMatKhauUC.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="UserControlGym\WindowBarUC.xaml.cs">
@@ -27,25 +30,28 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Page Update="DoiMatKhauScreen.xaml">
-      <SubType>Designer</SubType>
-    </Page>
     <Page Update="LoginScreen.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="QuenMatKhauScreen.xaml">
+    <Page Update="ResourceXAML\MainResource.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="ResourceXAML\MainResource.xaml">
+    <Page Update="UserControlGym\DoiMatKhauUC.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="UserControlGym\DynamicChartUC.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="UserControlGym\LoginUC.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="UserControlGym\PieChartUC.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UserControlGym\QuenMatKhauUC.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="UserControlGym\WindowBarUC.xaml">

@@ -30,6 +30,9 @@
             <uc:MenuBarUC></uc:MenuBarUC>
         </Grid>
         <Grid Grid.Column="1">
+            <ContentControl>
+                
+            </ContentControl>
             <uc:WindowBarUC></uc:WindowBarUC>
             <uc:PieChartUC Width="700" VerticalAlignment="Top" HorizontalAlignment="Left" Height="300"></uc:PieChartUC>
             <uc:DynamicChartUC Width="600" Height="350" VerticalAlignment="Bottom" HorizontalAlignment="Right"></uc:DynamicChartUC>

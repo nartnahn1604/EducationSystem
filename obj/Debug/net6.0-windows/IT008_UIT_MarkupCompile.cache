@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-D:\C#\project\it008_uit-hum4nnud3\obj\Debug\net6.0-windows\
+E:\C#\project\it008_uit-hum4nnud3\obj\Debug\net6.0-windows\
 IT008_UIT
 none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
-D:\C#\project\it008_uit-hum4nnud3\App.xaml
-9812212103
+E:\C#\project\it008_uit-hum4nnud3\App.xaml
+10-82398859
 
-18965111746
-2061738335530
-DoiMatKhauScreen.xaml;LoginScreen.xaml;MainWindow.xaml;QuenMatKhauScreen.xaml;ResourceXAML\MainResource.xaml;UserControlGym\DynamicChartUC.xaml;UserControlGym\MenuBarUC.xaml;UserControlGym\PieChartUC.xaml;UserControlGym\WindowBarUC.xaml;
+19-789145204
+205-1453636733
+LoginScreen.xaml;MainWindow.xaml;ResourceXAML\MainResource.xaml;UserControlGym\DoiMatKhauUC.xaml;UserControlGym\DynamicChartUC.xaml;UserControlGym\LoginUC.xaml;UserControlGym\MenuBarUC.xaml;UserControlGym\PieChartUC.xaml;UserControlGym\QuenMatKhauUC.xaml;UserControlGym\WindowBarUC.xaml;
 
 False
 

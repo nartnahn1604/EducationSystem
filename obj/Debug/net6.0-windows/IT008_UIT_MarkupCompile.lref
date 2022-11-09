@@ -1,12 +1,13 @@
 ﻿
-FD:\C#\project\it008_uit-hum4nnud3\App.xaml;;
-FD:\C#\project\it008_uit-hum4nnud3\DoiMatKhauScreen.xaml;;
-FD:\C#\project\it008_uit-hum4nnud3\LoginScreen.xaml;;
-FD:\C#\project\it008_uit-hum4nnud3\MainWindow.xaml;;
-FD:\C#\project\it008_uit-hum4nnud3\QuenMatKhauScreen.xaml;;
-FD:\C#\project\it008_uit-hum4nnud3\ResourceXAML\MainResource.xaml;;
-FD:\C#\project\it008_uit-hum4nnud3\UserControlGym\MenuBarUC.xaml;;
-FD:\C#\project\it008_uit-hum4nnud3\UserControlGym\PieChartUC.xaml;;
-FD:\C#\project\it008_uit-hum4nnud3\UserControlGym\WindowBarUC.xaml;;
-FD:\C#\project\it008_uit-hum4nnud3\UserControlGym\DynamicChartUC.xaml;;
+FE:\C#\project\it008_uit-hum4nnud3\App.xaml;;
+FE:\C#\project\it008_uit-hum4nnud3\LoginScreen.xaml;;
+FE:\C#\project\it008_uit-hum4nnud3\MainWindow.xaml;;
+FE:\C#\project\it008_uit-hum4nnud3\ResourceXAML\MainResource.xaml;;
+FE:\C#\project\it008_uit-hum4nnud3\UserControlGym\DynamicChartUC.xaml;;
+FE:\C#\project\it008_uit-hum4nnud3\UserControlGym\MenuBarUC.xaml;;
+FE:\C#\project\it008_uit-hum4nnud3\UserControlGym\PieChartUC.xaml;;
+FE:\C#\project\it008_uit-hum4nnud3\UserControlGym\QuenMatKhauUC.xaml;;
+FE:\C#\project\it008_uit-hum4nnud3\UserControlGym\WindowBarUC.xaml;;
+FE:\C#\project\it008_uit-hum4nnud3\UserControlGym\LoginUC.xaml;;
+FE:\C#\project\it008_uit-hum4nnud3\UserControlGym\DoiMatKhauUC.xaml;;
 

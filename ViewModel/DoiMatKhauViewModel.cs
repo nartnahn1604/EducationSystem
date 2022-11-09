@@ -10,9 +10,7 @@ namespace IT008_UIT.ViewModel
         {
             BacktoQuenMatKhauCommand = new RelayCommand<Window>((p) => { return p == null ? false : true; }, (p) =>
             {
-                QuenMatKhauScreen screen = new QuenMatKhauScreen();
-                screen.Show();
-                p.Close();
+
             }
             );
         }

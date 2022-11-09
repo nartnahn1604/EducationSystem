@@ -8,20 +8,11 @@
     ".NETCoreApp,Version=v6.0": {
       "IT008_UIT/1.0.0": {
         "dependencies": {
-          "CommunityToolkit.Mvvm": "8.0.0",
           "LiveChartsCore.SkiaSharpView.WPF": "2.0.0-beta.516",
           "MaterialDesignThemes": "4.6.1"
         },
         "runtime": {
           "IT008_UIT.dll": {}
-        }
-      },
-      "CommunityToolkit.Mvvm/8.0.0": {
-        "runtime": {
-          "lib/net6.0/CommunityToolkit.Mvvm.dll": {
-            "assemblyVersion": "8.0.0.0",
-            "fileVersion": "8.0.0.1"
-          }
         }
       },
       "HarfBuzzSharp/2.8.2.3": {
@@ -211,13 +202,6 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
-    },
-    "CommunityToolkit.Mvvm/8.0.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-Jiu2g5WUdXRwzhJkHB+B4JBKP5A5+fp8xKiW/ZQo5PI+DruI7MbPEcK9K/Aw0YzTiWRuG6CBluzYIWN5Eo7BkQ==",
-      "path": "communitytoolkit.mvvm/8.0.0",
-      "hashPath": "communitytoolkit.mvvm.8.0.0.nupkg.sha512"
     },
     "HarfBuzzSharp/2.8.2.3": {
       "type": "package",
