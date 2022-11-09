@@ -18,6 +18,7 @@ namespace IT008_UIT.ViewModel
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
+
     class RelayCommand<T> : ICommand
     {
         private readonly Predicate<T> _canExecute;

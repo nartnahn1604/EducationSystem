@@ -25,6 +25,7 @@
         Title="LoginScreen" Height="720" Width="1280">
 
     <Grid>
+        
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
@@ -47,11 +48,13 @@
                 Style="{DynamicResource MaterialDesignFloatingHintTextBox}" />
                 <Grid>
                     <PasswordBox Grid.Row="2" HorizontalAlignment="Center" Width="500" Margin="0,0,0,0" Height="56"
-                    x:Name="FloatingPasswordBox1" FontSize="24" Foreground="White" BorderBrush="White"
+                    x:Name="passwordLogin" FontSize="24" Foreground="White" BorderBrush="White" MaxLength="10"
                     materialDesign:HintAssist.Hint="Mật khẩu mới" materialDesign:HintAssist.Foreground="White"
                     Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" />
                     <Button Grid.Row="2" HorizontalAlignment="Right" Margin="0,0,10,0" VerticalAlignment="Bottom"
-                    Background="Transparent"  BorderBrush="Transparent">
+                    Background="Transparent"  BorderBrush="Transparent"
+                            Command="{Binding PasswordVisibleCommand}"
+                            CommandParameter="{Binding ElementName=passwordLogin}">
                         <materialDesign:PackIcon Kind="Eye" Width="25" Height="25"  />
                     </Button>
                 </Grid>
@@ -63,16 +66,21 @@
                     </CheckBox>
                     <TextBlock  HorizontalAlignment="Right" 
                        VerticalAlignment="Bottom">
-                <Label   Foreground="White"   FontSize="16">
-                <Underline>
-                    <Italic>Quên mật khẩu?</Italic>
-                </Underline>
-            </Label>
+                <Button Background="Transparent" BorderBrush="Transparent" 
+                        Command="{Binding QuenMatKhauCommand}"
+                        CommandParameter="{Binding ElementName= loginWindow}">
+                    <Label Foreground="White"   FontSize="16">
+                        <Underline><Italic> Quên mật khẩu?</Italic> </Underline>
+                    </Label>
+                </Button>
+                
                     </TextBlock>
                 </DockPanel>
                 
                 <Button  Background="#00ADB5" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,50,0,0"
                 Style="{DynamicResource MaterialDesignRaisedButton}" Width="400" Height="50"
+                         Command="{Binding DangNhapCommand}"
+                         CommandParameter="{Binding ElementName=loginWindow}"
                 materialDesign:ShadowAssist.ShadowDepth="Depth2" >
                     Đăng nhập
                 </Button>
@@ -83,7 +91,7 @@
         <Image Grid.Column="1" Source="\Images\Login_Picture.png">
         </Image>
         <Grid Grid.Column="1">
-            <uc:CloseWindowButton></uc:CloseWindowButton>
+            <uc:WindowBarUC></uc:WindowBarUC>
         </Grid>
 
     </Grid>

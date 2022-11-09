@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-E:\uit\it008\PROJECT\obj\Debug\net6.0-windows\
+D:\Exercise\IT008\PROJECT\obj\Debug\net6.0-windows\
 IT008_UIT
 none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
-E:\uit\it008\PROJECT\App.xaml
-101512433356
+D:\Exercise\IT008\PROJECT\App.xaml
+14-134759672
 
-15-1615466856
-196263425454
-DatLaiMatKhauScreen.xaml;HopDongCoBanPage.xaml;LoginScreen.xaml;MainWindow.xaml;QuenMatKhauScreen.xaml;ResourceXAML\MainResource.xaml;UserControlGym\CloseWindowButton.xaml;UserControlGym\GoBackButton.xaml;UserControlGym\GoiTapUC.xaml;UserControlGym\MenuBarUC.xaml;
+251609554762
+2061645586063
+DatLaiMatKhauScreen.xaml;DoiMatKhauScreen.xaml;HopDongCoBanPage.xaml;LoginScreen.xaml;MainWindow.xaml;QuenMatKhauScreen.xaml;ResourceXAML\MainResource.xaml;UserControlGym\CloseWindowButton.xaml;UserControlGym\DynamicChartUC.xaml;UserControlGym\GoBackButton.xaml;UserControlGym\GoiTapUC.xaml;UserControlGym\MenuBarUC.xaml;UserControlGym\PieChartUC.xaml;UserControlGym\WindowBarUC.xaml;
 
 False
 

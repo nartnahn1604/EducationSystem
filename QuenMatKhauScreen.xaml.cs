@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+﻿using IT008_UIT.ViewModel;
 
 namespace IT008_UIT
 {
@@ -19,9 +20,11 @@ namespace IT008_UIT
     /// </summary>
     public partial class QuenMatKhauScreen : Window
     {
+        public QuenMatKhauViewModel Viewmodel { get; set; }
         public QuenMatKhauScreen()
         {
             InitializeComponent();
+            this.DataContext = Viewmodel = new QuenMatKhauViewModel();
         }
     }
 }

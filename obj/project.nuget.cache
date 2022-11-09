@@ -1,11 +1,27 @@
 {
   "version": 2,
-  "dgSpecHash": "JIT9hngXlbF1YsLxWy2pPJ9MO6aF2cZLwl2dyftWR1IO4oxCvqbLdiGYG/C6Jsl0uyG3yrG/bNnZfCnQFp45Jw==",
+  "dgSpecHash": "Agw71szkiu99m4g8f6EFiqQEX3xneFsNinqDRW3zg/6Su05Ms81pezJ1/WX17aplGfjAQlD5rqVOmWJjudvVdQ==",
   "success": true,
-  "projectFilePath": "E:\\uit\\it008\\PROJECT\\IT008_UIT.csproj",
+  "projectFilePath": "D:\\Exercise\\IT008\\PROJECT\\IT008_UIT.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Nhan\\.nuget\\packages\\materialdesigncolors\\2.0.9\\materialdesigncolors.2.0.9.nupkg.sha512",
-    "C:\\Users\\Nhan\\.nuget\\packages\\materialdesignthemes\\4.6.1\\materialdesignthemes.4.6.1.nupkg.sha512"
+    "C:\\Users\\lovet\\.nuget\\packages\\communitytoolkit.mvvm\\8.0.0\\communitytoolkit.mvvm.8.0.0.nupkg.sha512",
+    "C:\\Users\\lovet\\.nuget\\packages\\harfbuzzsharp\\2.8.2.3\\harfbuzzsharp.2.8.2.3.nupkg.sha512",
+    "C:\\Users\\lovet\\.nuget\\packages\\harfbuzzsharp.nativeassets.macos\\2.8.2.3\\harfbuzzsharp.nativeassets.macos.2.8.2.3.nupkg.sha512",
+    "C:\\Users\\lovet\\.nuget\\packages\\harfbuzzsharp.nativeassets.win32\\2.8.2.3\\harfbuzzsharp.nativeassets.win32.2.8.2.3.nupkg.sha512",
+    "C:\\Users\\lovet\\.nuget\\packages\\livechartscore\\2.0.0-beta.516\\livechartscore.2.0.0-beta.516.nupkg.sha512",
+    "C:\\Users\\lovet\\.nuget\\packages\\livechartscore.skiasharpview\\2.0.0-beta.516\\livechartscore.skiasharpview.2.0.0-beta.516.nupkg.sha512",
+    "C:\\Users\\lovet\\.nuget\\packages\\livechartscore.skiasharpview.wpf\\2.0.0-beta.516\\livechartscore.skiasharpview.wpf.2.0.0-beta.516.nupkg.sha512",
+    "C:\\Users\\lovet\\.nuget\\packages\\materialdesigncolors\\2.0.9\\materialdesigncolors.2.0.9.nupkg.sha512",
+    "C:\\Users\\lovet\\.nuget\\packages\\materialdesignthemes\\4.6.1\\materialdesignthemes.4.6.1.nupkg.sha512",
+    "C:\\Users\\lovet\\.nuget\\packages\\microsoft.netcore.platforms\\2.0.0\\microsoft.netcore.platforms.2.0.0.nupkg.sha512",
+    "C:\\Users\\lovet\\.nuget\\packages\\microsoft.win32.systemevents\\4.5.0\\microsoft.win32.systemevents.4.5.0.nupkg.sha512",
+    "C:\\Users\\lovet\\.nuget\\packages\\skiasharp\\2.88.3\\skiasharp.2.88.3.nupkg.sha512",
+    "C:\\Users\\lovet\\.nuget\\packages\\skiasharp.harfbuzz\\2.88.3\\skiasharp.harfbuzz.2.88.3.nupkg.sha512",
+    "C:\\Users\\lovet\\.nuget\\packages\\skiasharp.nativeassets.macos\\2.88.3\\skiasharp.nativeassets.macos.2.88.3.nupkg.sha512",
+    "C:\\Users\\lovet\\.nuget\\packages\\skiasharp.nativeassets.win32\\2.88.3\\skiasharp.nativeassets.win32.2.88.3.nupkg.sha512",
+    "C:\\Users\\lovet\\.nuget\\packages\\skiasharp.views.desktop.common\\2.88.3\\skiasharp.views.desktop.common.2.88.3.nupkg.sha512",
+    "C:\\Users\\lovet\\.nuget\\packages\\skiasharp.views.wpf\\2.88.3\\skiasharp.views.wpf.2.88.3.nupkg.sha512",
+    "C:\\Users\\lovet\\.nuget\\packages\\system.drawing.common\\4.5.1\\system.drawing.common.4.5.1.nupkg.sha512"
   ],
   "logs": []
 }

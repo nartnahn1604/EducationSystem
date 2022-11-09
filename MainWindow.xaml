@@ -7,29 +7,32 @@
         mc:Ignorable="d"
         xmlns:uc="clr-namespace:IT008_UIT.UserControlGym"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:lvc="clr-namespace:LiveChartsCore.SkiaSharpView.WPF;assembly=LiveChartsCore.SkiaSharpView.WPF"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
         TextElement.FontSize="13"
-        TextOptions.TextFormattingMode="Ideal" 
-        TextOptions.TextRenderingMode="Auto"  
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
         WindowStyle="None"
-        WindowStartupLocation="CenterScreen"
-        Background="#FB8560"
         ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+        Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}"
         DataContext="{StaticResource MainVM}"
         Title="MainWindow" Height="720" Width="1280">
-        <Grid Style="{DynamicResource ColorGrid}">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="0.2*"></ColumnDefinition>
-                <ColumnDefinition Width="0.8*"></ColumnDefinition>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="0.05*"></RowDefinition>
-                <RowDefinition Height="0.95*"></RowDefinition>
-            </Grid.RowDefinitions>
-            <uc:MenuBarUC Grid.Row="0" Grid.RowSpan="2" Panel.ZIndex="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"></uc:MenuBarUC>
-            <uc:CloseWindowButton Grid.RowSpan="2" Grid.ColumnSpan="2"></uc:CloseWindowButton>
-            <Frame Name="Main" Grid.Column="1" Grid.Row="1"/>
+    
+    <Grid Style="{DynamicResource ColorGrid}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.2*"></ColumnDefinition>
+            <ColumnDefinition Width="0.8*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0">
+            <uc:MenuBarUC></uc:MenuBarUC>
         </Grid>
+        <Grid Grid.Column="1">
+            <uc:WindowBarUC></uc:WindowBarUC>
+            <uc:PieChartUC Width="700" VerticalAlignment="Top" HorizontalAlignment="Left" Height="300"></uc:PieChartUC>
+            <uc:DynamicChartUC Width="600" Height="350" VerticalAlignment="Bottom" HorizontalAlignment="Right"></uc:DynamicChartUC>
+        </Grid>
+    </Grid>
 </Window>
