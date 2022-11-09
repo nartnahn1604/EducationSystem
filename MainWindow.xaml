@@ -31,7 +31,7 @@
         </Grid>
         <Grid Grid.Column="1">
             <uc:WindowBarUC></uc:WindowBarUC>
-            <uc:PieChartUC Width="800" VerticalAlignment="Top" HorizontalAlignment="Left" Height="400"></uc:PieChartUC>
+            <uc:PieChartUC Width="700" VerticalAlignment="Top" HorizontalAlignment="Left" Height="300"></uc:PieChartUC>
             <uc:DynamicChartUC Width="600" Height="350" VerticalAlignment="Bottom" HorizontalAlignment="Right"></uc:DynamicChartUC>
         </Grid>
     </Grid>
