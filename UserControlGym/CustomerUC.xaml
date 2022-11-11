@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              Style="{StaticResource Page_Style}"
              d:DesignHeight="720" d:DesignWidth="1280">
-    <Grid Background="Red">
+    <Grid Background="Blue">
         <Button>
             Customer
         </Button>
