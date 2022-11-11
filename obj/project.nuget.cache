@@ -1,10 +1,18 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "ZtuOt11jkdeMz3GlHLiFKT5QEanRzFH4svPcBOo6N87NxJjymkR/IQEWYMfvNbqKrYLMTT2dOmbb9lYPT1TfWw==",
   "success": true,
   "projectFilePath": "D:\\Exercise\\IT008\\TEST\\IT008_UIT.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\lovet\\.nuget\\packages\\firebaseauthentication.net\\3.7.2\\firebaseauthentication.net.3.7.2.nupkg.sha512",
+=======
+  "dgSpecHash": "Agw71szkiu99m4g8f6EFiqQEX3xneFsNinqDRW3zg/6Su05Ms81pezJ1/WX17aplGfjAQlD5rqVOmWJjudvVdQ==",
+  "success": true,
+  "projectFilePath": "D:\\Exercise\\IT008\\PROJECT\\IT008_UIT.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\lovet\\.nuget\\packages\\communitytoolkit.mvvm\\8.0.0\\communitytoolkit.mvvm.8.0.0.nupkg.sha512",
+>>>>>>> 2667ccdba2e6088969143cb32fee4ccd01bc67bb
     "C:\\Users\\lovet\\.nuget\\packages\\harfbuzzsharp\\2.8.2.3\\harfbuzzsharp.2.8.2.3.nupkg.sha512",
     "C:\\Users\\lovet\\.nuget\\packages\\harfbuzzsharp.nativeassets.macos\\2.8.2.3\\harfbuzzsharp.nativeassets.macos.2.8.2.3.nupkg.sha512",
     "C:\\Users\\lovet\\.nuget\\packages\\harfbuzzsharp.nativeassets.win32\\2.8.2.3\\harfbuzzsharp.nativeassets.win32.2.8.2.3.nupkg.sha512",
@@ -14,6 +22,7 @@
     "C:\\Users\\lovet\\.nuget\\packages\\materialdesigncolors\\2.0.9\\materialdesigncolors.2.0.9.nupkg.sha512",
     "C:\\Users\\lovet\\.nuget\\packages\\materialdesignthemes\\4.6.1\\materialdesignthemes.4.6.1.nupkg.sha512",
     "C:\\Users\\lovet\\.nuget\\packages\\microsoft.netcore.platforms\\2.0.0\\microsoft.netcore.platforms.2.0.0.nupkg.sha512",
+<<<<<<< HEAD
     "C:\\Users\\lovet\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
     "C:\\Users\\lovet\\.nuget\\packages\\microsoft.win32.primitives\\4.3.0\\microsoft.win32.primitives.4.3.0.nupkg.sha512",
     "C:\\Users\\lovet\\.nuget\\packages\\microsoft.win32.systemevents\\4.5.0\\microsoft.win32.systemevents.4.5.0.nupkg.sha512",
@@ -36,12 +45,16 @@
     "C:\\Users\\lovet\\.nuget\\packages\\runtime.ubuntu.14.04-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.ubuntu.14.04-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
     "C:\\Users\\lovet\\.nuget\\packages\\runtime.ubuntu.16.04-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.ubuntu.16.04-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
     "C:\\Users\\lovet\\.nuget\\packages\\runtime.ubuntu.16.10-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.ubuntu.16.10-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
+=======
+    "C:\\Users\\lovet\\.nuget\\packages\\microsoft.win32.systemevents\\4.5.0\\microsoft.win32.systemevents.4.5.0.nupkg.sha512",
+>>>>>>> 2667ccdba2e6088969143cb32fee4ccd01bc67bb
     "C:\\Users\\lovet\\.nuget\\packages\\skiasharp\\2.88.3\\skiasharp.2.88.3.nupkg.sha512",
     "C:\\Users\\lovet\\.nuget\\packages\\skiasharp.harfbuzz\\2.88.3\\skiasharp.harfbuzz.2.88.3.nupkg.sha512",
     "C:\\Users\\lovet\\.nuget\\packages\\skiasharp.nativeassets.macos\\2.88.3\\skiasharp.nativeassets.macos.2.88.3.nupkg.sha512",
     "C:\\Users\\lovet\\.nuget\\packages\\skiasharp.nativeassets.win32\\2.88.3\\skiasharp.nativeassets.win32.2.88.3.nupkg.sha512",
     "C:\\Users\\lovet\\.nuget\\packages\\skiasharp.views.desktop.common\\2.88.3\\skiasharp.views.desktop.common.2.88.3.nupkg.sha512",
     "C:\\Users\\lovet\\.nuget\\packages\\skiasharp.views.wpf\\2.88.3\\skiasharp.views.wpf.2.88.3.nupkg.sha512",
+<<<<<<< HEAD
     "C:\\Users\\lovet\\.nuget\\packages\\system.appcontext\\4.3.0\\system.appcontext.4.3.0.nupkg.sha512",
     "C:\\Users\\lovet\\.nuget\\packages\\system.buffers\\4.3.0\\system.buffers.4.3.0.nupkg.sha512",
     "C:\\Users\\lovet\\.nuget\\packages\\system.collections\\4.3.0\\system.collections.4.3.0.nupkg.sha512",
@@ -96,6 +109,9 @@
     "C:\\Users\\lovet\\.nuget\\packages\\system.threading.timer\\4.3.0\\system.threading.timer.4.3.0.nupkg.sha512",
     "C:\\Users\\lovet\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
     "C:\\Users\\lovet\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512"
+=======
+    "C:\\Users\\lovet\\.nuget\\packages\\system.drawing.common\\4.5.1\\system.drawing.common.4.5.1.nupkg.sha512"
+>>>>>>> 2667ccdba2e6088969143cb32fee4ccd01bc67bb
   ],
   "logs": []
 }

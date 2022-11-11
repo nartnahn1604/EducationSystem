@@ -9,10 +9,20 @@
           "Newtonsoft.Json": "11.0.2"
         },
         "compile": {
+<<<<<<< HEAD
           "lib/netstandard1.1/Firebase.Auth.dll": {}
         },
         "runtime": {
           "lib/netstandard1.1/Firebase.Auth.dll": {}
+=======
+          "lib/net6.0/CommunityToolkit.Mvvm.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/CommunityToolkit.Mvvm.dll": {}
+        },
+        "build": {
+          "buildTransitive/netstandard2.1/CommunityToolkit.Mvvm.targets": {}
+>>>>>>> 2667ccdba2e6088969143cb32fee4ccd01bc67bb
         }
       },
       "HarfBuzzSharp/2.8.2.3": {
@@ -502,6 +512,7 @@
         },
         "runtime": {
           "lib/netcoreapp3.1/SkiaSharp.Views.WPF.dll": {}
+<<<<<<< HEAD
         }
       },
       "System.AppContext/4.3.0": {
@@ -624,6 +635,8 @@
         },
         "compile": {
           "ref/netstandard1.5/System.Diagnostics.Tracing.dll": {}
+=======
+>>>>>>> 2667ccdba2e6088969143cb32fee4ccd01bc67bb
         }
       },
       "System.Drawing.Common/4.5.1": {
@@ -5304,11 +5317,19 @@
   "project": {
     "version": "1.0.0",
     "restore": {
+<<<<<<< HEAD
       "projectUniqueName": "D:\\Exercise\\IT008\\TEST\\IT008_UIT.csproj",
       "projectName": "IT008_UIT",
       "projectPath": "D:\\Exercise\\IT008\\TEST\\IT008_UIT.csproj",
       "packagesPath": "C:\\Users\\lovet\\.nuget\\packages\\",
       "outputPath": "D:\\Exercise\\IT008\\TEST\\obj\\",
+=======
+      "projectUniqueName": "D:\\Exercise\\IT008\\PROJECT\\IT008_UIT.csproj",
+      "projectName": "IT008_UIT",
+      "projectPath": "D:\\Exercise\\IT008\\PROJECT\\IT008_UIT.csproj",
+      "packagesPath": "C:\\Users\\lovet\\.nuget\\packages\\",
+      "outputPath": "D:\\Exercise\\IT008\\PROJECT\\obj\\",
+>>>>>>> 2667ccdba2e6088969143cb32fee4ccd01bc67bb
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\lovet\\AppData\\Roaming\\NuGet\\NuGet.Config",

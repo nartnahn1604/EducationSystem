@@ -1,6 +1,7 @@
 {
   "format": 1,
   "restore": {
+<<<<<<< HEAD
     "D:\\Exercise\\IT008\\TEST\\IT008_UIT.csproj": {}
   },
   "projects": {
@@ -12,6 +13,19 @@
         "projectPath": "D:\\Exercise\\IT008\\TEST\\IT008_UIT.csproj",
         "packagesPath": "C:\\Users\\lovet\\.nuget\\packages\\",
         "outputPath": "D:\\Exercise\\IT008\\TEST\\obj\\",
+=======
+    "D:\\Exercise\\IT008\\PROJECT\\IT008_UIT.csproj": {}
+  },
+  "projects": {
+    "D:\\Exercise\\IT008\\PROJECT\\IT008_UIT.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Exercise\\IT008\\PROJECT\\IT008_UIT.csproj",
+        "projectName": "IT008_UIT",
+        "projectPath": "D:\\Exercise\\IT008\\PROJECT\\IT008_UIT.csproj",
+        "packagesPath": "C:\\Users\\lovet\\.nuget\\packages\\",
+        "outputPath": "D:\\Exercise\\IT008\\PROJECT\\obj\\",
+>>>>>>> 2667ccdba2e6088969143cb32fee4ccd01bc67bb
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\lovet\\AppData\\Roaming\\NuGet\\NuGet.Config",

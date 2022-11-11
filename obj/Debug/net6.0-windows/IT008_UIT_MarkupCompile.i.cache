@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 D:\Exercise\IT008\TEST\App.xaml
-10-82398859
+15-1029370634
 
-221163891042
+281638899989
 20856154749
-LoginScreen.xaml;MainWindow.xaml;ResourceXAML\MainResource.xaml;UserControlGym\DoiMatKhauUC.xaml;UserControlGym\DynamicChartUC.xaml;UserControlGym\LoginUC.xaml;UserControlGym\MenuBarUC.xaml;UserControlGym\PieChartUC.xaml;UserControlGym\QuenMatKhauUC.xaml;UserControlGym\WindowBarUC.xaml;
+DatLaiMatKhauScreen.xaml;HopDongCoBanPage.xaml;LoginScreen.xaml;MainWindow.xaml;ResourceXAML\MainResource.xaml;UserControlGym\CloseWindowButton.xaml;UserControlGym\DoiMatKhauUC.xaml;UserControlGym\DynamicChartUC.xaml;UserControlGym\GoBackButton.xaml;UserControlGym\GoiTapUC.xaml;UserControlGym\LoginUC.xaml;UserControlGym\MenuBarUC.xaml;UserControlGym\PieChartUC.xaml;UserControlGym\QuenMatKhauUC.xaml;UserControlGym\WindowBarUC.xaml;
 
-True
+False
 

@@ -7,6 +7,10 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="DatLaiMatKhauScreen.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+	  <Compile Update="HopDongCoBanPage.xaml.cs"> </Compile>
     <Compile Update="LoginScreen.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -30,6 +34,13 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="DatLaiMatKhauScreen.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+	  <Page Update="HopDongCoBanPage.xaml">    </Page>
+    <Page Update="DoiMatKhauScreen.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="LoginScreen.xaml">
       <SubType>Designer</SubType>
     </Page>
