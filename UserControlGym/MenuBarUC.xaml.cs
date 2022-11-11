@@ -1,4 +1,5 @@
-﻿using System.Windows.Controls;
+﻿using IT008_UIT.ViewModel;
+using System.Windows.Controls;
 
 namespace IT008_UIT.UserControlGym
 {
@@ -7,9 +8,13 @@ namespace IT008_UIT.UserControlGym
     /// </summary>
     public partial class MenuBarUC : UserControl
     {
+        public MenuBarViewModel ViewModel { get; set; }
         public MenuBarUC()
         {
             InitializeComponent();
+            this.DataContext = ViewModel = new MenuBarViewModel();
         }
+
+        
     }
 }

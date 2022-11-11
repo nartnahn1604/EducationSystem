@@ -19,6 +19,7 @@
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}"
         DataContext="{StaticResource MainVM}"
+        x:Name="mainscreen"
         Title="MainWindow" Height="720" Width="1280">
     
     <Grid Style="{DynamicResource ColorGrid}">
@@ -27,15 +28,81 @@
             <ColumnDefinition Width="0.8*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="0">
-            <uc:MenuBarUC></uc:MenuBarUC>
+            <StackPanel Background="White">
+                <Image Source="/Images/logo_app.png" Width="150px"></Image>
+
+                <Grid>
+                    <Button
+                Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                ToolTip="Resource name: MaterialDesignRaisedLightDarkButton" 
+                Command="{Binding HomeCommand}" CommandParameter="{Binding ElementName=mainscreen}">
+                        Trang chủ
+                    </Button>
+                    <materialDesign:PackIcon Kind="Home" Foreground="White" VerticalAlignment="Stretch" Width="24" Height="24" />
+                </Grid>
+                <Grid>
+                    <Button
+                Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                ToolTip="Resource name: MaterialDesignRaisedLightDarkButton" 
+                Command="{Binding CustomerCommand}" CommandParameter="{Binding ElementName=mainscreen}">
+                        Khách hàng
+                    </Button>
+                    <materialDesign:PackIcon Kind="Account" Foreground="White" HorizontalAlignment="Right" VerticalAlignment="Stretch" Width="24" Height="24" />
+                </Grid>
+                <Grid>
+                    <Button
+                Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                ToolTip="Resource name: MaterialDesignRaisedLightDarkButton" 
+                >
+                        Trang chủ
+                    </Button>
+                    <materialDesign:PackIcon Kind="CardAccountDetailsOutline" Foreground="White" HorizontalAlignment="Right" VerticalAlignment="Stretch" Width="24" Height="24" />
+                </Grid>
+                <Grid>
+                    <Button
+                Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                ToolTip="Resource name: MaterialDesignRaisedLightDarkButton" 
+                >
+                        Trang chủ
+                    </Button>
+                    <materialDesign:PackIcon Kind="Gymnastics" Foreground="White" HorizontalAlignment="Right" VerticalAlignment="Stretch" Width="24" Height="24" />
+                </Grid>
+                <Grid>
+                    <Button
+                Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                ToolTip="Resource name: MaterialDesignRaisedLightDarkButton" 
+                Command ="">
+                        Trang chủ
+                    </Button>
+                    <materialDesign:PackIcon Kind="Dumbbell" Foreground="White" HorizontalAlignment="Right" VerticalAlignment="Stretch" Width="24" Height="24" />
+                </Grid>
+                <Grid>
+                    <Button
+                Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                ToolTip="Resource name: MaterialDesignRaisedLightDarkButton" 
+                >
+                        Trang chủ
+                    </Button>
+                    <materialDesign:PackIcon Kind="FileDocumentEdit" Foreground="White" HorizontalAlignment="Right" VerticalAlignment="Stretch" Width="24" Height="24" />
+                </Grid>
+                <Grid>
+                    <Button
+                Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                ToolTip="Resource name: MaterialDesignRaisedLightDarkButton" 
+                >
+                        Trang chủ
+                    </Button>
+                    <materialDesign:PackIcon Kind="ViewDashboardVariant" Foreground="White" HorizontalAlignment="Right" VerticalAlignment="Stretch" Width="24" Height="24" />
+                </Grid>
+
+            </StackPanel>
+
         </Grid>
         <Grid Grid.Column="1">
-            <ContentControl>
-                
+            <ContentControl x:Name="Pages"
+                            Content="{Binding CurrentView}">
             </ContentControl>
             <uc:WindowBarUC></uc:WindowBarUC>
-            <uc:PieChartUC Width="700" VerticalAlignment="Top" HorizontalAlignment="Left" Height="300"></uc:PieChartUC>
-            <uc:DynamicChartUC Width="600" Height="350" VerticalAlignment="Bottom" HorizontalAlignment="Right"></uc:DynamicChartUC>
         </Grid>
     </Grid>
 </Window>

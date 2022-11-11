@@ -1,13 +1,15 @@
 ﻿
-FE:\C#\project\it008_uit-hum4nnud3\App.xaml;;
-FE:\C#\project\it008_uit-hum4nnud3\LoginScreen.xaml;;
-FE:\C#\project\it008_uit-hum4nnud3\MainWindow.xaml;;
-FE:\C#\project\it008_uit-hum4nnud3\ResourceXAML\MainResource.xaml;;
-FE:\C#\project\it008_uit-hum4nnud3\UserControlGym\DynamicChartUC.xaml;;
-FE:\C#\project\it008_uit-hum4nnud3\UserControlGym\MenuBarUC.xaml;;
-FE:\C#\project\it008_uit-hum4nnud3\UserControlGym\PieChartUC.xaml;;
-FE:\C#\project\it008_uit-hum4nnud3\UserControlGym\QuenMatKhauUC.xaml;;
-FE:\C#\project\it008_uit-hum4nnud3\UserControlGym\WindowBarUC.xaml;;
-FE:\C#\project\it008_uit-hum4nnud3\UserControlGym\LoginUC.xaml;;
-FE:\C#\project\it008_uit-hum4nnud3\UserControlGym\DoiMatKhauUC.xaml;;
+FC:\Learning\IT008_project\IT008_project\App.xaml;;
+FC:\Learning\IT008_project\IT008_project\LoginScreen.xaml;;
+FC:\Learning\IT008_project\IT008_project\MainWindow.xaml;;
+FC:\Learning\IT008_project\IT008_project\ResourceXAML\MainResource.xaml;;
+FC:\Learning\IT008_project\IT008_project\UserControlGym\CustomerUC.xaml;;
+FC:\Learning\IT008_project\IT008_project\UserControlGym\DoiMatKhauUC.xaml;;
+FC:\Learning\IT008_project\IT008_project\UserControlGym\DynamicChartUC.xaml;;
+FC:\Learning\IT008_project\IT008_project\UserControlGym\HomeUC.xaml;;
+FC:\Learning\IT008_project\IT008_project\UserControlGym\LoginUC.xaml;;
+FC:\Learning\IT008_project\IT008_project\UserControlGym\MenuBarUC.xaml;;
+FC:\Learning\IT008_project\IT008_project\UserControlGym\PieChartUC.xaml;;
+FC:\Learning\IT008_project\IT008_project\UserControlGym\QuenMatKhauUC.xaml;;
+FC:\Learning\IT008_project\IT008_project\UserControlGym\WindowBarUC.xaml;;
 

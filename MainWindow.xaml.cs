@@ -1,4 +1,5 @@
-﻿using System;
+﻿using IT008_UIT.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,11 @@ namespace IT008_UIT
     /// </summary>
     public partial class MainWindow : Window
     {
+        public MenuBarViewModel ViewModel { get; set; }
         public MainWindow()
         {
             InitializeComponent();
+            this.DataContext = ViewModel = new MenuBarViewModel();
         }
     }
 }

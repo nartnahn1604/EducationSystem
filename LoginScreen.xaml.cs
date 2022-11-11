@@ -8,11 +8,9 @@ namespace IT008_UIT
     /// </summary>
     public partial class LoginScreen : Window
     {
-        public LoginViewModel Viewmodel { get; set; }
         public LoginScreen()
         {
             InitializeComponent();
-            this.DataContext = Viewmodel = new LoginViewModel();
 
         }
     }

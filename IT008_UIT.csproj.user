@@ -10,10 +10,16 @@
     <Compile Update="LoginScreen.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="UserControlGym\CustomerUC.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="UserControlGym\DoiMatKhauUC.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="UserControlGym\DynamicChartUC.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="UserControlGym\HomeUC.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="UserControlGym\LoginUC.xaml.cs">
@@ -39,10 +45,16 @@
     <Page Update="ResourceXAML\MainResource.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="UserControlGym\CustomerUC.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="UserControlGym\DoiMatKhauUC.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="UserControlGym\DynamicChartUC.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UserControlGym\HomeUC.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="UserControlGym\LoginUC.xaml">
