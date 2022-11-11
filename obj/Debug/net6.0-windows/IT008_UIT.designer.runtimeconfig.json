@@ -12,7 +12,7 @@
       }
     ],
     "additionalProbingPaths": [
-      "C:\\Users\\nhaantran\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\Lenovo\\.dotnet\\store\\|arch|\\|tfm|",
       "C:\\Users\\nhaantran\\.nuget\\packages"
     ],
     "configProperties": {
