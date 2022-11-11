@@ -25,9 +25,9 @@
         Title="LoginScreen" Height="720" Width="1280">
 
     <Grid>
-        <materialDesign:Transitioner SelectedIndex="0" AutoApplyTransitionOrigins="True">
+        <materialDesign:Transitioner Name="UserControlView" SelectedIndex="0" AutoApplyTransitionOrigins="True">
             <Grid>
-                <uc:LoginUC></uc:LoginUC>
+                <uc:LoginUC x:Name="LoginUC"></uc:LoginUC>
             </Grid>
             <uc:QuenMatKhauUC></uc:QuenMatKhauUC>
             <uc:DoiMatKhauUC></uc:DoiMatKhauUC>

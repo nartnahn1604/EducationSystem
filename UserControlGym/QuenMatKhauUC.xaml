@@ -23,7 +23,7 @@
         <Button Background="Transparent" BorderBrush="Transparent" VerticalAlignment="Top" HorizontalAlignment="Left" 
                 Width="70" Height="70"  
         Style="{StaticResource MaterialDesignFloatingActionMiniDarkButton}" 
-                Command="{x:Static materialDesign:Transitioner.MovePreviousCommand}"
+                Command="{x:Static materialDesign:Transitioner.MoveFirstCommand}"
             ToolTip="MaterialDesignFloatingActionMiniDarkButton">
             <materialDesign:PackIcon Width="40" Height="40"
                 Kind="KeyboardBackspace" Foreground="#00ADB5" materialDesign:ShadowAssist.ShadowEdges="All"/>
@@ -38,13 +38,13 @@
                 Style="{DynamicResource MaterialDesignBody2TextBlock}">
                     Xin chào, hãy nhập các thông tin dưới đây và làm theo chỉ dẫn để đặt lại mật khẩu bạn nhé!
             </TextBlock>
-            <TextBox Grid.Row="2" HorizontalAlignment="Center"  Width="500" Margin="0,50,0,100"  Height="60"
+            <TextBox Text="{Binding Email, UpdateSourceTrigger=PropertyChanged}" Grid.Row="2" HorizontalAlignment="Center"  Width="500" Margin="0,50,0,100"  Height="60"
                      FontSize="24" Foreground="White" BorderBrush="White"
                  materialDesign:HintAssist.Hint="Email" materialDesign:HintAssist.Foreground="White" 
                 Style="{DynamicResource MaterialDesignFloatingHintTextBox}" />
             <Button Background="#00ADB5" HorizontalAlignment="Center"
                 Style="{DynamicResource MaterialDesignRaisedButton}" Width="400" Height="50"
-               Command="{x:Static materialDesign:Transitioner.MoveNextCommand}"
+               Command="{Binding QuenMatKhauCommand}"  CommandParameter="ucQuenMatKhau"
                     
                 materialDesign:ShadowAssist.ShadowDepth="Depth2" >
                 Gửi mã

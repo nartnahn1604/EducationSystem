@@ -12,7 +12,7 @@ namespace IT008_UIT
         public LoginScreen()
         {
             InitializeComponent();
-            this.DataContext = Viewmodel = new LoginViewModel();
+            //this.DataContext = Viewmodel = new LoginViewModel(LoginUC.txtEmail.Text, LoginUC.txtPassword.Password);
 
         }
     }

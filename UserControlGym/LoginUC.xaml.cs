@@ -14,5 +14,11 @@ namespace IT008_UIT.UserControlGym
             InitializeComponent();
             this.DataContext = Viewmodel = new LoginViewModel();
         }
+
+        private void txtPassword_PasswordChanged(object sender, System.Windows.RoutedEventArgs e)
+        {
+            if (this.DataContext != null)
+            { ((dynamic)this.DataContext)._password = ((PasswordBox)sender).Password; }
+        }
     }
 }
