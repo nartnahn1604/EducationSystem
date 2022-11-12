@@ -7,6 +7,7 @@
         mc:Ignorable="d"
         xmlns:uc="clr-namespace:IT008_UIT.UserControlGym"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:Menu="clr-namespace:IT008_UIT.ResourceXAML"
         xmlns:lvc="clr-namespace:LiveChartsCore.SkiaSharpView.WPF;assembly=LiveChartsCore.SkiaSharpView.WPF"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
@@ -23,78 +24,84 @@
         Title="MainWindow" Height="720" Width="1280">
     
     <Grid Style="{DynamicResource ColorGrid}">
+        
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0.2*"></ColumnDefinition>
             <ColumnDefinition Width="0.8*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="0">
+            <Border Background="#272B2F"
+                        CornerRadius="20,0,0,20" />
             <StackPanel Background="White">
-                <Image Source="/Images/logo_app.png" Width="150px"></Image>
+                <Image Source="/Images/logo_app.png" Width="150px" Margin="0,50,0,50"></Image>
 
-                <Grid>
-                    <Button
-                Style="{StaticResource MaterialDesignRaisedDarkButton}"
-                ToolTip="Resource name: MaterialDesignRaisedLightDarkButton" 
-                Command="{Binding HomeCommand}" CommandParameter="{Binding ElementName=mainscreen}">
-                        Trang chủ
-                    </Button>
-                    <materialDesign:PackIcon Kind="Home" Foreground="White" VerticalAlignment="Stretch" Width="24" Height="24" />
-                </Grid>
-                <Grid>
-                    <Button
-                Style="{StaticResource MaterialDesignRaisedDarkButton}"
-                ToolTip="Resource name: MaterialDesignRaisedLightDarkButton" 
-                Command="{Binding CustomerCommand}" CommandParameter="{Binding ElementName=mainscreen}">
-                        Khách hàng
-                    </Button>
-                    <materialDesign:PackIcon Kind="Account" Foreground="White" HorizontalAlignment="Right" VerticalAlignment="Stretch" Width="24" Height="24" />
-                </Grid>
-                <Grid>
-                    <Button
-                Style="{StaticResource MaterialDesignRaisedDarkButton}"
-                ToolTip="Resource name: MaterialDesignRaisedLightDarkButton" 
-                >
-                        Trang chủ
-                    </Button>
-                    <materialDesign:PackIcon Kind="CardAccountDetailsOutline" Foreground="White" HorizontalAlignment="Right" VerticalAlignment="Stretch" Width="24" Height="24" />
-                </Grid>
-                <Grid>
-                    <Button
-                Style="{StaticResource MaterialDesignRaisedDarkButton}"
-                ToolTip="Resource name: MaterialDesignRaisedLightDarkButton" 
-                >
-                        Trang chủ
-                    </Button>
-                    <materialDesign:PackIcon Kind="Gymnastics" Foreground="White" HorizontalAlignment="Right" VerticalAlignment="Stretch" Width="24" Height="24" />
-                </Grid>
-                <Grid>
-                    <Button
-                Style="{StaticResource MaterialDesignRaisedDarkButton}"
-                ToolTip="Resource name: MaterialDesignRaisedLightDarkButton" 
-                Command ="">
-                        Trang chủ
-                    </Button>
-                    <materialDesign:PackIcon Kind="Dumbbell" Foreground="White" HorizontalAlignment="Right" VerticalAlignment="Stretch" Width="24" Height="24" />
-                </Grid>
-                <Grid>
-                    <Button
-                Style="{StaticResource MaterialDesignRaisedDarkButton}"
-                ToolTip="Resource name: MaterialDesignRaisedLightDarkButton" 
-                >
-                        Trang chủ
-                    </Button>
-                    <materialDesign:PackIcon Kind="FileDocumentEdit" Foreground="White" HorizontalAlignment="Right" VerticalAlignment="Stretch" Width="24" Height="24" />
-                </Grid>
-                <Grid>
-                    <Button
-                Style="{StaticResource MaterialDesignRaisedDarkButton}"
-                ToolTip="Resource name: MaterialDesignRaisedLightDarkButton" 
-                >
-                        Trang chủ
-                    </Button>
-                    <materialDesign:PackIcon Kind="ViewDashboardVariant" Foreground="White" HorizontalAlignment="Right" VerticalAlignment="Stretch" Width="24" Height="24" />
-                </Grid>
+                <Menu:Btn Style="{StaticResource BtnStyle}" Command="{Binding HomeCommand}" CommandParameter="{Binding ElementName=mainscreen}" IsChecked="true">
+                    <Grid>
+                        <materialDesign:PackIcon Kind="Home" Style="{StaticResource IconMenu}"/>
+                        <TextBlock
+                            Style="{StaticResource Text_Style}" >
+                            Trang chủ
+                        </TextBlock>
+                    </Grid>
+                </Menu:Btn>
 
+                <Menu:Btn Style="{StaticResource BtnStyle}" Command="{Binding KhachHangCommand}" CommandParameter="{Binding ElementName=mainscreen}" >
+                    <Grid>
+                        <materialDesign:PackIcon Kind="Account" Style="{StaticResource IconMenu}"/>
+                        <TextBlock
+                            Style="{StaticResource Text_Style}" >
+                            Khách hàng
+                        </TextBlock>
+                    </Grid>
+                </Menu:Btn>
+
+                <Menu:Btn Style="{StaticResource BtnStyle}" Command="{Binding NhanVienCommand}" CommandParameter="{Binding ElementName=mainscreen}" >
+                    <Grid>
+                        <materialDesign:PackIcon Kind="CardAccountDetailsOutline" Style="{StaticResource IconMenu}"/>
+                        <TextBlock
+                            Style="{StaticResource Text_Style}" >
+                            Nhân viên
+                        </TextBlock>
+                    </Grid>
+                </Menu:Btn>
+                <Menu:Btn Style="{StaticResource BtnStyle}" Command="{Binding GoiTapCommand}" CommandParameter="{Binding ElementName=mainscreen}" >
+                    <Grid>
+                        <materialDesign:PackIcon Kind="Gymnastics" Style="{StaticResource IconMenu}"/>
+                        <TextBlock
+                            Style="{StaticResource Text_Style}" >
+                            Gói tập
+                        </TextBlock>
+                    </Grid>
+                </Menu:Btn>
+                <Menu:Btn Style="{StaticResource BtnStyle}" Command="{Binding VatTuCommand}" CommandParameter="{Binding ElementName=mainscreen}" >
+                    <Grid>
+                        <materialDesign:PackIcon Kind="Dumbbell" Style="{StaticResource IconMenu}"/>
+                        <TextBlock
+                            Style="{StaticResource Text_Style}" >
+                            Vật tư 
+                        </TextBlock>
+                    </Grid>
+                </Menu:Btn>
+                <Menu:Btn Style="{StaticResource BtnStyle}" Command="{Binding HopDongCommand}" CommandParameter="{Binding ElementName=mainscreen}" >
+                    <Grid>
+                        <materialDesign:PackIcon Kind="FileDocumentEdit" Style="{StaticResource IconMenu}"/>
+                        <TextBlock
+                            Style="{StaticResource Text_Style}" >
+                            Hợp đồng
+                        </TextBlock>
+                    </Grid>
+                </Menu:Btn>
+                <Menu:Btn Style="{StaticResource BtnStyle}" Command="{Binding ThongKeCommand}" CommandParameter="{Binding ElementName=mainscreen}" >
+                    <Grid>
+                        <materialDesign:PackIcon Kind="ViewDashboardVariant" Style="{StaticResource IconMenu}"/>
+                        <TextBlock
+                            Style="{StaticResource Text_Style}" >
+                            Thống kê
+                        </TextBlock>
+                    </Grid>
+                </Menu:Btn>
+                
+               
             </StackPanel>
 
         </Grid>

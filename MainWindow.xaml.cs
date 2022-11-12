@@ -21,11 +21,11 @@ namespace IT008_UIT
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MenuBarViewModel ViewModel { get; set; }
+        public MainViewModel ViewModel { get; set; }
         public MainWindow()
         {
             InitializeComponent();
-            this.DataContext = ViewModel = new MenuBarViewModel();
+            this.DataContext = ViewModel = new MainViewModel();
         }
     }
 }

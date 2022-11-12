@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 C:\Learning\IT008_project\IT008_project\App.xaml
-121340678165
+161759826293
 
-2424201447
+331868183394
 205-1574777477
-LoginScreen.xaml;MainWindow.xaml;ResourceXAML\MainResource.xaml;UserControlGym\CustomerUC.xaml;UserControlGym\DoiMatKhauUC.xaml;UserControlGym\DynamicChartUC.xaml;UserControlGym\HomeUC.xaml;UserControlGym\LoginUC.xaml;UserControlGym\MenuBarUC.xaml;UserControlGym\PieChartUC.xaml;UserControlGym\QuenMatKhauUC.xaml;UserControlGym\WindowBarUC.xaml;
+LoginScreen.xaml;MainWindow.xaml;ResourceXAML\MainResource.xaml;UserControlGym\DoiMatKhauUC.xaml;UserControlGym\DynamicChartUC.xaml;UserControlGym\GoiTapUC.xaml;UserControlGym\HomeUC.xaml;UserControlGym\HopDongUC.xaml;UserControlGym\KhachHangUC.xaml;UserControlGym\LoginUC.xaml;UserControlGym\NhanVienUC.xaml;UserControlGym\PieChartUC.xaml;UserControlGym\QuenMatKhauUC.xaml;UserControlGym\ThongKeUC.xaml;UserControlGym\VatTuUC.xaml;UserControlGym\WindowBarUC.xaml;
 
 False
 

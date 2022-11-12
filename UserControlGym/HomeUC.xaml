@@ -6,7 +6,7 @@
              xmlns:uc="clr-namespace:IT008_UIT.UserControlGym"
              xmlns:local="clr-namespace:IT008_UIT.UserControlGym"
              mc:Ignorable="d" 
-             d:DesignHeight="720" d:DesignWidth="1280"
+             d:DesignHeight="720" d:DesignWidth="1024"
              Style="{StaticResource Page_Style}">
     <Grid>
         <uc:PieChartUC Width="700" VerticalAlignment="Top" HorizontalAlignment="Left" Height="300"></uc:PieChartUC>

@@ -8,11 +8,8 @@
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
              x:Name="ucWindowBar"
-             d:DesignHeight="720" d:DesignWidth="1280">
-
-    
+             d:DesignHeight="40" d:DesignWidth="1280">
     <Grid>
-        
         <Button HorizontalAlignment="Right" VerticalAlignment="Top" Background="Transparent" BorderBrush="Transparent"
             Style="{StaticResource MaterialDesignFloatingActionMiniDarkButton}"
             ToolTip="MaterialDesignFloatingActionMiniDarkButton" materialDesign:ShadowAssist.ShadowDepth="Depth3"

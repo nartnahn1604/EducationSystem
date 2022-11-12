@@ -2,7 +2,8 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:viewmodel="clr-namespace:IT008_UIT.ViewModel"
                     xmlns:uc="clr-namespace:IT008_UIT.UserControlGym"
-                    xmlns:local="clr-namespace:IT008_UIT.ResourceXAML">
+                    xmlns:local="clr-namespace:IT008_UIT.ResourceXAML"
+                    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes">
     <viewmodel:MainViewModel x:Key="MainVM"></viewmodel:MainViewModel>
 
 
@@ -10,16 +11,174 @@
         <uc:HomeUC></uc:HomeUC>
     </DataTemplate>
 
-    <DataTemplate DataType="{x:Type viewmodel:CustomerViewModel}">
-        <uc:CustomerUC></uc:CustomerUC>
+    <DataTemplate DataType="{x:Type viewmodel:KhachHangViewModel}">
+        <uc:KhachHangUC></uc:KhachHangUC>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type viewmodel:NhanVienViewModel}">
+        <uc:NhanVienUC></uc:NhanVienUC>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type viewmodel:VatTuViewModel}">
+        <uc:VatTuUC></uc:VatTuUC>
     </DataTemplate>
     
+    <DataTemplate DataType="{x:Type viewmodel:GoiTapViewModel}">
+        <uc:GoiTapUC></uc:GoiTapUC>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type viewmodel:HopDongViewModel}">
+        <uc:HopDongUC></uc:HopDongUC>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type viewmodel:ThongKeViewModel}">
+        <uc:ThongKeUC></uc:ThongKeUC>
+    </DataTemplate>
+
+
+
     <Style x:Key="Click" TargetType="Button">
         <Setter Property="Background" Value="#00adb5"></Setter>
     </Style>
 
     <Style x:Key="ColorGrid" TargetType="Grid">
         <Setter Property="Background" Value="#FB8560"></Setter>
+    </Style>
+
+    <Style x:Key="IconMenu" TargetType="materialDesign:PackIcon">
+        <Setter Property="HorizontalAlignment"
+                Value="Left" />
+        <Setter Property="VerticalAlignment"
+                Value="Center" />
+        <Setter Property="Height"
+                Value="30" />
+        <Setter Property="Width"
+                Value="30" />
+        <Setter Property="Foreground"
+                Value="#00adb5" />
+        <Setter Property="Margin"
+                Value="30,0,0,0" />
+    </Style>
+
+    <Style x:Key="Text_Style"
+           TargetType="TextBlock">
+
+        <Setter Property="VerticalAlignment"
+                Value="Center" />
+        <Setter Property="HorizontalAlignment"
+                Value="Left" />
+        <Setter Property="FontSize"
+                Value="18" />
+        <Setter Property="Margin"
+                Value="80,0,0,0" />
+        <Setter Property="Foreground"
+                Value="#00adb5" />
+
+    </Style>
+
+
+
+    <Style x:Key="BtnStyle"
+           TargetType="RadioButton">
+
+        <Setter Property="HorizontalAlignment"
+                Value="Center" />
+        <Setter Property="VerticalAlignment"
+                Value="Center" />
+        <Setter Property="Margin"
+                Value="0,5,0,0" />
+        
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="RadioButton">
+
+                    <Border x:Name="border"
+                            Height="50"
+                            Width="256"
+                            BorderThickness="0">
+
+                        <Border.Background>
+                            <SolidColorBrush x:Name="BorderBackground"
+                                             Color="White" />
+                        </Border.Background>
+
+                        <Grid>
+
+                            <Border x:Name="Indicator"
+                                    Height="35"
+                                    Width="4"
+                                    HorizontalAlignment="Left"
+                                    VerticalAlignment="Center"
+                                    Background="#FB8560"
+                                    Visibility="Collapsed"
+                                    CornerRadius="2" />
+
+                            <ContentPresenter />
+
+                        </Grid>
+
+                    </Border>
+
+                    <ControlTemplate.Triggers>
+
+                        <Trigger Property="IsMouseOver"
+                                 Value="True">
+
+                            <Setter Property="Visibility"
+                                    TargetName="Indicator"
+                                    Value="Visible" />
+
+                        </Trigger>
+
+                        <EventTrigger RoutedEvent="Border.MouseEnter"
+                                      SourceName="border">
+
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <ColorAnimation Storyboard.TargetName="BorderBackground"
+                                                    Storyboard.TargetProperty="Color"
+                                                    From="White"
+                                                    To="#FB8560"
+                                                    Duration="0:0:0.3" />
+                                </Storyboard>
+                            </BeginStoryboard>
+
+                        </EventTrigger>
+
+                        <EventTrigger RoutedEvent="Border.MouseLeave"
+                                      SourceName="border">
+
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <ColorAnimation Storyboard.TargetName="BorderBackground"
+                                                    Storyboard.TargetProperty="Color"
+                                                    From="#FB8560"
+                                                    To="White"
+                                                    Duration="0:0:1.0" />
+                                </Storyboard>
+                            </BeginStoryboard>
+
+                        </EventTrigger>
+
+                        <Trigger Property="IsChecked"
+                                 Value="True">
+
+                            <Setter Property="Background"
+                                    TargetName="border"
+                                    Value="White" />
+
+                            <Setter Property="Visibility"
+                                    TargetName="Indicator"
+                                    Value="Visible" />
+
+                        </Trigger>
+
+                    </ControlTemplate.Triggers>
+
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+
     </Style>
 
     <Style x:Key="Page_Style"
