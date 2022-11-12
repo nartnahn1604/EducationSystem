@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System.Diagnostics;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 
@@ -26,6 +27,7 @@ namespace IT008_UIT.ViewModel
             );
             MinimizeWindowCommand = new RelayCommand<UserControl>((p) => { return p == null ? false : true; }, (p) =>
             {
+                Debug.WriteLine("Mini");
                 FrameworkElement window = GetWindowParent(p);
                 var w = window as Window;
                 if (w != null)
@@ -39,6 +41,7 @@ namespace IT008_UIT.ViewModel
             );
             MouseMoveWindowCommand = new RelayCommand<UserControl>((p) => { return p == null ? false : true; }, (p) =>
             {
+                Debug.WriteLine("Drag");
                 FrameworkElement window = GetWindowParent(p);
                 var w = window as Window;
                 if (w != null)
@@ -47,6 +50,7 @@ namespace IT008_UIT.ViewModel
                 }
             }
            );
+            
         }
 
         FrameworkElement GetWindowParent(UserControl p)

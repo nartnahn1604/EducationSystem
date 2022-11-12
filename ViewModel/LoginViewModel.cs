@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System.Diagnostics;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 
@@ -35,6 +36,7 @@ namespace IT008_UIT.ViewModel
 
             }
             );
+           
         }
         FrameworkElement GetWindowParent(UserControl p)
         {

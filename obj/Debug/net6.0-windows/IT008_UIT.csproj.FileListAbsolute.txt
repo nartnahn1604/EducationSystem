@@ -69,3 +69,5 @@ C:\Learning\IT008_project\IT008_project\obj\Debug\net6.0-windows\UserControlGym\
 C:\Learning\IT008_project\IT008_project\obj\Debug\net6.0-windows\UserControlGym\NhanVienUC.baml
 C:\Learning\IT008_project\IT008_project\obj\Debug\net6.0-windows\UserControlGym\ThongKeUC.baml
 C:\Learning\IT008_project\IT008_project\obj\Debug\net6.0-windows\UserControlGym\VatTuUC.baml
+C:\Learning\IT008_project\IT008_project\bin\Debug\net6.0-windows\Microsoft.Expression.Interactions.dll
+C:\Learning\IT008_project\IT008_project\bin\Debug\net6.0-windows\System.Windows.Interactivity.dll

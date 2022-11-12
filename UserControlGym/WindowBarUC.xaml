@@ -6,10 +6,19 @@
              
              xmlns:local="clr-namespace:IT008_UIT.UserControlGym"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
              mc:Ignorable="d" 
              x:Name="ucWindowBar"
-             d:DesignHeight="40" d:DesignWidth="1280">
-    <Grid>
+             d:DesignHeight="50" d:DesignWidth="1280">
+
+   
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="MouseLeftButtonDown">
+            <i:InvokeCommandAction Command="{Binding MouseMoveWindowCommand}" CommandParameter="{Binding ElementName=ucWindowBar}"/>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+    
+    <Grid Background="Transparent">
         <Button HorizontalAlignment="Right" VerticalAlignment="Top" Background="Transparent" BorderBrush="Transparent"
             Style="{StaticResource MaterialDesignFloatingActionMiniDarkButton}"
             ToolTip="MaterialDesignFloatingActionMiniDarkButton" materialDesign:ShadowAssist.ShadowDepth="Depth3"
