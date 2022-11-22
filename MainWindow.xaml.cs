@@ -24,6 +24,7 @@ namespace IT008_UIT
         public MainWindow()
         {
             InitializeComponent();
+            //Main.Content = new HopDongCoBanPage();
         }
     }
 }

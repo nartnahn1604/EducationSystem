@@ -1,4 +1,5 @@
 ﻿using IT008_UIT.PasswordSecure;
+using IT008_UIT.Utils;
 using System;
 using System.Diagnostics;
 using System.Reflection.Metadata;
@@ -15,8 +16,8 @@ namespace IT008_UIT.ViewModel
         public bool IsLoggedIn { get; set; }
         private string _UserEmail;
         public string UserEmail { get => _UserEmail; set { _UserEmail = value; OnPropertyChanged(); } }
-        private string _Password;
-        public string Password { get => _Password; set { _Password = value; OnPropertyChanged(); } }
+        private string _password;
+        public string Password { get => _password; set { _password = value; OnPropertyChanged(); } }
 
         public ICommand DangNhapCommand { get; set; }
         public ICommand QuenMatKhauCommand { get; set; }
@@ -59,18 +60,26 @@ namespace IT008_UIT.ViewModel
         {
 
             IsLoggedIn = false;
-            DangNhapCommand = new RelayCommand<UserControl>((p) => { return p == null ? false : true; }, (p) =>
+            DangNhapCommand = new RelayCommand<UserControl>((p) => { return p == null ? false : true; }, async (p) =>
             {
-                Login(p);
-                FrameworkElement window = GetWindowParent(p);
-                var w = window as Window;
-                if (w != null)
+                Debug.WriteLine(this.UserEmail, this.Password);
+                var isLogin = await FirebaseHelper.loginWithEmailAndPasswordAsync(this.UserEmail, this.Password);
+                //Login(p);
+
+                if (isLogin)
                 {
-                    MainWindow homescreen = new MainWindow();
-                    homescreen.Show();
-                    w.Close();
-                    IsLoggedIn = true;
+                    FrameworkElement window = GetWindowParent(p);
+                    var w = window as Window;
+                    if (w != null)
+                    {
+                        IsLoggedIn = true;
+                        MainWindow homescreen = new MainWindow();
+                        homescreen.Show();
+                        w.Close();
+                    }
                 }
+                else
+                    MessageBox.Show("Login Failed! Check your email and password!");
             }
             );
         }

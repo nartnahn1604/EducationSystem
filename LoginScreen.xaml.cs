@@ -1,5 +1,17 @@
-﻿using IT008_UIT.ViewModel;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Shapes;
+﻿using IT008_UIT.ViewModel;
 
 namespace IT008_UIT
 {
@@ -11,6 +23,7 @@ namespace IT008_UIT
         public LoginScreen()
         {
             InitializeComponent();
+            //this.DataContext = Viewmodel = new LoginViewModel(LoginUC.txtEmail.Text, LoginUC.txtPassword.Password);
 
         }
     }

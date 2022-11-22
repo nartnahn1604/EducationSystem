@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+using IT008_UIT.ViewModel;
 namespace IT008_UIT.UserControlGym
 {
     /// <summary>
@@ -20,9 +21,13 @@ namespace IT008_UIT.UserControlGym
     /// </summary>
     public partial class QuenMatKhauUC : UserControl
     {
+        public QuenMatKhauViewModel ViewModel { get; set; }
         public QuenMatKhauUC()
         {
             InitializeComponent();
+            this.DataContext= ViewModel=new QuenMatKhauViewModel();
         }
+
+        
     }
 }

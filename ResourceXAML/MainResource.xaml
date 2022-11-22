@@ -4,6 +4,7 @@
                     xmlns:uc="clr-namespace:IT008_UIT.UserControlGym"
                     xmlns:local="clr-namespace:IT008_UIT.ResourceXAML"
                     xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes">
+
     <viewmodel:MainViewModel x:Key="MainVM"></viewmodel:MainViewModel>
     <viewmodel:LoginViewModel x:Key="LoginVM"></viewmodel:LoginViewModel>
     <viewmodel:KhachHangViewModel x:Key="KhachHangVM"></viewmodel:KhachHangViewModel>
@@ -15,7 +16,7 @@
     <viewmodel:ThongKeViewModel x:Key="ThongKeVM"></viewmodel:ThongKeViewModel>
     <viewmodel:SearchBarViewModel x:Key="SearchBarVM"></viewmodel:SearchBarViewModel>
     <viewmodel:WindowBarViewModel x:Key="WindowBarVM"></viewmodel:WindowBarViewModel>
-    
+
     <DataTemplate DataType="{x:Type viewmodel:HomeViewModel}">
         <uc:HomeUC></uc:HomeUC>
     </DataTemplate>
@@ -31,7 +32,7 @@
     <DataTemplate DataType="{x:Type viewmodel:VatTuViewModel}">
         <uc:VatTuUC></uc:VatTuUC>
     </DataTemplate>
-    
+
     <DataTemplate DataType="{x:Type viewmodel:GoiTapViewModel}">
         <uc:GoiTapUC></uc:GoiTapUC>
     </DataTemplate>
