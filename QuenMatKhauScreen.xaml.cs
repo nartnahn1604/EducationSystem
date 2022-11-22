@@ -24,6 +24,7 @@ namespace IT008_UIT
         public QuenMatKhauScreen()
         {
             InitializeComponent();
+            //InitializeComponent();
             this.DataContext = Viewmodel = new QuenMatKhauViewModel();
         }
     }

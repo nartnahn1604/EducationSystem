@@ -34,6 +34,7 @@ namespace IT008_UIT.ViewModel
                 {
                     MessageBox.Show("Check your email to reset password");
                     
+                    
                 }
                 else
                     MessageBox.Show("Check your information again!");

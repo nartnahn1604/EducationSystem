@@ -1,31 +1,18 @@
 ﻿
-<<<<<<< HEAD
 FD:\Exercise\IT008\TEST\App.xaml;;
+FD:\Exercise\IT008\TEST\DatLaiMatKhauScreen.xaml;;
+FD:\Exercise\IT008\TEST\HopDongCoBanPage.xaml;;
 FD:\Exercise\IT008\TEST\LoginScreen.xaml;;
 FD:\Exercise\IT008\TEST\MainWindow.xaml;;
 FD:\Exercise\IT008\TEST\ResourceXAML\MainResource.xaml;;
+FD:\Exercise\IT008\TEST\UserControlGym\CloseWindowButton.xaml;;
 FD:\Exercise\IT008\TEST\UserControlGym\DoiMatKhauUC.xaml;;
 FD:\Exercise\IT008\TEST\UserControlGym\DynamicChartUC.xaml;;
+FD:\Exercise\IT008\TEST\UserControlGym\GoBackButton.xaml;;
+FD:\Exercise\IT008\TEST\UserControlGym\GoiTapUC.xaml;;
 FD:\Exercise\IT008\TEST\UserControlGym\LoginUC.xaml;;
 FD:\Exercise\IT008\TEST\UserControlGym\MenuBarUC.xaml;;
 FD:\Exercise\IT008\TEST\UserControlGym\PieChartUC.xaml;;
 FD:\Exercise\IT008\TEST\UserControlGym\QuenMatKhauUC.xaml;;
 FD:\Exercise\IT008\TEST\UserControlGym\WindowBarUC.xaml;;
-=======
-FD:\Exercise\IT008\PROJECT\App.xaml;;
-FD:\Exercise\IT008\PROJECT\DatLaiMatKhauScreen.xaml;;
-FD:\Exercise\IT008\PROJECT\DoiMatKhauScreen.xaml;;
-FD:\Exercise\IT008\PROJECT\HopDongCoBanPage.xaml;;
-FD:\Exercise\IT008\PROJECT\LoginScreen.xaml;;
-FD:\Exercise\IT008\PROJECT\MainWindow.xaml;;
-FD:\Exercise\IT008\PROJECT\QuenMatKhauScreen.xaml;;
-FD:\Exercise\IT008\PROJECT\ResourceXAML\MainResource.xaml;;
-FD:\Exercise\IT008\PROJECT\UserControlGym\CloseWindowButton.xaml;;
-FD:\Exercise\IT008\PROJECT\UserControlGym\DynamicChartUC.xaml;;
-FD:\Exercise\IT008\PROJECT\UserControlGym\GoBackButton.xaml;;
-FD:\Exercise\IT008\PROJECT\UserControlGym\GoiTapUC.xaml;;
-FD:\Exercise\IT008\PROJECT\UserControlGym\MenuBarUC.xaml;;
-FD:\Exercise\IT008\PROJECT\UserControlGym\PieChartUC.xaml;;
-FD:\Exercise\IT008\PROJECT\UserControlGym\WindowBarUC.xaml;;
->>>>>>> 2667ccdba2e6088969143cb32fee4ccd01bc67bb
 

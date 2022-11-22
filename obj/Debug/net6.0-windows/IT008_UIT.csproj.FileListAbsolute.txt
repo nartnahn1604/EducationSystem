@@ -204,7 +204,6 @@ D:\C#\project\it008_uit-hum4nnud3\obj\Debug\net6.0-windows\UserControlGym\PieCha
 D:\C#\project\it008_uit-hum4nnud3\obj\Debug\net6.0-windows\UserControlGym\PieChartUC.baml
 D:\C#\project\it008_uit-hum4nnud3\obj\Debug\net6.0-windows\UserControlGym\DynamicChartUC.g.cs
 D:\C#\project\it008_uit-hum4nnud3\obj\Debug\net6.0-windows\UserControlGym\DynamicChartUC.baml
-<<<<<<< HEAD
 E:\C#\project\it008_uit-hum4nnud3\bin\Debug\net6.0-windows\IT008_UIT.exe
 E:\C#\project\it008_uit-hum4nnud3\bin\Debug\net6.0-windows\IT008_UIT.deps.json
 E:\C#\project\it008_uit-hum4nnud3\bin\Debug\net6.0-windows\IT008_UIT.runtimeconfig.json
@@ -326,7 +325,6 @@ D:\Exercise\IT008\TEST\obj\Debug\net6.0-windows\IT008_UIT.csproj.CoreCompileInpu
 D:\Exercise\IT008\TEST\obj\Debug\net6.0-windows\IT008_UIT.csproj.CopyComplete
 D:\Exercise\IT008\TEST\obj\Debug\net6.0-windows\IT008_UIT.genruntimeconfig.cache
 D:\Exercise\IT008\TEST\obj\Debug\net6.0-windows\ref\IT008_UIT.dll
-=======
 >>>>>>> it008/gymchua
 D:\Exercise\IT008\PROJECT\obj\Debug\net6.0-windows\DoiMatKhauScreen.g.cs
 D:\Exercise\IT008\PROJECT\obj\Debug\net6.0-windows\UserControlGym\DynamicChartUC.g.cs
@@ -354,3 +352,13 @@ D:\Exercise\IT008\PROJECT\obj\Debug\net6.0-windows\UserControlGym\DynamicChartUC
 D:\Exercise\IT008\PROJECT\obj\Debug\net6.0-windows\UserControlGym\PieChartUC.baml
 D:\Exercise\IT008\PROJECT\obj\Debug\net6.0-windows\UserControlGym\WindowBarUC.baml
 >>>>>>> 2667ccdba2e6088969143cb32fee4ccd01bc67bb
+D:\Exercise\IT008\TEST\obj\Debug\net6.0-windows\DatLaiMatKhauScreen.g.cs
+D:\Exercise\IT008\TEST\obj\Debug\net6.0-windows\HopDongCoBanPage.g.cs
+D:\Exercise\IT008\TEST\obj\Debug\net6.0-windows\UserControlGym\CloseWindowButton.g.cs
+D:\Exercise\IT008\TEST\obj\Debug\net6.0-windows\UserControlGym\GoBackButton.g.cs
+D:\Exercise\IT008\TEST\obj\Debug\net6.0-windows\UserControlGym\GoiTapUC.g.cs
+D:\Exercise\IT008\TEST\obj\Debug\net6.0-windows\DatLaiMatKhauScreen.baml
+D:\Exercise\IT008\TEST\obj\Debug\net6.0-windows\HopDongCoBanPage.baml
+D:\Exercise\IT008\TEST\obj\Debug\net6.0-windows\UserControlGym\CloseWindowButton.baml
+D:\Exercise\IT008\TEST\obj\Debug\net6.0-windows\UserControlGym\GoBackButton.baml
+D:\Exercise\IT008\TEST\obj\Debug\net6.0-windows\UserControlGym\GoiTapUC.baml
