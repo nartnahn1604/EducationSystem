@@ -28,14 +28,13 @@ namespace IT008_UIT.ViewModel
                 FrameworkElement usercontrol = GetWindowParent(p);
 
                 var w = usercontrol as UserControl;
-                
-                
+
                 Debug.WriteLine(this + "?|||" + SearchingContent);
                 if (w != null)
                 {
                     Debug.WriteLine(w +"||||"+ SearchingContent);
                     KhachHangViewModel KHsearch =(KhachHangViewModel) w.DataContext;
-                    KHsearch.Search("0902344835");
+                    KHsearch.Search(SearchingContent);
                 }
             }
             );
