@@ -1,13 +1,10 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:viewmodel="clr-namespace:IT008_UIT.ViewModel"
-<<<<<<< HEAD
-                    xmlns:local="clr-namespace:XamlGeneratedNamespace">
-=======
                     xmlns:uc="clr-namespace:IT008_UIT.UserControlGym"
                     xmlns:local="clr-namespace:IT008_UIT.ResourceXAML"
                     xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes">
->>>>>>> database_connection
+
     <viewmodel:MainViewModel x:Key="MainVM"></viewmodel:MainViewModel>
     <viewmodel:LoginViewModel x:Key="LoginVM"></viewmodel:LoginViewModel>
     <viewmodel:KhachHangViewModel x:Key="KhachHangVM"></viewmodel:KhachHangViewModel>
@@ -19,7 +16,7 @@
     <viewmodel:ThongKeViewModel x:Key="ThongKeVM"></viewmodel:ThongKeViewModel>
     <viewmodel:SearchBarViewModel x:Key="SearchBarVM"></viewmodel:SearchBarViewModel>
     <viewmodel:WindowBarViewModel x:Key="WindowBarVM"></viewmodel:WindowBarViewModel>
-    
+
     <DataTemplate DataType="{x:Type viewmodel:HomeViewModel}">
         <uc:HomeUC></uc:HomeUC>
     </DataTemplate>
@@ -35,7 +32,7 @@
     <DataTemplate DataType="{x:Type viewmodel:VatTuViewModel}">
         <uc:VatTuUC></uc:VatTuUC>
     </DataTemplate>
-    
+
     <DataTemplate DataType="{x:Type viewmodel:GoiTapViewModel}">
         <uc:GoiTapUC></uc:GoiTapUC>
     </DataTemplate>
@@ -57,12 +54,6 @@
     <Style x:Key="ColorGrid" TargetType="Grid">
         <Setter Property="Background" Value="#FB8560"></Setter>
     </Style>
-<<<<<<< HEAD
-    <Style x:Key="ColorButton" TargetType="Button">
-        <Setter Property="Background" Value="Transparent"></Setter>
-        <Setter Property="BorderThickness" Value="0"></Setter>
-        <Setter Property="Cursor"  Value="Hand"></Setter>
-=======
 
     <Style x:Key="IconMenu" TargetType="materialDesign:PackIcon">
         <Setter Property="HorizontalAlignment"
@@ -238,6 +229,5 @@
 
         </Style.Triggers>
 
->>>>>>> database_connection
     </Style>
 </ResourceDictionary>

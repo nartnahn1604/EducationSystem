@@ -34,7 +34,7 @@
                     Xin chào, đăng nhập để sử dụng ứng dụng nhé!
                 </TextBlock>
 
-                <TextBox Text="{Binding Email, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="500" Margin="20,0,0,30"  Height="60"
+                <TextBox Text="{Binding UserEmail, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="500" Margin="20,0,0,30"  Height="60"
                         FontSize="24" Foreground="White" BorderBrush="White"
                         materialDesign:HintAssist.Hint="Email" materialDesign:HintAssist.Foreground="White" 
                 Style="{DynamicResource MaterialDesignFloatingHintTextBox}" />

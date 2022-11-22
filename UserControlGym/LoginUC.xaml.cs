@@ -10,25 +10,21 @@ namespace IT008_UIT.UserControlGym
     /// <summary>
     /// Interaction logic for LoginUC.xaml
     /// </summary>
-    public partial class LoginUC : UserControl, IHavePassword
+    public partial class LoginUC : UserControl
     {
+        
         public LoginUC()
         {
             InitializeComponent();
-        }
-
-        public System.Security.SecureString Password
-        {
-            get
-            {
-                return UserPassword.SecurePassword;
-            }
+            this.DataContext = new LoginViewModel();
         }
 
         private void txtPassword_PasswordChanged(object sender, System.Windows.RoutedEventArgs e)
         {
             if (this.DataContext != null)
-            { ((dynamic)this.DataContext)._password = ((PasswordBox)sender).Password; }
+            { 
+                ((dynamic)this.DataContext).Password = ((PasswordBox)sender).Password; 
+            }
         }
     }
 }

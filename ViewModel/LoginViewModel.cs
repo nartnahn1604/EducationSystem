@@ -1,14 +1,10 @@
-<<<<<<< HEAD
-﻿using IT008_UIT.Utils;
-using System.Diagnostics;
-=======
 ﻿using IT008_UIT.PasswordSecure;
+using IT008_UIT.Utils;
 using System;
 using System.Diagnostics;
 using System.Reflection.Metadata;
 using System.Runtime.InteropServices;
 using System.Security;
->>>>>>> database_connection
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -17,41 +13,12 @@ namespace IT008_UIT.ViewModel
 {
     public class LoginViewModel : BaseViewModel
     {
-<<<<<<< HEAD
-        private string _email;
-        public string Email
-        {
-            get
-            {
-                return _email;
-            }
-            set
-            {
-                _email = value;
-                OnPropertyChanged(nameof(Email));
-            }
-        }
-        public string _password { get; set; }
-        //public string Password
-        //{
-        //    get
-        //    {
-        //        return _password;
-        //    }
-        //    set
-        //    {
-        //        _password = value;
-        //        OnPropertyChanged(nameof(Password));
-        //    }
-        //}
-=======
         public bool IsLoggedIn { get; set; }
         private string _UserEmail;
         public string UserEmail { get => _UserEmail; set { _UserEmail = value; OnPropertyChanged(); } }
-        private string _Password;
-        public string Password { get => _Password; set { _Password = value; OnPropertyChanged(); } }
+        private string _password;
+        public string Password { get => _password; set { _password = value; OnPropertyChanged(); } }
 
->>>>>>> database_connection
         public ICommand DangNhapCommand { get; set; }
         public ICommand QuenMatKhauCommand { get; set; }
         public ICommand PasswordVisibleCommand { get; set; }
@@ -91,37 +58,25 @@ namespace IT008_UIT.ViewModel
         }
         public LoginViewModel()
         {
-<<<<<<< HEAD
+
+            IsLoggedIn = false;
             DangNhapCommand = new RelayCommand<UserControl>((p) => { return p == null ? false : true; }, async (p) =>
             {
-                //Debug.WriteLine(this.Email + " " + this._password);
-                var isAdmin = await FirebaseHelper.loginWithEmailAndPasswordAsync(_email, _password);
-                //Debug.WriteLine(isAdmin);
-                if (isAdmin)
+                Debug.WriteLine(this.UserEmail, this.Password);
+                var isLogin = await FirebaseHelper.loginWithEmailAndPasswordAsync(this.UserEmail, this.Password);
+                //Login(p);
+
+                if (isLogin)
                 {
                     FrameworkElement window = GetWindowParent(p);
                     var w = window as Window;
                     if (w != null)
                     {
+                        IsLoggedIn = true;
                         MainWindow homescreen = new MainWindow();
                         homescreen.Show();
                         w.Close();
                     }
-=======
-
-            IsLoggedIn = false;
-            DangNhapCommand = new RelayCommand<UserControl>((p) => { return p == null ? false : true; }, (p) =>
-            {
-                Login(p);
-                FrameworkElement window = GetWindowParent(p);
-                var w = window as Window;
-                if (w != null)
-                {
-                    MainWindow homescreen = new MainWindow();
-                    homescreen.Show();
-                    w.Close();
-                    IsLoggedIn = true;
->>>>>>> database_connection
                 }
                 else
                     MessageBox.Show("Login Failed! Check your email and password!");
