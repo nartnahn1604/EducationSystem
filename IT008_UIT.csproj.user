@@ -15,19 +15,43 @@
     <Compile Update="LoginScreen.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="UserControlGym\GoiTapUC.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="UserControlGym\HopDongUC.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="UserControlGym\KhachHangUC.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="UserControlGym\DoiMatKhauUC.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="UserControlGym\DynamicChartUC.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="UserControlGym\HomeUC.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="UserControlGym\LoginUC.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="UserControlGym\NhanVienUC.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="UserControlGym\PieChartUC.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="UserControlGym\QuenMatKhauUC.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="UserControlGym\SearchBarUC.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="UserControlGym\ThongKeUC.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="UserControlGym\VatTuUC.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="UserControlGym\WindowBarUC.xaml.cs">
@@ -49,13 +73,28 @@
     <Page Update="ResourceXAML\MainResource.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="UserControlGym\GoiTapUC.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UserControlGym\HopDongUC.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UserControlGym\KhachHangUC.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="UserControlGym\DoiMatKhauUC.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="UserControlGym\DynamicChartUC.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="UserControlGym\HomeUC.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="UserControlGym\LoginUC.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UserControlGym\NhanVienUC.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="UserControlGym\PieChartUC.xaml">
@@ -64,10 +103,16 @@
     <Page Update="UserControlGym\QuenMatKhauUC.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="UserControlGym\WindowBarUC.xaml">
+    <Page Update="UserControlGym\SearchBarUC.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="UserControlGym\MenuBarUC.xaml">
+    <Page Update="UserControlGym\ThongKeUC.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UserControlGym\VatTuUC.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UserControlGym\WindowBarUC.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

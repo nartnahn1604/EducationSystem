@@ -1,0 +1,35 @@
+﻿<UserControl x:Class="IT008_UIT.UserControlGym.KhachHangUC"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:IT008_UIT.UserControlGym"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d" 
+             Style="{StaticResource Page_Style}"
+             x:Name="ucKhachHang"
+             DataContext="{StaticResource KhachHangVM}"
+             d:DesignHeight="720" d:DesignWidth="1280">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="120"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <local:SearchBarUC></local:SearchBarUC>
+        </Grid>
+        <Grid Grid.Row="1">
+            <StackPanel>
+                <Button Command="{Binding TestCommand}"
+                        CommandParameter="{Binding ElementName=ucKhachHang}">Click me</Button>
+                <DataGrid x:Name="Gridtest"
+              Margin="0 8 0 0"
+              ItemsSource="{Binding CustomerContext, UpdateSourceTrigger=PropertyChanged}" 
+              CanUserSortColumns="True"
+              CanUserAddRows="False" />
+            </StackPanel>
+            
+        </Grid>
+    </Grid>
+</UserControl>

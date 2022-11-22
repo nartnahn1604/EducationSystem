@@ -8,12 +8,10 @@ namespace IT008_UIT.UserControlGym
     /// </summary>
     public partial class WindowBarUC : UserControl
     {
-        public WindowBarViewModel Viewmodel { get; set; }
 
         public WindowBarUC()
         {
             InitializeComponent();
-            this.DataContext = Viewmodel = new WindowBarViewModel();
         }
     }
 }

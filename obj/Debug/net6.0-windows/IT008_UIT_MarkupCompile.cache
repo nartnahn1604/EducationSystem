@@ -4,17 +4,30 @@
 winexe
 C#
 .cs
+<<<<<<< HEAD
 D:\Exercise\IT008\TEST\obj\Debug\net6.0-windows\
+=======
+C:\Learning\IT008_project\IT008_project\obj\Debug\net6.0-windows\
+>>>>>>> database_connection
 IT008_UIT
 none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
+<<<<<<< HEAD
 D:\Exercise\IT008\TEST\App.xaml
 15-1029370634
 
 262101302868
 20856154749
 DatLaiMatKhauScreen.xaml;HopDongCoBanPage.xaml;LoginScreen.xaml;MainWindow.xaml;ResourceXAML\MainResource.xaml;UserControlGym\CloseWindowButton.xaml;UserControlGym\DoiMatKhauUC.xaml;UserControlGym\DynamicChartUC.xaml;UserControlGym\GoBackButton.xaml;UserControlGym\GoiTapUC.xaml;UserControlGym\LoginUC.xaml;UserControlGym\MenuBarUC.xaml;UserControlGym\PieChartUC.xaml;UserControlGym\QuenMatKhauUC.xaml;UserControlGym\WindowBarUC.xaml;
+=======
+C:\Learning\IT008_project\IT008_project\App.xaml
+17-305877956
+
+491887857433
+233-626877581
+LoginScreen.xaml;MainWindow.xaml;ResourceXAML\MainResource.xaml;UserControlGym\DoiMatKhauUC.xaml;UserControlGym\DynamicChartUC.xaml;UserControlGym\GoiTapUC.xaml;UserControlGym\HomeUC.xaml;UserControlGym\HopDongUC.xaml;UserControlGym\KhachHangUC.xaml;UserControlGym\LoginUC.xaml;UserControlGym\NhanVienUC.xaml;UserControlGym\PieChartUC.xaml;UserControlGym\QuenMatKhauUC.xaml;UserControlGym\SearchBarUC.xaml;UserControlGym\ThongKeUC.xaml;UserControlGym\VatTuUC.xaml;UserControlGym\WindowBarUC.xaml;
+>>>>>>> database_connection
 
 False
 

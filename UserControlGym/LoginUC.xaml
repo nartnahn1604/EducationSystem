@@ -15,7 +15,8 @@
              x:Name="ucLogin"
              Background="{DynamicResource MaterialDesignPaper}"
              FontFamily="{DynamicResource MaterialDesignFont}"
-             d:DesignHeight="720" d:DesignWidth="1280">
+             d:DesignHeight="720" d:DesignWidth="1280"
+             DataContext="{StaticResource LoginVM}">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
@@ -72,8 +73,7 @@
                 Style="{DynamicResource MaterialDesignRaisedButton}" Width="400" Height="50"
                          Command="{Binding DangNhapCommand}"
                          CommandParameter="{Binding ElementName=ucLogin}"
-                         
-                materialDesign:ShadowAssist.ShadowDepth="Depth2" >
+                         materialDesign:ElevationAssist.Elevation="Dp2">
                     Đăng nhập
                 </Button>
             </StackPanel>

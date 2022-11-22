@@ -24,6 +24,7 @@
         
         Title="LoginScreen" Height="720" Width="1280">
 
+   
     <Grid>
         <materialDesign:Transitioner Name="UserControlView" SelectedIndex="0" AutoApplyTransitionOrigins="True">
             <Grid>
