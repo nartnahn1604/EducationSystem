@@ -14,7 +14,8 @@
              x:Name="ucLogin"
              Background="{DynamicResource MaterialDesignPaper}"
              FontFamily="{DynamicResource MaterialDesignFont}"
-             d:DesignHeight="720" d:DesignWidth="1280">
+             d:DesignHeight="720" d:DesignWidth="1280"
+             DataContext="{StaticResource LoginVM}">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
@@ -32,14 +33,14 @@
                     Xin chào, đăng nhập để sử dụng ứng dụng nhé!
                 </TextBlock>
 
-                <TextBox HorizontalAlignment="Left" VerticalAlignment="Top" Width="500" Margin="20,0,0,30"  Height="60"
-                        FontSize="24" Foreground="White" BorderBrush="White"
+                <TextBox  HorizontalAlignment="Left" VerticalAlignment="Top" Width="500" Margin="20,0,0,30"  Height="60"
+                        FontSize="24" Foreground="White" BorderBrush="White" Text="{Binding UserEmail}"
                         materialDesign:HintAssist.Hint="Email" materialDesign:HintAssist.Foreground="White" 
                 Style="{DynamicResource MaterialDesignFloatingHintTextBox}" />
                 <Grid>
                     <PasswordBox Grid.Row="2" HorizontalAlignment="Center" Width="500" Margin="0,0,0,0" Height="56"
-                    x:Name="passwordLogin" FontSize="24" Foreground="White" BorderBrush="White" MaxLength="10"
-                    materialDesign:HintAssist.Hint="Mật khẩu mới" materialDesign:HintAssist.Foreground="White"
+                    x:Name="UserPassword" FontSize="24" Foreground="White" BorderBrush="White" MaxLength="10"
+                    materialDesign:HintAssist.Hint="Mật khẩu" materialDesign:HintAssist.Foreground="White"
                     Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" />
                     <Button Grid.Row="2" HorizontalAlignment="Right" Margin="0,0,10,0" VerticalAlignment="Bottom"
                     Background="Transparent"  BorderBrush="Transparent"
@@ -70,8 +71,7 @@
                 Style="{DynamicResource MaterialDesignRaisedButton}" Width="400" Height="50"
                          Command="{Binding DangNhapCommand}"
                          CommandParameter="{Binding ElementName=ucLogin}"
-                         
-                materialDesign:ShadowAssist.ShadowDepth="Depth2" >
+                         materialDesign:ElevationAssist.Elevation="Dp2">
                     Đăng nhập
                 </Button>
             </StackPanel>

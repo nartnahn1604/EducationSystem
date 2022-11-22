@@ -21,11 +21,9 @@ namespace IT008_UIT.UserControlGym
     /// </summary>
     public partial class GoiTapUC : UserControl
     {
-        public GoiTapViewModel ViewModel { get; set; }
         public GoiTapUC()
         {
             InitializeComponent();
-            this.DataContext = ViewModel = new GoiTapViewModel();
         }
     }
 }

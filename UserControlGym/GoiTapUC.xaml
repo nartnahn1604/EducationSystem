@@ -3,13 +3,31 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:local="clr-namespace:IT008_UIT.UserControlGym"
              mc:Ignorable="d" 
+             DataContext="{StaticResource GoiTapVM}"
              d:DesignHeight="720" d:DesignWidth="1024"
-              Style="{StaticResource Page_Style}">
+             x:Name="ucGoiTap"
+             Style="{StaticResource Page_Style}">
+   
+
     <Grid>
-        <Button>
-            Goi tap
-        </Button>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="120"></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <local:SearchBarUC></local:SearchBarUC>
+            </Grid>
+            <Grid Grid.Row="1">
+                <DataGrid x:Name="Gridtest"
+              Margin="0 8 0 0"
+              ItemsSource="{Binding GoiTapContext, UpdateSourceTrigger=PropertyChanged}" 
+              CanUserSortColumns="True"
+              CanUserAddRows="False" />
+            </Grid>
+        </Grid>
     </Grid>
 </UserControl>

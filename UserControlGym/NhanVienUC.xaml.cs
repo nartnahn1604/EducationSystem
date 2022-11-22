@@ -21,11 +21,9 @@ namespace IT008_UIT.UserControlGym
     /// </summary>
     public partial class NhanVienUC : UserControl
     {
-        public NhanVienViewModel ViewModel { get; set; }
         public NhanVienUC()
         {
             InitializeComponent();
-            this.DataContext= ViewModel = new NhanVienViewModel();
         }
     }
 }

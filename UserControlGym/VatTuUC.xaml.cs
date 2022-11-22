@@ -21,11 +21,9 @@ namespace IT008_UIT.UserControlGym
     /// </summary>
     public partial class VatTuUC : UserControl
     {
-        public VatTuViewModel ViewModel { get; set; }
         public VatTuUC()
         {
             InitializeComponent();
-            this.DataContext = ViewModel = new VatTuViewModel();
         }
     }
 }

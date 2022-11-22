@@ -1,10 +1,12 @@
-﻿using System;
+﻿using IT008_UIT.UserControlGym;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 
 namespace IT008_UIT.ViewModel
@@ -19,6 +21,7 @@ namespace IT008_UIT.ViewModel
         public ICommand ThongKeCommand { get; set; }
         public ICommand HopDongCommand { get; set; }
         public ICommand GoiTapCommand { get; set; }
+        public ICommand ExitCommand { get; set; }
         private object _currentView;
         public object CurrentView
         {
@@ -61,6 +64,16 @@ namespace IT008_UIT.ViewModel
             ThongKeCommand = new RelayCommand<object>((p) => { return p == null ? false : true; }, (p) =>
             {
                 CurrentView = new ThongKeViewModel();
+            }
+            );
+            ExitCommand = new RelayCommand<Window>((p) => { return p == null ? false : true; }, (p) =>
+            {
+                if (p != null)
+                {
+                    LoginScreen login = new LoginScreen();
+                    login.Show();
+                    p.Close();
+                }
             }
             );
             CurrentView = new HomeViewModel();

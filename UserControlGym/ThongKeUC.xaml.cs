@@ -21,11 +21,9 @@ namespace IT008_UIT.UserControlGym
     /// </summary>
     public partial class ThongKeUC : UserControl
     {
-        public ThongKeViewModel ViewModel { get; set; }
         public ThongKeUC()
         {
             InitializeComponent();
-            this.DataContext = ViewModel = new ThongKeViewModel();
         }
     }
 }

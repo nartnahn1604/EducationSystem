@@ -21,11 +21,9 @@ namespace IT008_UIT.UserControlGym
     /// </summary>
     public partial class KhachHangUC : UserControl
     {
-        public KhachHangViewModel ViewModel { get; set; }
         public KhachHangUC()
         {
             InitializeComponent();
-            this.DataContext = ViewModel = new KhachHangViewModel(); 
         }
     }
 }

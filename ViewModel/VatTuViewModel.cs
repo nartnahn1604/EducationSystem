@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace IT008_UIT.ViewModel
 {
-    public class VatTuViewModel
+    public class VatTuViewModel : BaseViewModel
     {
         public VatTuViewModel() { }
     }

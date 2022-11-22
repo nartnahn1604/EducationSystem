@@ -21,11 +21,9 @@ namespace IT008_UIT
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainViewModel ViewModel { get; set; }
         public MainWindow()
         {
             InitializeComponent();
-            this.DataContext = ViewModel = new MainViewModel();
         }
     }
 }

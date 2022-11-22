@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace IT008_UIT.ViewModel
 {
-    public class GoiTapViewModel
+    public class GoiTapViewModel : BaseViewModel
     {
         public GoiTapViewModel() { }    
     }

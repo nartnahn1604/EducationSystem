@@ -21,11 +21,9 @@ namespace IT008_UIT.UserControlGym
     /// </summary>
     public partial class HomeUC : UserControl
     {
-        public HomeViewModel ViewModel { get; set; }
         public HomeUC()
         {
             InitializeComponent();
-            this.DataContext = ViewModel = new HomeViewModel(); 
         }
     }
 }

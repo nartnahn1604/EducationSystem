@@ -9,9 +9,8 @@
              xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
              mc:Ignorable="d" 
              x:Name="ucWindowBar"
+             DataContext="{StaticResource WindowBarVM}"
              d:DesignHeight="50" d:DesignWidth="1280">
-
-   
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="MouseLeftButtonDown">
             <i:InvokeCommandAction Command="{Binding MouseMoveWindowCommand}" CommandParameter="{Binding ElementName=ucWindowBar}"/>

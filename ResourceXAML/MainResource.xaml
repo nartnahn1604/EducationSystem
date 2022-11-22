@@ -5,8 +5,17 @@
                     xmlns:local="clr-namespace:IT008_UIT.ResourceXAML"
                     xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes">
     <viewmodel:MainViewModel x:Key="MainVM"></viewmodel:MainViewModel>
-
-
+    <viewmodel:LoginViewModel x:Key="LoginVM"></viewmodel:LoginViewModel>
+    <viewmodel:KhachHangViewModel x:Key="KhachHangVM"></viewmodel:KhachHangViewModel>
+    <viewmodel:GoiTapViewModel x:Key="GoiTapVM"></viewmodel:GoiTapViewModel>
+    <viewmodel:NhanVienViewModel x:Key="NhanVienVM"></viewmodel:NhanVienViewModel>
+    <viewmodel:VatTuViewModel x:Key="VatTuVM"></viewmodel:VatTuViewModel>
+    <viewmodel:HomeViewModel x:Key="HomeVM"></viewmodel:HomeViewModel>
+    <viewmodel:HopDongViewModel x:Key="HopdongVM"></viewmodel:HopDongViewModel>
+    <viewmodel:ThongKeViewModel x:Key="ThongKeVM"></viewmodel:ThongKeViewModel>
+    <viewmodel:SearchBarViewModel x:Key="SearchBarVM"></viewmodel:SearchBarViewModel>
+    <viewmodel:WindowBarViewModel x:Key="WindowBarVM"></viewmodel:WindowBarViewModel>
+    
     <DataTemplate DataType="{x:Type viewmodel:HomeViewModel}">
         <uc:HomeUC></uc:HomeUC>
     </DataTemplate>

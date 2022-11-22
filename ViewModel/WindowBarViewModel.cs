@@ -27,7 +27,6 @@ namespace IT008_UIT.ViewModel
             );
             MinimizeWindowCommand = new RelayCommand<UserControl>((p) => { return p == null ? false : true; }, (p) =>
             {
-                Debug.WriteLine("Mini");
                 FrameworkElement window = GetWindowParent(p);
                 var w = window as Window;
                 if (w != null)
@@ -41,7 +40,6 @@ namespace IT008_UIT.ViewModel
             );
             MouseMoveWindowCommand = new RelayCommand<UserControl>((p) => { return p == null ? false : true; }, (p) =>
             {
-                Debug.WriteLine("Drag");
                 FrameworkElement window = GetWindowParent(p);
                 var w = window as Window;
                 if (w != null)

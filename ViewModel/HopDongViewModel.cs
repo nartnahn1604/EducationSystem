@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace IT008_UIT.ViewModel
 {
-    public class HopDongViewModel
+    public class HopDongViewModel : BaseViewModel
     {
         public HopDongViewModel() { }
     }

@@ -21,11 +21,9 @@ namespace IT008_UIT.UserControlGym
     /// </summary>
     public partial class HopDongUC : UserControl
     {
-        public HopDongViewModel ViewModel { get; set; }
         public HopDongUC()
         {
             InitializeComponent();
-            this.DataContext = ViewModel = new HopDongViewModel();
         }
     }
 }
