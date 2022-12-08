@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-D:\Exercise\IT008\TEST\obj\Debug\net6.0-windows\
+C:\Learning\IT008_project\IT008_project\obj\Debug\net6.0-windows\
 IT008_UIT
 none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
-D:\Exercise\IT008\TEST\App.xaml
-201711027487
+C:\Learning\IT008_project\IT008_project\App.xaml
+191305247781
 
-56745733569
-236748378705
-DatLaiMatKhauScreen.xaml;LoginScreen.xaml;MainWindow.xaml;ResourceXAML\MainResource.xaml;UserControlGym\CloseWindowButton.xaml;UserControlGym\DoiMatKhauUC.xaml;UserControlGym\DynamicChartUC.xaml;UserControlGym\GoBackButton.xaml;UserControlGym\GoiTapUC.xaml;UserControlGym\HomeUC.xaml;UserControlGym\HopDongUC.xaml;UserControlGym\KhachHangUC.xaml;UserControlGym\LoginUC.xaml;UserControlGym\NhanVienUC.xaml;UserControlGym\PieChartUC.xaml;UserControlGym\QuenMatKhauUC.xaml;UserControlGym\SearchBarUC.xaml;UserControlGym\ThongKeUC.xaml;UserControlGym\VatTuUC.xaml;UserControlGym\WindowBarUC.xaml;
+56-497128071
+237-578271273
+LoginScreen.xaml;MainWindow.xaml;ResourceXAML\MainResource.xaml;UserControlGym\CloseWindowButton.xaml;UserControlGym\DoiMatKhauUC.xaml;UserControlGym\DynamicChartUC.xaml;UserControlGym\GoBackButton.xaml;UserControlGym\GoiTapUC.xaml;UserControlGym\HomeUC.xaml;UserControlGym\HopDongUC.xaml;UserControlGym\KhachHangUC.xaml;UserControlGym\LoginUC.xaml;UserControlGym\NhanVienUC.xaml;UserControlGym\PieChartUC.xaml;UserControlGym\QuenMatKhauUC.xaml;UserControlGym\SearchBarUC.xaml;UserControlGym\ThongKeUC.xaml;UserControlGym\VatTuUC.xaml;UserControlGym\WindowBarUC.xaml;
 
 True
 

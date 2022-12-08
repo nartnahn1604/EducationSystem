@@ -16,7 +16,6 @@ namespace IT008_UIT.UserControlGym
         public LoginUC()
         {
             InitializeComponent();
-            this.DataContext = new LoginViewModel();
         }
 
         private void txtPassword_PasswordChanged(object sender, System.Windows.RoutedEventArgs e)

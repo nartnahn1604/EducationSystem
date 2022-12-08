@@ -63,7 +63,8 @@ namespace IT008_UIT.ViewModel
             DangNhapCommand = new RelayCommand<UserControl>((p) => { return p == null ? false : true; }, async (p) =>
             {
                 Debug.WriteLine(this.UserEmail, this.Password);
-                var isLogin = await FirebaseHelper.loginWithEmailAndPasswordAsync(this.UserEmail, this.Password);
+                //var isLogin = await FirebaseHelper.loginWithEmailAndPasswordAsync(this.UserEmail, this.Password);
+                var isLogin = true;
                 //Login(p);
 
                 if (isLogin)

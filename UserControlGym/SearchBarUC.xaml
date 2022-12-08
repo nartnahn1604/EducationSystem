@@ -40,7 +40,7 @@
                                     BorderThickness="0"
                                     MinWidth="200"
                                     VerticalAlignment="Center"
-                                    Text="{Binding SearchingContent}"/>
+                                    Text="{Binding SearchingContent, UpdateSourceTrigger=PropertyChanged}"/>
                             </Grid>
                         </materialDesign:ColorZone>
                     </StackPanel>

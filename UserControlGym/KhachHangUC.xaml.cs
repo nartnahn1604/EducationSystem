@@ -1,6 +1,9 @@
-﻿using IT008_UIT.ViewModel;
+﻿using IT008_UIT.Models;
+using IT008_UIT.ViewModel;
 using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,7 +16,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
 namespace IT008_UIT.UserControlGym
 {
     /// <summary>
@@ -25,5 +27,7 @@ namespace IT008_UIT.UserControlGym
         {
             InitializeComponent();
         }
+
+       
     }
 }

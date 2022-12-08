@@ -5,10 +5,11 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:IT008_UIT.UserControlGym"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:prism="http://prismlibrary.com"
              mc:Ignorable="d" 
              Style="{StaticResource Page_Style}"
              x:Name="ucKhachHang"
-             DataContext="{StaticResource KhachHangVM}"
              d:DesignHeight="720" d:DesignWidth="1280">
 
     <Grid>
@@ -21,13 +22,41 @@
         </Grid>
         <Grid Grid.Row="1">
             <StackPanel>
-                <Button Command="{Binding TestCommand}"
-                        CommandParameter="{Binding ElementName=ucKhachHang}">Click me</Button>
-                <DataGrid x:Name="Gridtest"
-              Margin="0 8 0 0"
-              ItemsSource="{Binding CustomerContext, UpdateSourceTrigger=PropertyChanged}" 
-              CanUserSortColumns="True"
-              CanUserAddRows="False" />
+                <DataGrid x:Name="GridKhachHang"
+                          Margin="0 0 0 0"
+                          ItemsSource="{Binding CustomerContext}" 
+                          CanUserSortColumns="True"
+                          AutoGenerateColumns="False"
+                          AlternatingRowBackground="#FB8560"
+                          CanUserResizeColumns="True"
+                          CanUserDeleteRows="False"
+                          SelectedItem="{Binding SelectedCustomer, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                          CanUserAddRows="True" SelectionMode="Single">
+                    <DataGrid.InputBindings>
+                        <KeyBinding Key="Enter" Command="{Binding GridChangeCommand}" CommandParameter="{Binding ElementName=GridKhachHang}" />
+                    </DataGrid.InputBindings>
+                    
+                    <!--<i:Interaction.Triggers>
+                        <i:EventTrigger EventName="RowEditEnding">
+                            <i:InvokeCommandAction Command="{Binding GridChangeCommand}"
+                                                   CommandParameter="{Binding ElementName=GridKhachHang}"/>
+                        </i:EventTrigger>
+                        
+                    </i:Interaction.Triggers>-->
+                    
+                    <DataGrid.Columns>
+                        
+                        <DataGridTextColumn Header="ID" Binding="{Binding Path=CustomerId, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True" ></DataGridTextColumn>
+                        <DataGridTextColumn Header="Name" Binding="{Binding Path=Name, UpdateSourceTrigger=PropertyChanged}"></DataGridTextColumn>
+                        <DataGridTextColumn Header="IdentityNumber" Binding="{Binding Path=IdentityNumber, UpdateSourceTrigger=PropertyChanged}"></DataGridTextColumn>
+                        <DataGridTextColumn Header="Gender" Binding="{Binding Path=Gender, UpdateSourceTrigger=PropertyChanged}"></DataGridTextColumn>
+                        <DataGridTextColumn Header="Phone" Binding="{Binding Path=Phone, UpdateSourceTrigger=PropertyChanged}"></DataGridTextColumn>
+                        <DataGridTextColumn Header="Email" Binding="{Binding Path=Email, UpdateSourceTrigger=PropertyChanged}"></DataGridTextColumn>
+                        <DataGridTextColumn Header="Address" Binding="{Binding Path=Address, UpdateSourceTrigger=PropertyChanged}"></DataGridTextColumn>
+                        <DataGridTextColumn Header="Avatar"  Binding="{Binding Path=Avatar, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True"></DataGridTextColumn>
+                        <DataGridCheckBoxColumn Header="Active"  Binding="{Binding Path=Active, UpdateSourceTrigger=PropertyChanged}"></DataGridCheckBoxColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
             </StackPanel>
             
         </Grid>
