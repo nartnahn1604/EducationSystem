@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
+using IT008_UIT.Utils;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -33,6 +34,7 @@ namespace IT008_UIT.ViewModel
         {
             HomeCommand = new RelayCommand<object>((p) => { return p == null ? false : true; }, (p) =>
             {
+
                 CurrentView = new HomeViewModel();
             }
             );

@@ -72,7 +72,7 @@ namespace IT008_UIT.UserControlGym {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/IT008_UIT;V1.0.0.0;component/usercontrolgym/vattuuc.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/IT008_UIT;component/usercontrolgym/vattuuc.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\UserControlGym\VatTuUC.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

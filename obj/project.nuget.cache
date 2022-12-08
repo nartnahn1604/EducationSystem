@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "Ew+J1fXp3c6alkgda1t39UeZuE65c10gEUCmjRnfi/5jVwyPJPdtXQhvWX0y4WP/l21ng7r/lHdK/9smh/EF3A==",
+  "dgSpecHash": "0Ffn3M1D7g8XrebZHHYBGuAHnxtDJ5qptr37ecORoD/1hr2SIUGRpZpmk/ioUqz//R+Ro5mk9VMG/GA5u332aA==",
   "success": true,
   "projectFilePath": "C:\\Learning\\IT008_project\\IT008_project\\IT008_UIT.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Lenovo\\.nuget\\packages\\communitytoolkit.mvvm\\8.0.0\\communitytoolkit.mvvm.8.0.0.nupkg.sha512",
     "C:\\Users\\Lenovo\\.nuget\\packages\\firebaseauthentication.net\\3.7.2\\firebaseauthentication.net.3.7.2.nupkg.sha512",
     "C:\\Users\\Lenovo\\.nuget\\packages\\harfbuzzsharp\\2.8.2.3\\harfbuzzsharp.2.8.2.3.nupkg.sha512",
     "C:\\Users\\Lenovo\\.nuget\\packages\\harfbuzzsharp.nativeassets.macos\\2.8.2.3\\harfbuzzsharp.nativeassets.macos.2.8.2.3.nupkg.sha512",

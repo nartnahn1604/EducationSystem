@@ -31,7 +31,6 @@
                 <uc:LoginUC x:Name="LoginUC"></uc:LoginUC>
             </Grid>
             <uc:QuenMatKhauUC></uc:QuenMatKhauUC>
-            <uc:DoiMatKhauUC></uc:DoiMatKhauUC>
         </materialDesign:Transitioner>
         
     </Grid>

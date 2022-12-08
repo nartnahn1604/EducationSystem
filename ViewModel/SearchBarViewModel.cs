@@ -18,7 +18,7 @@ namespace IT008_UIT.ViewModel
         public String SearchingContent
         { 
             get => _searchString; 
-            set { _searchString = value; OnPropertyChanged();}
+            set { _searchString = value; OnPropertyChanged () ;}
         }
         public SearchBarViewModel()
         {

@@ -80,7 +80,7 @@ namespace IT008_UIT.UserControlGym {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/IT008_UIT;V1.0.0.0;component/usercontrolgym/doimatkhauuc.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/IT008_UIT;component/usercontrolgym/doimatkhauuc.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\UserControlGym\DoiMatKhauUC.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
