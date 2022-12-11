@@ -1,7 +1,10 @@
 ﻿using IT008_UIT.Models;
 using IT008_UIT.UserControlGym;
+using IT008_UIT.Utils;
+using LiveChartsCore.Geo;
 using Microsoft.EntityFrameworkCore;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -15,8 +18,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Data;
 using System.Windows.Input;
 using System.Windows.Navigation;
+using System.Xml.Linq;
 
 namespace IT008_UIT.ViewModel
 {
@@ -26,35 +31,45 @@ namespace IT008_UIT.ViewModel
         public Customer SelectedCustomer 
         { 
             get => _selectedCustomer;
-            set { _selectedCustomer = value; OnPropertyChanged(); }
+            set { _selectedCustomer = value;  OnPropertyChanged(); }
         }
         private dbGymContext Context { get; set; }
 
-        private List<Customer> _customerContext;
+        private ObservableCollection<Customer> _customerContext { get; set; }
 
-        public List<Customer> CustomerContext {
+        public ObservableCollection<Customer> CustomerContext {
             get => _customerContext;
             set { _customerContext = value; OnPropertyChanged(); }
         }
-
-        
-
         public ICommand DeleteCommand { get; set; }
         public ICommand GridChangeCommand { get; set; }
-       
-        private void Loaded()
+
+        private object _lockMutex = new object();
+        private Task LoadDataAsync()
         {
-             using (Context = new dbGymContext())
+            return Task.Factory.StartNew(() =>
             {
-                _customerContext =  new List<Customer>(Context.Customers.ToList());
-            }
+                using (Context = new dbGymContext())
+                {
+                    foreach (Customer cus in Context.Customers.ToList())
+                    {
+                        _customerContext.Add(cus);
+                    }
+                }
+            });
+        }
+        public async Task LoadData()
+        {
+            await Task.Delay(1000);
+            _ = LoadDataAsync();
         }
 
         public void Search(String content)
         {
-            CustomerContext = Context.Customers.Where(s => s.Phone == content).ToList();
+            
         }
-        private void Update(Customer replace)
+
+        private async Task Update(Customer replace)
         {
             using (Context = new dbGymContext())
             {
@@ -79,10 +94,18 @@ namespace IT008_UIT.ViewModel
                                 current.Address = replace.Address;
                                 current.Active = replace.Active;
                                 Context.SaveChanges();
-                                CustomerContext = Context.Customers.ToList();
-                            }
+                                //_customerContext.Remove(current);
+                                //_customerContext.Add(replace);
+                                for (int i = 0; i < _customerContext.Count; i++)
+                                {
+                                    if (_customerContext[i].CustomerId == replace.CustomerId)
+                                        _customerContext[i] = replace;
+                                }
+                            //_customerContext.Clear();
+                            //await LoadData(Flag);
+                        }
                     }
-                    else Add(replace);
+                    else await Add(replace);
                 }
                 catch (Exception)
                 {
@@ -91,33 +114,58 @@ namespace IT008_UIT.ViewModel
 
             }
         }
-        private void Add(Customer replace)
+        private async Task Add(Customer replace)
         {  
             using (Context = new dbGymContext())
             {
                 Context.Add<Customer>(replace);
                 Context.SaveChanges();
-                CustomerContext = Context.Customers.ToList();
+                _customerContext.Add(replace);
             }
         }
 
-       
-        public  KhachHangViewModel()
+        private async Task Delete(Customer delete)
         {
-            Loaded();
+            using (Context = new dbGymContext())
+            {
+                Context.Remove<Customer>(delete);
+                Context.SaveChanges();
+                _customerContext.Remove(delete);
+            }
+        }
+        public KhachHangViewModel()
+        {
+            _customerContext = new ObservableCollection<Customer>();
+            BindingOperations.EnableCollectionSynchronization(CustomerContext, _lockMutex);
+            LoadData();
             GridChangeCommand = new RelayCommand<DataGrid>((p) => { return p == null ? false : true; }, (p) =>
             {
-                Customer replace = SelectedCustomer ;
-                if (replace != null)
+                Debug.WriteLine("Here");
+                Customer replace = SelectedCustomer;
+                try
                 {
                     Update(replace);
-                    //p.Items.Refresh();
                 }
-                else Debug.WriteLine("object == null");
+                catch (Exception)
+                {
+                    throw;
+                }
             });
             DeleteCommand = new RelayCommand<object>((p) => { return p == null ? false : true; }, (p) =>
             {
                 var Result = MessageBox.Show("Are you sure?", "Delete Customer",MessageBoxButton.YesNo,MessageBoxImage.Warning);
+                if (Result == MessageBoxResult.Yes)
+                {
+                    Customer delete = SelectedCustomer;
+                    try
+                    {
+                        Delete(delete);
+                    }
+                    catch (Exception)
+                    {
+                        throw;
+                    }
+                }
             }
             );
             

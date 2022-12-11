@@ -21,44 +21,64 @@
             <local:SearchBarUC></local:SearchBarUC>
         </Grid>
         <Grid Grid.Row="1">
-            <StackPanel>
-                <DataGrid x:Name="GridKhachHang"
-                          Margin="0 0 0 0"
+
+            <DataGrid x:Name="GridKhachHang"
+                          Style="{StaticResource DataGridStyle}"
                           ItemsSource="{Binding CustomerContext}" 
-                          CanUserSortColumns="True"
-                          AutoGenerateColumns="False"
-                          AlternatingRowBackground="#FB8560"
-                          CanUserResizeColumns="True"
-                          CanUserDeleteRows="False"
-                          SelectedItem="{Binding SelectedCustomer, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                          CanUserAddRows="True" SelectionMode="Single">
-                    <DataGrid.InputBindings>
-                        <KeyBinding Key="Enter" Command="{Binding GridChangeCommand}" CommandParameter="{Binding ElementName=GridKhachHang}" />
-                    </DataGrid.InputBindings>
-                    
-                    <!--<i:Interaction.Triggers>
+                          
+                          SelectedItem="{Binding SelectedCustomer, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                <DataGrid.InputBindings>
+                    <KeyBinding Key="Enter" Command="{Binding GridChangeCommand}" CommandParameter="{Binding ElementName=GridKhachHang}" />
+                </DataGrid.InputBindings>
+
+                <!--<i:Interaction.Triggers>
                         <i:EventTrigger EventName="RowEditEnding">
                             <i:InvokeCommandAction Command="{Binding GridChangeCommand}"
                                                    CommandParameter="{Binding ElementName=GridKhachHang}"/>
                         </i:EventTrigger>
                         
                     </i:Interaction.Triggers>-->
+
+                <DataGrid.Columns>
                     
-                    <DataGrid.Columns>
-                        
-                        <DataGridTextColumn Header="ID" Binding="{Binding Path=CustomerId, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True" ></DataGridTextColumn>
-                        <DataGridTextColumn Header="Name" Binding="{Binding Path=Name, UpdateSourceTrigger=PropertyChanged}"></DataGridTextColumn>
-                        <DataGridTextColumn Header="IdentityNumber" Binding="{Binding Path=IdentityNumber, UpdateSourceTrigger=PropertyChanged}"></DataGridTextColumn>
-                        <DataGridTextColumn Header="Gender" Binding="{Binding Path=Gender, UpdateSourceTrigger=PropertyChanged}"></DataGridTextColumn>
-                        <DataGridTextColumn Header="Phone" Binding="{Binding Path=Phone, UpdateSourceTrigger=PropertyChanged}"></DataGridTextColumn>
-                        <DataGridTextColumn Header="Email" Binding="{Binding Path=Email, UpdateSourceTrigger=PropertyChanged}"></DataGridTextColumn>
-                        <DataGridTextColumn Header="Address" Binding="{Binding Path=Address, UpdateSourceTrigger=PropertyChanged}"></DataGridTextColumn>
-                        <DataGridTextColumn Header="Avatar"  Binding="{Binding Path=Avatar, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True"></DataGridTextColumn>
-                        <DataGridCheckBoxColumn Header="Active"  Binding="{Binding Path=Active, UpdateSourceTrigger=PropertyChanged}"></DataGridCheckBoxColumn>
-                    </DataGrid.Columns>
-                </DataGrid>
-            </StackPanel>
-            
+                    <DataGridTextColumn Header="ID" Binding="{Binding Path=CustomerId, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True" ></DataGridTextColumn>
+                    <DataGridTextColumn Header="Name" Binding="{Binding Path=Name, UpdateSourceTrigger=PropertyChanged}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="IdentityNumber" Binding="{Binding Path=IdentityNumber, UpdateSourceTrigger=PropertyChanged}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Gender" Binding="{Binding Path=Gender, UpdateSourceTrigger=PropertyChanged}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Phone" Binding="{Binding Path=Phone, UpdateSourceTrigger=PropertyChanged}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Email" Binding="{Binding Path=Email, UpdateSourceTrigger=PropertyChanged}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Address" Binding="{Binding Path=Address, UpdateSourceTrigger=PropertyChanged}"></DataGridTextColumn>
+                    <DataGridTemplateColumn Header="D.O.B">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                        <DataGridTemplateColumn.CellEditingTemplate>
+                            <DataTemplate>
+                                <DatePicker
+                                          Width="100"
+                                          materialDesign:HintAssist.Hint="Pick Date"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellEditingTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTextColumn Header="Avatar"  Binding="{Binding Path=Avatar, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True"></DataGridTextColumn>
+                    <DataGridCheckBoxColumn Header="Active"  Binding="{Binding Path=Active, UpdateSourceTrigger=PropertyChanged}"></DataGridCheckBoxColumn>
+                    <DataGridTemplateColumn >
+                        <DataGridTemplateColumn.Header>
+                            <materialDesign:PackIcon Kind="Delete" />
+                        </DataGridTemplateColumn.Header>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Command="{Binding DataContext.DeleteCommand, ElementName=GridKhachHang}"
+                                        CommandParameter="{Binding ElementName=GridKhachHang}">
+                                    <materialDesign:PackIcon Kind="Delete" />
+                                </Button>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
         </Grid>
     </Grid>
 </UserControl>

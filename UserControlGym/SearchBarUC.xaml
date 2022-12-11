@@ -33,6 +33,7 @@
                                     <materialDesign:PackIcon Kind="Magnify" Opacity=".56" />
                                 </Button>
                                 <TextBox
+                                    x:Name="Search"
                                     Grid.Column="1"
                                     Margin="8 0 0 0"
                                     materialDesign:HintAssist.Hint="Search..."
@@ -40,18 +41,19 @@
                                     BorderThickness="0"
                                     MinWidth="200"
                                     VerticalAlignment="Center"
-                                    Text="{Binding SearchingContent, UpdateSourceTrigger=PropertyChanged}"/>
+                                    Text="{Binding SearchingContent, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                             </Grid>
                         </materialDesign:ColorZone>
                     </StackPanel>
                 </DockPanel>
                 <StackPanel Grid.Row="1" VerticalAlignment="Bottom" Margin="0 10 0 0" Height="30">
-                    <Button  Background="#00ADB5"  HorizontalAlignment="Left" Margin="15 0 0 0" x:Name="testbtn"
+                    <!--<Button  Background="#00ADB5"  HorizontalAlignment="Left" Margin="15 0 0 0" x:Name="testbtn"
                         Style="{DynamicResource MaterialDesignRaisedButton}" Width="100" Height="30" 
                              materialDesign:ShadowAssist.ShadowDepth="Depth2" >
                         +Thêm
-                    </Button>
-                    
+                    </Button>-->
+                    <TextBox
+                        Text="{Binding Path=Text, ElementName=Search}"></TextBox>
                 </StackPanel>
             </Grid>
         </materialDesign:ColorZone>

@@ -55,6 +55,24 @@
         <Setter Property="Background" Value="#FB8560"></Setter>
     </Style>
 
+    <Style x:Key="DataGridStyle" TargetType="DataGrid">
+        <Setter Property="CanUserSortColumns" Value="True"></Setter>
+        <Setter Property="CanUserAddRows" Value="False"></Setter>
+        <Setter Property="AutoGenerateColumns" Value="False"></Setter>
+        <Setter Property="CanUserResizeColumns" Value="False"></Setter>
+        <Setter Property="CanUserDeleteRows" Value="False"></Setter>
+        <Setter Property="GridLinesVisibility" Value="Horizontal"></Setter>
+        <Setter Property="HorizontalGridLinesBrush" Value="#FB8560"></Setter>
+        <Setter Property="SelectionUnit" Value="FullRow"></Setter>
+        <!--CanUserSortColumns="True"
+                          AutoGenerateColumns="False"
+                          HorizontalGridLinesBrush="#FB8560"
+                          CanUserResizeColumns="False"
+                          CanUserDeleteRows="False"
+                          SelectionUnit="FullRow"
+                          CanUserAddRows="True"-->
+    </Style>
+    
     <Style x:Key="IconMenu" TargetType="materialDesign:PackIcon">
         <Setter Property="HorizontalAlignment"
                 Value="Left" />

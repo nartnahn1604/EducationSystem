@@ -19,11 +19,50 @@
             <local:SearchBarUC></local:SearchBarUC>
         </Grid>
         <Grid Grid.Row="1">
-            <DataGrid x:Name="Gridtest"
-              Margin="0 8 0 0"
-              ItemsSource="{Binding VatTuContext, UpdateSourceTrigger=PropertyChanged}" 
-              CanUserSortColumns="True"
-              CanUserAddRows="False" />
+            <DataGrid x:Name="GridKhachHang"
+                          Style="{StaticResource DataGridStyle}"
+                          ItemsSource="{Binding VatTuContext}" 
+                          
+                          SelectedItem="{Binding SelectedVatTu, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                <DataGrid.InputBindings>
+                    <KeyBinding Key="Enter" Command="{Binding GridChangeCommand}" CommandParameter="{Binding ElementName=GridKhachHang}" />
+                </DataGrid.InputBindings>
+
+                <!--<i:Interaction.Triggers>
+                        <i:EventTrigger EventName="RowEditEnding">
+                            <i:InvokeCommandAction Command="{Binding GridChangeCommand}"
+                                                   CommandParameter="{Binding ElementName=GridKhachHang}"/>
+                        </i:EventTrigger>
+                        
+                    </i:Interaction.Triggers>-->
+
+                <DataGrid.Columns>
+
+                    <DataGridTextColumn Header="ID" Binding="{Binding Path=CustomerId, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True" ></DataGridTextColumn>
+                    <DataGridTextColumn Header="Name" Binding="{Binding Path=Name, UpdateSourceTrigger=PropertyChanged}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="IdentityNumber" Binding="{Binding Path=IdentityNumber, UpdateSourceTrigger=PropertyChanged}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Gender" Binding="{Binding Path=Gender, UpdateSourceTrigger=PropertyChanged}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Phone" Binding="{Binding Path=Phone, UpdateSourceTrigger=PropertyChanged}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Email" Binding="{Binding Path=Email, UpdateSourceTrigger=PropertyChanged}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Address" Binding="{Binding Path=Address, UpdateSourceTrigger=PropertyChanged}"></DataGridTextColumn>
+                    <DataGridTemplateColumn Header="D.O.B">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                        <DataGridTemplateColumn.CellEditingTemplate>
+                            <DataTemplate>
+                                <DatePicker
+                                          Width="100"
+                                          materialDesign:HintAssist.Hint="Pick Date"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellEditingTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTextColumn Header="Avatar"  Binding="{Binding Path=Avatar, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True"></DataGridTextColumn>
+                    <DataGridCheckBoxColumn Header="Active"  Binding="{Binding Path=Active, UpdateSourceTrigger=PropertyChanged}"></DataGridCheckBoxColumn>
+                </DataGrid.Columns>
+            </DataGrid>
         </Grid>
     </Grid>
 </UserControl>

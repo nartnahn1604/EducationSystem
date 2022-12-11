@@ -7787,11 +7787,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Learning\\IT008_project\\IT008_project\\IT008_UIT.csproj",
+      "projectUniqueName": "C:\\Learning\\IT008_project\\GymManagement\\IT008_UIT.csproj",
       "projectName": "IT008_UIT",
-      "projectPath": "C:\\Learning\\IT008_project\\IT008_project\\IT008_UIT.csproj",
+      "projectPath": "C:\\Learning\\IT008_project\\GymManagement\\IT008_UIT.csproj",
       "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
-      "outputPath": "C:\\Learning\\IT008_project\\IT008_project\\obj\\",
+      "outputPath": "C:\\Learning\\IT008_project\\GymManagement\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config",

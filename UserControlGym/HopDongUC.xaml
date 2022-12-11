@@ -19,11 +19,9 @@
             <local:SearchBarUC></local:SearchBarUC>
         </Grid>
         <Grid Grid.Row="1">
-            <DataGrid x:Name="Gridtest"
-              Margin="0 8 0 0"
-              ItemsSource="{Binding HopDongContext, UpdateSourceTrigger=PropertyChanged}" 
-              CanUserSortColumns="True"
-              CanUserAddRows="False" />
+            <Button Command="{Binding TestCommand}" CommandParameter="{Binding ElementName=ucHopDong}">
+                
+            </Button>
         </Grid>
     </Grid>
 </UserControl>

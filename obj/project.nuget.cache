@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "0Ffn3M1D7g8XrebZHHYBGuAHnxtDJ5qptr37ecORoD/1hr2SIUGRpZpmk/ioUqz//R+Ro5mk9VMG/GA5u332aA==",
+  "dgSpecHash": "hgCVKyCpEkF4XUgLgLjqJoaj0G2PvIBNvHrerokda11BaQYyz2eqLRDvg3ALTSR74wv4r2tyguuhGTOBquzqfg==",
   "success": true,
-  "projectFilePath": "C:\\Learning\\IT008_project\\IT008_project\\IT008_UIT.csproj",
+  "projectFilePath": "C:\\Learning\\IT008_project\\GymManagement\\IT008_UIT.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Lenovo\\.nuget\\packages\\communitytoolkit.mvvm\\8.0.0\\communitytoolkit.mvvm.8.0.0.nupkg.sha512",
     "C:\\Users\\Lenovo\\.nuget\\packages\\firebaseauthentication.net\\3.7.2\\firebaseauthentication.net.3.7.2.nupkg.sha512",
