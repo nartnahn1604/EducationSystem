@@ -13,7 +13,7 @@
     <Grid>
         <uc:PieChartUC Width="700" VerticalAlignment="Top" HorizontalAlignment="Left" Height="300"></uc:PieChartUC>
         <uc:DynamicChartUC Width="600" Height="350" VerticalAlignment="Bottom" HorizontalAlignment="Left"></uc:DynamicChartUC>
-        <materialDesign:Card HorizontalAlignment="Right" Width="250" Background="White" Margin="0,10,10,10" >
+        <materialDesign:Card HorizontalAlignment="Right" Width="250" Height="200" Background="White" Margin="0,10,10,10" >
             <StackPanel >
                 <TextBlock Style="{StaticResource Text_Style}" HorizontalAlignment="Center" Margin="0 0 0 0">
                 Danh sách nhân viên

@@ -22,16 +22,17 @@ using System.Windows.Data;
 using System.Windows.Input;
 using System.Windows.Navigation;
 using System.Xml.Linq;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace IT008_UIT.ViewModel
 {
     public class KhachHangViewModel : BaseViewModel
     {
-        private Customer _selectedCustomer { get; set; }    
-        public Customer SelectedCustomer 
-        { 
+        private Customer _selectedCustomer { get; set; }
+        public Customer SelectedCustomer
+        {
             get => _selectedCustomer;
-            set { _selectedCustomer = value;  OnPropertyChanged(); }
+            set { _selectedCustomer = value; OnPropertyChanged(); }
         }
         private dbGymContext Context { get; set; }
 
@@ -63,10 +64,42 @@ namespace IT008_UIT.ViewModel
             await Task.Delay(1000);
             _ = LoadDataAsync();
         }
-
-        public void Search(String content)
+        private Task SearchDataAsync(String content)
         {
-            
+            return Task.Factory.StartNew(() =>
+            {
+                using (Context = new dbGymContext())
+                {
+                    var customer = Context.Customers.Where(s => s.Name == content 
+                        || s.IdentityNumber == content ).ToList();
+                    _customerContext.Clear();
+                    foreach(Customer cus in customer)
+                    {
+                        _customerContext.Add(cus);
+                    }
+                    var stringProperties = typeof(Customer).GetProperties().Where(prop =>
+                    prop.PropertyType == content.GetType());
+                    List<Customer> List = Context.Customers.Where(customer => stringProperties.Any(prop =>
+                    ((prop.GetValue(customer, null) == null) ? "" :
+                    prop.GetValue(customer, null).ToString().ToLower()) == content)).ToList();
+
+
+                    //_customerContext.Clear();
+                    //if (List != null)
+                    //{
+                    //    Debug.WriteLine("!= null");
+                    //    foreach (Customer cus in List)
+                    //    {
+                    //        _customerContext.Add(cus);
+                    //    }
+                    //}
+                }
+            });
+        }
+        public override void SearchData(String content)
+        {
+            _ = SearchDataAsync(content);
+            Debug.WriteLine($"In search... for {content}");
         }
 
         private async Task Update(Customer replace)
@@ -136,6 +169,7 @@ namespace IT008_UIT.ViewModel
         public KhachHangViewModel()
         {
             _customerContext = new ObservableCollection<Customer>();
+            Debug.WriteLine("In Viewmodel...");
             BindingOperations.EnableCollectionSynchronization(CustomerContext, _lockMutex);
             LoadData();
             GridChangeCommand = new RelayCommand<DataGrid>((p) => { return p == null ? false : true; }, (p) =>

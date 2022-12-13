@@ -10,9 +10,9 @@
              mc:Ignorable="d" 
              Style="{StaticResource Page_Style}"
              x:Name="ucKhachHang"
-             d:DesignHeight="720" d:DesignWidth="1280">
+             d:DesignHeight="690" d:DesignWidth="1280">
 
-    <Grid>
+    <Grid Margin="0 30 0 0">
         <Grid.RowDefinitions>
             <RowDefinition Height="120"></RowDefinition>
             <RowDefinition></RowDefinition>
@@ -21,11 +21,10 @@
             <local:SearchBarUC></local:SearchBarUC>
         </Grid>
         <Grid Grid.Row="1">
-
+            
             <DataGrid x:Name="GridKhachHang"
                           Style="{StaticResource DataGridStyle}"
                           ItemsSource="{Binding CustomerContext}" 
-                          
                           SelectedItem="{Binding SelectedCustomer, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
                 <DataGrid.InputBindings>
                     <KeyBinding Key="Enter" Command="{Binding GridChangeCommand}" CommandParameter="{Binding ElementName=GridKhachHang}" />
@@ -36,18 +35,49 @@
                             <i:InvokeCommandAction Command="{Binding GridChangeCommand}"
                                                    CommandParameter="{Binding ElementName=GridKhachHang}"/>
                         </i:EventTrigger>
-                        
                     </i:Interaction.Triggers>-->
 
                 <DataGrid.Columns>
                     
+                    
                     <DataGridTextColumn Header="ID" Binding="{Binding Path=CustomerId, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True" ></DataGridTextColumn>
                     <DataGridTextColumn Header="Name" Binding="{Binding Path=Name, UpdateSourceTrigger=PropertyChanged}"></DataGridTextColumn>
+                    <DataGridTemplateColumn Header="Name">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <materialDesign:Chip Width="50" Height="30"
+                                    Content="{Binding Path=Name, UpdateSourceTrigger=PropertyChanged}">
+                                    <materialDesign:Chip.Icon>
+                                        <Image />
+                                    </materialDesign:Chip.Icon>
+                                </materialDesign:Chip>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
                     <DataGridTextColumn Header="IdentityNumber" Binding="{Binding Path=IdentityNumber, UpdateSourceTrigger=PropertyChanged}"></DataGridTextColumn>
                     <DataGridTextColumn Header="Gender" Binding="{Binding Path=Gender, UpdateSourceTrigger=PropertyChanged}"></DataGridTextColumn>
                     <DataGridTextColumn Header="Phone" Binding="{Binding Path=Phone, UpdateSourceTrigger=PropertyChanged}"></DataGridTextColumn>
+
+                    <DataGridTemplateColumn Header="Phone">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBox x:Name="PhoneTextBox" materialDesign:TransitionAssist.DisableTransitions="True"
+                                            Text="{Binding Path=Phone, UpdateSourceTrigger=PropertyChanged}">
+                                </TextBox>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
                     <DataGridTextColumn Header="Email" Binding="{Binding Path=Email, UpdateSourceTrigger=PropertyChanged}"></DataGridTextColumn>
-                    <DataGridTextColumn Header="Address" Binding="{Binding Path=Address, UpdateSourceTrigger=PropertyChanged}"></DataGridTextColumn>
+                    <DataGridTemplateColumn Header="Address">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBox Text="{Binding Path=Address, UpdateSourceTrigger=PropertyChanged}">
+                                </TextBox>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    
                     <DataGridTemplateColumn Header="D.O.B">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
@@ -71,9 +101,13 @@
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <Button Command="{Binding DataContext.DeleteCommand, ElementName=GridKhachHang}"
-                                        CommandParameter="{Binding ElementName=GridKhachHang}">
-                                    <materialDesign:PackIcon Kind="Delete" />
+                                        CommandParameter="{Binding ElementName=GridKhachHang}"
+                                        Width="30" Height="30"
+                                        Style="{StaticResource MaterialDesignFloatingActionMiniLightButton}"
+                                        ToolTip="MaterialDesignFloatingActionMiniLightButton">
+                                    <materialDesign:PackIcon Kind="Delete" Height="15" Width="15" />
                                 </Button>
+                                
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>

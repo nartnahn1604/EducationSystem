@@ -23,8 +23,14 @@ namespace IT008_UIT
         public LoginScreen()
         {
             InitializeComponent();
-            //this.DataContext = Viewmodel = new LoginViewModel(LoginUC.txtEmail.Text, LoginUC.txtPassword.Password);
+        }
 
+        private void txtPassword_PasswordChanged(object sender, RoutedEventArgs e)
+        {
+            if (this.DataContext != null)
+            {
+                ((dynamic)this.DataContext).Password = ((PasswordBox)sender).Password;
+            }
         }
     }
 }

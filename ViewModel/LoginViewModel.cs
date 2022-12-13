@@ -60,7 +60,7 @@ namespace IT008_UIT.ViewModel
         {
 
             IsLoggedIn = false;
-            DangNhapCommand = new RelayCommand<UserControl>((p) => { return p == null ? false : true; }, async (p) =>
+            DangNhapCommand = new RelayCommand<Window>((p) => { return p == null ? false : true; }, async (p) =>
             {
                 Debug.WriteLine(this.UserEmail, this.Password);
                 //var isLogin = await FirebaseHelper.loginWithEmailAndPasswordAsync(this.UserEmail, this.Password);
@@ -69,14 +69,14 @@ namespace IT008_UIT.ViewModel
 
                 if (isLogin)
                 {
-                    FrameworkElement window = GetWindowParent(p);
-                    var w = window as Window;
-                    if (w != null)
+                    //FrameworkElement window = GetWindowParent(p);
+                    //var w = window as Window;
+                    if (p != null)
                     {
                         IsLoggedIn = true;
                         MainWindow homescreen = new MainWindow();
                         homescreen.Show();
-                        w.Close();
+                        p.Close();
                     }
                 }
                 else
@@ -84,16 +84,16 @@ namespace IT008_UIT.ViewModel
             }
             );
         }
-        FrameworkElement GetWindowParent(UserControl p)
-        {
-            FrameworkElement parent = p;
+        //FrameworkElement GetWindowParent(UserControl p)
+        //{
+        //    FrameworkElement parent = p;
 
-            while (parent.Parent != null)
-            {
-                parent = parent.Parent as FrameworkElement;
-            }
+        //    while (parent.Parent != null)
+        //    {
+        //        parent = parent.Parent as FrameworkElement;
+        //    }
 
-            return parent;
-        }
+        //    return parent;
+        //}
     }
 }

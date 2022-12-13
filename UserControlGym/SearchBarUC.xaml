@@ -3,37 +3,38 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:local="clr-namespace:IT008_UIT.UserControlGym"
              mc:Ignorable="d" 
              x:Name="ucSearchBar"
              DataContext="{StaticResource SearchBarVM}"
              d:DesignHeight="120" d:DesignWidth="1280">
-    <Grid>
-        <materialDesign:ColorZone Mode="PrimaryMid" Padding="16">
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition></RowDefinition>
-                    <RowDefinition></RowDefinition>
-                </Grid.RowDefinitions>
-                <DockPanel Grid.Row="0">
-                    <StackPanel Orientation="Horizontal" materialDesign:RippleAssist.IsCentered="True">
-                        <materialDesign:ColorZone Mode="Standard"  Padding="8 4 8 4" CornerRadius="10" Panel.ZIndex="1" Margin="16 0 0 0"
+    <Border CornerRadius="0 15 15 0" >
+        <Grid>
+            <materialDesign:ColorZone Background="Transparent" Padding="16">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <DockPanel Grid.Row="0">
+                        <StackPanel Orientation="Horizontal" materialDesign:RippleAssist.IsCentered="True">
+                            <materialDesign:ColorZone Mode="Standard"  Padding="8 4 8 4" CornerRadius="10" Panel.ZIndex="1" Margin="16 0 0 0"
                                                           materialDesign:ShadowAssist.ShadowDepth="Depth1" Width="1230" >
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto" />
-                                    <ColumnDefinition Width="*" />
-                                    <ColumnDefinition Width="Auto" />
-                                </Grid.ColumnDefinitions>
-                                <Button
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <Button
                                     Style="{DynamicResource MaterialDesignToolButton}"
                                     Command="{Binding SearchCommand}"
-                                     CommandParameter="{Binding ElementName=ucSearchBar}">
-                                    <materialDesign:PackIcon Kind="Magnify" Opacity=".56" />
-                                </Button>
-                                <TextBox
-                                    x:Name="Search"
+                                    CommandParameter="{Binding ElementName=ucSearchBar}">
+                                        <materialDesign:PackIcon Kind="Magnify" Opacity=".56" />
+                                    </Button>
+                                    <TextBox x:Name="Search"
                                     Grid.Column="1"
                                     Margin="8 0 0 0"
                                     materialDesign:HintAssist.Hint="Search..."
@@ -41,21 +42,25 @@
                                     BorderThickness="0"
                                     MinWidth="200"
                                     VerticalAlignment="Center"
-                                    Text="{Binding SearchingContent, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-                            </Grid>
-                        </materialDesign:ColorZone>
-                    </StackPanel>
-                </DockPanel>
-                <StackPanel Grid.Row="1" VerticalAlignment="Bottom" Margin="0 10 0 0" Height="30">
-                    <!--<Button  Background="#00ADB5"  HorizontalAlignment="Left" Margin="15 0 0 0" x:Name="testbtn"
+                                    Text="{Binding SearchingContent, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                                        <TextBox.InputBindings>
+                                            <KeyBinding Key="Enter" Command="{Binding SearchCommand}" CommandParameter="{Binding ElementName=ucSearchBar}" />
+                                        </TextBox.InputBindings>
+                                    </TextBox>
+                                </Grid>
+                            </materialDesign:ColorZone>
+                        </StackPanel>
+                    </DockPanel>
+                    <StackPanel Grid.Row="1" VerticalAlignment="Bottom" Margin="0 10 0 0" Height="30">
+                        <Button  Background="#00ADB5"  HorizontalAlignment="Left" Margin="15 0 0 0" x:Name="testbtn"
                         Style="{DynamicResource MaterialDesignRaisedButton}" Width="100" Height="30" 
                              materialDesign:ShadowAssist.ShadowDepth="Depth2" >
-                        +Thêm
-                    </Button>-->
-                    <TextBox
-                        Text="{Binding Path=Text, ElementName=Search}"></TextBox>
-                </StackPanel>
-            </Grid>
-        </materialDesign:ColorZone>
-    </Grid>
+                            +Thêm
+                        </Button>
+                    </StackPanel>
+                </Grid>
+            </materialDesign:ColorZone>
+        </Grid>
+    </Border>
+    
 </UserControl>

@@ -20,21 +20,17 @@ namespace IT008_UIT.ViewModel
             get => _searchString; 
             set { _searchString = value; OnPropertyChanged () ;}
         }
+        private KhachHangViewModel kh;
         public SearchBarViewModel()
         {
-
             SearchCommand = new RelayCommand<UserControl>((p) => { return p == null ? false : true; }, (p) =>
             {
                 FrameworkElement usercontrol = GetWindowParent(p);
-
                 var w = usercontrol as UserControl;
-
-                Debug.WriteLine(this + "?|||" + SearchingContent);
                 if (w != null)
                 {
-                    Debug.WriteLine(w +"||||"+ SearchingContent);
-                    KhachHangViewModel KHsearch =(KhachHangViewModel) w.DataContext;
-                    KHsearch.Search(SearchingContent);
+                    var KHsearch = w.DataContext as BaseViewModel;
+                    KHsearch.SearchData(SearchingContent);
                 }
             }
             );

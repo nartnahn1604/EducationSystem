@@ -21,11 +21,9 @@ namespace IT008_UIT.UserControlGym
     /// </summary>
     public partial class QuenMatKhauUC : UserControl
     {
-        public QuenMatKhauViewModel ViewModel { get; set; }
         public QuenMatKhauUC()
         {
             InitializeComponent();
-            this.DataContext= ViewModel=new QuenMatKhauViewModel();
         }
 
         

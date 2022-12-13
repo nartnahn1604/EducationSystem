@@ -13,46 +13,48 @@
              TextElement.FontSize="13"
              TextOptions.TextFormattingMode="Ideal"
              TextOptions.TextRenderingMode="Auto"
-       
-             Background="{DynamicResource MaterialDesignPaper}"
+             DataContext="{DynamicResource QuenMatKhauVM}"
+             Background="Transparent"
              FontFamily="{DynamicResource MaterialDesignFont}">
-    <Grid  Style="{DynamicResource ColorGrid}">
-
-
-        <local:WindowBarUC></local:WindowBarUC>
-        <Button Background="Transparent" BorderBrush="Transparent" VerticalAlignment="Top" HorizontalAlignment="Left" 
-                Width="70" Height="70"  
+    
+    <Border Style="{DynamicResource BorderWindow}">
+        <Grid>
+            
+            <Button Background="Transparent" BorderBrush="Transparent" VerticalAlignment="Top" HorizontalAlignment="Left" 
+                Width="70" Height="70"  Margin="0 30 0 0" 
         Style="{StaticResource MaterialDesignFloatingActionMiniDarkButton}" 
                 Command="{x:Static materialDesign:Transitioner.MoveFirstCommand}"
             ToolTip="MaterialDesignFloatingActionMiniDarkButton">
-            <materialDesign:PackIcon Width="40" Height="40"
+                <materialDesign:PackIcon Width="40" Height="40"
                 Kind="KeyboardBackspace" Foreground="#00ADB5" materialDesign:ShadowAssist.ShadowEdges="All"/>
-        </Button>
-        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Height="600" Width="720">
-            <Image Source="/Images/logo_app.png" Stretch="Uniform" Height="100" ></Image>
-            <TextBlock Foreground="White" HorizontalAlignment="Center" FontSize="72"
+            </Button>
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Height="600" Width="720">
+                <Image Source="/Images/logo_app.png" Stretch="Uniform" Height="100" ></Image>
+                <TextBlock Foreground="White" HorizontalAlignment="Center" FontSize="72"
                 Style="{DynamicResource MaterialDesignDisplay4TextBlock}">
                 <Bold>Quên mật khẩu</Bold>
-            </TextBlock>
-            <TextBlock Foreground="White" HorizontalAlignment="Center" FontSize="16"
+                </TextBlock>
+                <TextBlock Foreground="White" HorizontalAlignment="Center" FontSize="16"
                 Style="{DynamicResource MaterialDesignBody2TextBlock}">
                     Xin chào, hãy nhập các thông tin dưới đây và làm theo chỉ dẫn để đặt lại mật khẩu bạn nhé!
-            </TextBlock>
-            <TextBox Text="{Binding Email, UpdateSourceTrigger=PropertyChanged}" Grid.Row="2" HorizontalAlignment="Center"  Width="500" Margin="0,50,0,100"  Height="60"
+                </TextBlock>
+                <TextBox Text="{Binding Email, UpdateSourceTrigger=PropertyChanged}" Grid.Row="2" HorizontalAlignment="Center"  Width="500" Margin="0,50,0,100"  Height="60"
                      FontSize="24" Foreground="White" BorderBrush="White"
                  materialDesign:HintAssist.Hint="Email" materialDesign:HintAssist.Foreground="White" 
                 Style="{DynamicResource MaterialDesignFloatingHintTextBox}" />
-            <Button Background="#00ADB5" HorizontalAlignment="Center"
+                <Button Background="#00ADB5" HorizontalAlignment="Center"
                 Style="{DynamicResource MaterialDesignRaisedButton}" Width="400" Height="50"
                Command="{Binding QuenMatKhauCommand}"  CommandParameter="ucQuenMatKhau"
                     
                 materialDesign:ShadowAssist.ShadowDepth="Depth2" >
-                Gửi mã
-            </Button>
-            <TextBlock Foreground="White" HorizontalAlignment="Center" FontSize="16" Margin="0,10,0,0"
+                    Gửi mã
+                </Button>
+                <TextBlock Foreground="White" HorizontalAlignment="Center" FontSize="16" Margin="0,10,0,0"
                 Style="{DynamicResource MaterialDesignBody2TextBlock}">
                     Vui lòng ấn vào đường link đã được hệ thống gửi qua mail mà các bạn đã nhập
-            </TextBlock>
-        </StackPanel>
-    </Grid>
+                </TextBlock>
+            </StackPanel>
+        </Grid>
+    </Border>
+    
 </UserControl>

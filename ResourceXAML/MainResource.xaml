@@ -7,6 +7,7 @@
 
     <viewmodel:MainViewModel x:Key="MainVM"></viewmodel:MainViewModel>
     <viewmodel:LoginViewModel x:Key="LoginVM"></viewmodel:LoginViewModel>
+    <viewmodel:QuenMatKhauViewModel x:Key="QuenMatKhauVM"></viewmodel:QuenMatKhauViewModel>
     <viewmodel:KhachHangViewModel x:Key="KhachHangVM"></viewmodel:KhachHangViewModel>
     <viewmodel:GoiTapViewModel x:Key="GoiTapVM"></viewmodel:GoiTapViewModel>
     <viewmodel:NhanVienViewModel x:Key="NhanVienVM"></viewmodel:NhanVienViewModel>
@@ -47,6 +48,12 @@
 
 
 
+    <Style x:Key="BorderWindow" TargetType="Border">
+        <Setter Property="CornerRadius" Value="15"></Setter>
+        <!--<Setter Property="BorderThickness" Value="2"></Setter>
+        <Setter Property="BorderBrush" Value="#FB8560"></Setter>-->
+       
+    </Style>
     <Style x:Key="Click" TargetType="Button">
         <Setter Property="Background" Value="#00adb5"></Setter>
     </Style>
@@ -56,6 +63,7 @@
     </Style>
 
     <Style x:Key="DataGridStyle" TargetType="DataGrid">
+        <Setter Property="Margin" Value="20 0 20 20"></Setter>
         <Setter Property="CanUserSortColumns" Value="True"></Setter>
         <Setter Property="CanUserAddRows" Value="False"></Setter>
         <Setter Property="AutoGenerateColumns" Value="False"></Setter>

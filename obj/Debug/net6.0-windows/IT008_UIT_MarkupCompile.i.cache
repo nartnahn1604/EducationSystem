@@ -12,9 +12,9 @@ TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 C:\Learning\IT008_project\GymManagement\App.xaml
 191305247781
 
-56-497128071
+55134708877
 237-578271273
 LoginScreen.xaml;MainWindow.xaml;ResourceXAML\MainResource.xaml;UserControlGym\CloseWindowButton.xaml;UserControlGym\DoiMatKhauUC.xaml;UserControlGym\DynamicChartUC.xaml;UserControlGym\GoBackButton.xaml;UserControlGym\GoiTapUC.xaml;UserControlGym\HomeUC.xaml;UserControlGym\HopDongUC.xaml;UserControlGym\KhachHangUC.xaml;UserControlGym\LoginUC.xaml;UserControlGym\NhanVienUC.xaml;UserControlGym\PieChartUC.xaml;UserControlGym\QuenMatKhauUC.xaml;UserControlGym\SearchBarUC.xaml;UserControlGym\ThongKeUC.xaml;UserControlGym\VatTuUC.xaml;UserControlGym\WindowBarUC.xaml;
 
-False
+True
 

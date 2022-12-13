@@ -17,133 +17,143 @@
         WindowStyle="None"
         ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen"
-        Background="{DynamicResource MaterialDesignPaper}"
+        Background="Transparent" AllowsTransparency="True"
         FontFamily="{DynamicResource MaterialDesignFont}"
         DataContext="{StaticResource MainVM}"
         x:Name="mainscreen"
         Title="MainWindow" Height="720" Width="1280">
-    
-    <Grid Style="{DynamicResource ColorGrid}">
-        
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="0.2*"></ColumnDefinition>
-            <ColumnDefinition Width="0.8*"></ColumnDefinition>
-        </Grid.ColumnDefinitions>
-        <Grid Grid.Column="0">
-            <Border Background="#272B2F"
-                        CornerRadius="20,0,0,20" />
-            <StackPanel Background="White">
-                <Image Source="/Images/logo_app.png" Width="150px" Margin="0,50,0,50"></Image>
+    <Border Style="{DynamicResource BorderWindow}"  Background="#FB8560">
+        <Grid>
 
-                <Menu:Btn Style="{StaticResource BtnStyle}" Command="{Binding HomeCommand}" CommandParameter="{Binding ElementName=mainscreen}" IsChecked="true">
-                    <Grid>
-                        <materialDesign:PackIcon Kind="Home" Style="{StaticResource IconMenu}"/>
-                        <TextBlock
+            <!--Window Bar-->     
+            
+            <uc:WindowBarUC Height="50" VerticalAlignment="Top"></uc:WindowBarUC>
+            
+            <!--Main View-->
+            
+            <Grid>
+                
+                
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.2*"></ColumnDefinition>
+                    <ColumnDefinition Width="0.8*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                
+                <!--Menu Navigation-->
+
+                <Border  
+                        CornerRadius="15,0,0,15" Grid.Column="0" Background="White">
+                    <StackPanel>
+                        <Image Source="/Images/logo_app.png" Width="150px" Margin="0,50,0,50"></Image>
+                        <Menu:Btn Style="{StaticResource BtnStyle}" Command="{Binding HomeCommand}" CommandParameter="{Binding ElementName=mainscreen}" IsChecked="true">
+                            <Grid>
+                                <materialDesign:PackIcon Kind="Home" Style="{StaticResource IconMenu}"/>
+                                <TextBlock
                             Style="{StaticResource Text_Style}" >
                             Trang chủ
-                        </TextBlock>
-                    </Grid>
-                </Menu:Btn>
+                                </TextBlock>
+                            </Grid>
+                        </Menu:Btn>
 
-                <Menu:Btn Style="{StaticResource BtnStyle}" Command="{Binding KhachHangCommand}" CommandParameter="{Binding ElementName=mainscreen}" >
-                    <Grid>
-                        <materialDesign:PackIcon Kind="Account" Style="{StaticResource IconMenu}"/>
-                        <TextBlock
+                        <Menu:Btn Style="{StaticResource BtnStyle}" Command="{Binding KhachHangCommand}" CommandParameter="{Binding ElementName=mainscreen}" >
+                            <Grid>
+                                <materialDesign:PackIcon Kind="Account" Style="{StaticResource IconMenu}"/>
+                                <TextBlock
                             Style="{StaticResource Text_Style}" >
                             Khách hàng
-                        </TextBlock>
-                    </Grid>
-                </Menu:Btn>
+                                </TextBlock>
+                            </Grid>
+                        </Menu:Btn>
 
-                <Menu:Btn Style="{StaticResource BtnStyle}" Command="{Binding NhanVienCommand}" CommandParameter="{Binding ElementName=mainscreen}" >
-                    <Grid>
-                        <materialDesign:PackIcon Kind="CardAccountDetailsOutline" Style="{StaticResource IconMenu}"/>
-                        <TextBlock
+                        <Menu:Btn Style="{StaticResource BtnStyle}" Command="{Binding NhanVienCommand}" CommandParameter="{Binding ElementName=mainscreen}" >
+                            <Grid>
+                                <materialDesign:PackIcon Kind="CardAccountDetailsOutline" Style="{StaticResource IconMenu}"/>
+                                <TextBlock
                             Style="{StaticResource Text_Style}" >
                             Nhân viên
-                        </TextBlock>
-                    </Grid>
-                </Menu:Btn>
-                <Menu:Btn Style="{StaticResource BtnStyle}" Command="{Binding GoiTapCommand}" CommandParameter="{Binding ElementName=mainscreen}" >
-                    <Grid>
-                        <materialDesign:PackIcon Kind="Gymnastics" Style="{StaticResource IconMenu}"/>
-                        <TextBlock
+                                </TextBlock>
+                            </Grid>
+                        </Menu:Btn>
+                        <Menu:Btn Style="{StaticResource BtnStyle}" Command="{Binding GoiTapCommand}" CommandParameter="{Binding ElementName=mainscreen}" >
+                            <Grid>
+                                <materialDesign:PackIcon Kind="Gymnastics" Style="{StaticResource IconMenu}"/>
+                                <TextBlock
                             Style="{StaticResource Text_Style}" >
                             Gói tập
-                        </TextBlock>
-                    </Grid>
-                </Menu:Btn>
-                <Menu:Btn Style="{StaticResource BtnStyle}" Command="{Binding VatTuCommand}" CommandParameter="{Binding ElementName=mainscreen}" >
-                    <Grid>
-                        <materialDesign:PackIcon Kind="Dumbbell" Style="{StaticResource IconMenu}"/>
-                        <TextBlock
+                                </TextBlock>
+                            </Grid>
+                        </Menu:Btn>
+                        <Menu:Btn Style="{StaticResource BtnStyle}" Command="{Binding VatTuCommand}" CommandParameter="{Binding ElementName=mainscreen}" >
+                            <Grid>
+                                <materialDesign:PackIcon Kind="Dumbbell" Style="{StaticResource IconMenu}"/>
+                                <TextBlock
                             Style="{StaticResource Text_Style}" >
-                            Vật tư 
-                        </TextBlock>
-                    </Grid>
-                </Menu:Btn>
-                <Menu:Btn Style="{StaticResource BtnStyle}" Command="{Binding HopDongCommand}" CommandParameter="{Binding ElementName=mainscreen}" >
-                    <Grid>
-                        <materialDesign:PackIcon Kind="FileDocumentEdit" Style="{StaticResource IconMenu}"/>
-                        <TextBlock
+                            Vật tư
+                                </TextBlock>
+                            </Grid>
+                        </Menu:Btn>
+                        <Menu:Btn Style="{StaticResource BtnStyle}" Command="{Binding HopDongCommand}" CommandParameter="{Binding ElementName=mainscreen}" >
+                            <Grid>
+                                <materialDesign:PackIcon Kind="FileDocumentEdit" Style="{StaticResource IconMenu}"/>
+                                <TextBlock
                             Style="{StaticResource Text_Style}" >
                             Hợp đồng
-                        </TextBlock>
-                    </Grid>
-                </Menu:Btn>
-                <Menu:Btn Style="{StaticResource BtnStyle}" Command="{Binding ThongKeCommand}" CommandParameter="{Binding ElementName=mainscreen}" >
-                    <Grid>
-                        <materialDesign:PackIcon Kind="ViewDashboardVariant" Style="{StaticResource IconMenu}"/>
-                        <TextBlock
+                                </TextBlock>
+                            </Grid>
+                        </Menu:Btn>
+                        <Menu:Btn Style="{StaticResource BtnStyle}" Command="{Binding ThongKeCommand}" CommandParameter="{Binding ElementName=mainscreen}" >
+                            <Grid>
+                                <materialDesign:PackIcon Kind="ViewDashboardVariant" Style="{StaticResource IconMenu}"/>
+                                <TextBlock
                             Style="{StaticResource Text_Style}" >
                             Thống kê
-                        </TextBlock>
-                    </Grid>
-                </Menu:Btn>
-                <Grid  Margin="0 80 0 0">
-                    <TextBlock
+                                </TextBlock>
+                            </Grid>
+                        </Menu:Btn>
+
+                        <!--Tùy chọn ứng dụng-->
+
+                        <Grid  Margin="0 80 0 0">
+                            <TextBlock
                             Style="{StaticResource Text_Style}" Focusable="False" >
                             Tùy chọn
-                    </TextBlock>
-                    <materialDesign:PopupBox
+                            </TextBlock>
+                            <materialDesign:PopupBox
                                 Foreground="#00adb5" Style="{DynamicResource MaterialDesignMultiFloatingActionPopupBox}" PlacementMode="BottomAndAlignCentres" ToolTipService.Placement="Right"
                                 ToolTip="PopupBox, Style MaterialDesignMultiFloatingActionPopupBox" Height="30" Width="150" Margin="30,0,0,0">
-                        <StackPanel>
-                            <DockPanel>
-                                <materialDesign:PackIcon Kind="Settings" Width="20" Height="20" VerticalAlignment="Center" Foreground="#00adb5"/>
-                                <Button ToolTip="Cài đặt ứng dụng"  Foreground="#00adb5">
-                                    Cài đặt
-                                </Button>
-                            </DockPanel>
-                            <DockPanel>
-                                <materialDesign:PackIcon Kind="HelpCircle" Width="20" Height="20" VerticalAlignment="Center"  Foreground="#00adb5"/>
-                                <Button ToolTip="Liên hệ với chủ sở hữu"  Foreground="#00adb5">
+                                <StackPanel>
+                                    <DockPanel>
+                                        <Button ToolTip="Cài đặt ứng dụng"  Foreground="#00adb5">
+                                            Cài đặt
+                                        </Button>
+                                    </DockPanel>
+                                    <DockPanel>
+                                        <Button ToolTip="Liên hệ với chủ sở hữu"  Foreground="#00adb5">
 
-                                    Hỗ trợ
-                                </Button>
-                            </DockPanel>
-                            <DockPanel>
-                                <materialDesign:PackIcon Kind="Logout" Width="20" Height="20" VerticalAlignment="Center"  Foreground="#00adb5"/>
-                                <Button  ToolTip="Đăng xuất khỏi ứng dụng "   Foreground="#00adb5" Command="{Binding ExitCommand}" CommandParameter="{Binding ElementName=mainscreen}">
-                                    Đăng xuất
-                                </Button>
-                            </DockPanel>
-                        </StackPanel>
-                    </materialDesign:PopupBox>
-                </Grid>
-            </StackPanel>
-
-        </Grid>
-        <Grid Grid.Column="1">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="50"></RowDefinition>
-                <RowDefinition></RowDefinition>
-            </Grid.RowDefinitions>
-            <ContentControl x:Name="Pages"
+                                            Hỗ trợ
+                                        </Button>
+                                    </DockPanel>
+                                    <DockPanel>
+                                        <Button  ToolTip="Đăng xuất khỏi ứng dụng "   Foreground="#00adb5" Command="{Binding ExitCommand}" CommandParameter="{Binding ElementName=mainscreen}">
+                                            Đăng xuất
+                                        </Button>
+                                    </DockPanel>
+                                </StackPanel>
+                            </materialDesign:PopupBox>
+                        </Grid>
+                    </StackPanel>
+                </Border>
+                
+                <!--Các màn hình chức năng-->
+                
+                <Grid Grid.Column="1">
+                    <ContentControl x:Name="Pages"
                             Content="{Binding CurrentView}"
-                            Grid.Row="1">
-            </ContentControl>
-            <uc:WindowBarUC></uc:WindowBarUC>
+                                    >
+                    </ContentControl>
+
+                </Grid>
+            </Grid>
         </Grid>
-    </Grid>
+    </Border>
 </Window>

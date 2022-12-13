@@ -17,6 +17,10 @@ namespace IT008_UIT.ViewModel
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+        public virtual void SearchData(String content)
+        {
+            // Please Implementation this method
+        }
 
 
     }
