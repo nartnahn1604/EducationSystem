@@ -7,16 +7,19 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="LoginScreen.xaml.cs">
+    <Compile Update="LoginWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="UserControlGym\GoiTapUC.xaml.cs">
+    <Compile Update="UserControlGym\AddContractUC.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="UserControlGym\HopDongUC.xaml.cs">
+    <Compile Update="UserControlGym\CourseUC.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="UserControlGym\KhachHangUC.xaml.cs">
+    <Compile Update="UserControlGym\ContractUC.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="UserControlGym\CustomerUC.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="UserControlGym\DoiMatKhauUC.xaml.cs">
@@ -31,22 +34,25 @@
     <Compile Update="UserControlGym\LoginUC.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="UserControlGym\NhanVienUC.xaml.cs">
+    <Compile Update="UserControlGym\StaffUC.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="UserControlGym\PieChartUC.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="UserControlGym\QuenMatKhauUC.xaml.cs">
+    <Compile Update="UserControlGym\ForgetPasswordUC.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="UserControlGym\SampleProgressDialog.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="UserControlGym\SearchBarUC.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="UserControlGym\ThongKeUC.xaml.cs">
+    <Compile Update="UserControlGym\StatisticUC.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="UserControlGym\VatTuUC.xaml.cs">
+    <Compile Update="UserControlGym\FacilityUC.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="UserControlGym\WindowBarUC.xaml.cs">
@@ -54,7 +60,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Page Update="LoginScreen.xaml">
+    <Page Update="LoginWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MainWindow.xaml">
@@ -63,13 +69,16 @@
     <Page Update="ResourceXAML\MainResource.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="UserControlGym\GoiTapUC.xaml">
+    <Page Update="UserControlGym\AddContractUC.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="UserControlGym\HopDongUC.xaml">
+    <Page Update="UserControlGym\CourseUC.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="UserControlGym\KhachHangUC.xaml">
+    <Page Update="UserControlGym\ContractUC.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UserControlGym\CustomerUC.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="UserControlGym\DoiMatKhauUC.xaml">
@@ -84,22 +93,25 @@
     <Page Update="UserControlGym\LoginUC.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="UserControlGym\NhanVienUC.xaml">
+    <Page Update="UserControlGym\StaffUC.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="UserControlGym\PieChartUC.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="UserControlGym\QuenMatKhauUC.xaml">
+    <Page Update="UserControlGym\ForgetPasswordUC.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UserControlGym\SampleProgressDialog.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="UserControlGym\SearchBarUC.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="UserControlGym\ThongKeUC.xaml">
+    <Page Update="UserControlGym\StatisticUC.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="UserControlGym\VatTuUC.xaml">
+    <Page Update="UserControlGym\FacilityUC.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="UserControlGym\WindowBarUC.xaml">

@@ -7,13 +7,13 @@ namespace IT008_UIT.Models
     {
         public Role()
         {
-            StaffIds = new HashSet<StaffId>();
+            Staffs = new HashSet<Staff>();
         }
 
         public int RoleId { get; set; }
         public string? Name { get; set; }
         public string? Description { get; set; }
 
-        public virtual ICollection<StaffId> StaffIds { get; set; }
+        public virtual ICollection<Staff> Staffs { get; set; }
     }
 }

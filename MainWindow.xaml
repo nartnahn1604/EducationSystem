@@ -21,8 +21,10 @@
         FontFamily="{DynamicResource MaterialDesignFont}"
         DataContext="{StaticResource MainVM}"
         x:Name="mainscreen"
-        Title="MainWindow" Height="720" Width="1280">
-    <Border Style="{DynamicResource BorderWindow}"  Background="#FB8560">
+        Title="MainWindow" Height="768" Width="1366">
+    <materialDesign:DialogHost DialogTheme="Inherit"
+                               Identifier="RootDialog">
+        <Border Style="{DynamicResource BorderWindow}"  Background="#FB8560">
         <Grid>
 
             <!--Window Bar-->     
@@ -35,8 +37,8 @@
                 
                 
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="0.2*"></ColumnDefinition>
-                    <ColumnDefinition Width="0.8*"></ColumnDefinition>
+                    <ColumnDefinition Width="224"></ColumnDefinition>
+                    <ColumnDefinition ></ColumnDefinition>
                 </Grid.ColumnDefinitions>
                 
                 <!--Menu Navigation-->
@@ -55,7 +57,7 @@
                             </Grid>
                         </Menu:Btn>
 
-                        <Menu:Btn Style="{StaticResource BtnStyle}" Command="{Binding KhachHangCommand}" CommandParameter="{Binding ElementName=mainscreen}" >
+                        <Menu:Btn Style="{StaticResource BtnStyle}" Command="{Binding CustomerCommand}" CommandParameter="{Binding ElementName=mainscreen}" >
                             <Grid>
                                 <materialDesign:PackIcon Kind="Account" Style="{StaticResource IconMenu}"/>
                                 <TextBlock
@@ -65,7 +67,7 @@
                             </Grid>
                         </Menu:Btn>
 
-                        <Menu:Btn Style="{StaticResource BtnStyle}" Command="{Binding NhanVienCommand}" CommandParameter="{Binding ElementName=mainscreen}" >
+                        <Menu:Btn Style="{StaticResource BtnStyle}" Command="{Binding StaffCommand}" CommandParameter="{Binding ElementName=mainscreen}" >
                             <Grid>
                                 <materialDesign:PackIcon Kind="CardAccountDetailsOutline" Style="{StaticResource IconMenu}"/>
                                 <TextBlock
@@ -74,7 +76,7 @@
                                 </TextBlock>
                             </Grid>
                         </Menu:Btn>
-                        <Menu:Btn Style="{StaticResource BtnStyle}" Command="{Binding GoiTapCommand}" CommandParameter="{Binding ElementName=mainscreen}" >
+                        <Menu:Btn Style="{StaticResource BtnStyle}" Command="{Binding CourseCommand}" CommandParameter="{Binding ElementName=mainscreen}" >
                             <Grid>
                                 <materialDesign:PackIcon Kind="Gymnastics" Style="{StaticResource IconMenu}"/>
                                 <TextBlock
@@ -83,7 +85,7 @@
                                 </TextBlock>
                             </Grid>
                         </Menu:Btn>
-                        <Menu:Btn Style="{StaticResource BtnStyle}" Command="{Binding VatTuCommand}" CommandParameter="{Binding ElementName=mainscreen}" >
+                        <Menu:Btn Style="{StaticResource BtnStyle}" Command="{Binding FacilityCommand}" CommandParameter="{Binding ElementName=mainscreen}" >
                             <Grid>
                                 <materialDesign:PackIcon Kind="Dumbbell" Style="{StaticResource IconMenu}"/>
                                 <TextBlock
@@ -92,7 +94,7 @@
                                 </TextBlock>
                             </Grid>
                         </Menu:Btn>
-                        <Menu:Btn Style="{StaticResource BtnStyle}" Command="{Binding HopDongCommand}" CommandParameter="{Binding ElementName=mainscreen}" >
+                        <Menu:Btn Style="{StaticResource BtnStyle}" Command="{Binding ContractCommand}" CommandParameter="{Binding ElementName=mainscreen}" >
                             <Grid>
                                 <materialDesign:PackIcon Kind="FileDocumentEdit" Style="{StaticResource IconMenu}"/>
                                 <TextBlock
@@ -101,7 +103,7 @@
                                 </TextBlock>
                             </Grid>
                         </Menu:Btn>
-                        <Menu:Btn Style="{StaticResource BtnStyle}" Command="{Binding ThongKeCommand}" CommandParameter="{Binding ElementName=mainscreen}" >
+                        <Menu:Btn Style="{StaticResource BtnStyle}" Command="{Binding StatisticCommand}" CommandParameter="{Binding ElementName=mainscreen}" >
                             <Grid>
                                 <materialDesign:PackIcon Kind="ViewDashboardVariant" Style="{StaticResource IconMenu}"/>
                                 <TextBlock
@@ -156,4 +158,5 @@
             </Grid>
         </Grid>
     </Border>
+    </materialDesign:DialogHost>
 </Window>

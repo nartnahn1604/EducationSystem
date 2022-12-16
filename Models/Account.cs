@@ -13,6 +13,6 @@ namespace IT008_UIT.Models
         public DateTime? LastLogin { get; set; }
         public bool Active { get; set; }
 
-        public virtual StaffId? Staff { get; set; }
+        public virtual Staff? Staff { get; set; }
     }
 }

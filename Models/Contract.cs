@@ -5,6 +5,7 @@ namespace IT008_UIT.Models
 {
     public partial class Contract
     {
+
         public int ContractId { get; set; }
         public int? CustomerId { get; set; }
         public int? CourseId { get; set; }

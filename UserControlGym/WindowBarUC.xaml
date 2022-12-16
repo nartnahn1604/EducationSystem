@@ -16,7 +16,7 @@
             <i:InvokeCommandAction Command="{Binding MouseMoveWindowCommand}" CommandParameter="{Binding ElementName=ucWindowBar}"/>
         </i:EventTrigger>
     </i:Interaction.Triggers>
-    
+
     <Grid Background="Transparent">
         <Button HorizontalAlignment="Right" VerticalAlignment="Top" Background="Transparent" BorderBrush="Transparent"
             Style="{StaticResource MaterialDesignFloatingActionMiniDarkButton}"
@@ -24,7 +24,7 @@
             Command="{Binding CloseWindowCommand}"
                 CommandParameter="{Binding ElementName=ucWindowBar}">
             <materialDesign:PackIcon Kind="Close" Foreground="#00ADB5" />
-            
+
         </Button>
         <Button HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,0,45,0" Background="Transparent" BorderBrush="Transparent"
         Style="{StaticResource MaterialDesignFloatingActionMiniDarkButton}" 
@@ -33,7 +33,7 @@
                 CommandParameter="{Binding ElementName=ucWindowBar}">
             <materialDesign:PackIcon Kind="WindowMinimize" Foreground="#00ADB5" />
         </Button>
-       
-        
+
+
     </Grid>
 </UserControl>

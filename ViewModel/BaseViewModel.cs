@@ -22,6 +22,11 @@ namespace IT008_UIT.ViewModel
             // Please Implementation this method
         }
 
+        public virtual void AddData()
+        {
+            // Please Implementation this method
+        }
+
 
     }
 

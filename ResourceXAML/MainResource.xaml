@@ -7,14 +7,14 @@
 
     <viewmodel:MainViewModel x:Key="MainVM"></viewmodel:MainViewModel>
     <viewmodel:LoginViewModel x:Key="LoginVM"></viewmodel:LoginViewModel>
-    <viewmodel:QuenMatKhauViewModel x:Key="QuenMatKhauVM"></viewmodel:QuenMatKhauViewModel>
-    <viewmodel:KhachHangViewModel x:Key="KhachHangVM"></viewmodel:KhachHangViewModel>
-    <viewmodel:GoiTapViewModel x:Key="GoiTapVM"></viewmodel:GoiTapViewModel>
-    <viewmodel:NhanVienViewModel x:Key="NhanVienVM"></viewmodel:NhanVienViewModel>
-    <viewmodel:VatTuViewModel x:Key="VatTuVM"></viewmodel:VatTuViewModel>
+    <viewmodel:ForgetPasswordViewModel x:Key="ForgetPasswordVM"></viewmodel:ForgetPasswordViewModel>
+    <viewmodel:CustomerViewModel x:Key="CustomerVM"></viewmodel:CustomerViewModel>
+    <viewmodel:CourseViewModel x:Key="CourseVM"></viewmodel:CourseViewModel>
+    <viewmodel:StaffViewModel x:Key="StaffVM"></viewmodel:StaffViewModel>
+    <viewmodel:FacilityViewModel x:Key="FacilityVM"></viewmodel:FacilityViewModel>
     <viewmodel:HomeViewModel x:Key="HomeVM"></viewmodel:HomeViewModel>
-    <viewmodel:HopDongViewModel x:Key="HopdongVM"></viewmodel:HopDongViewModel>
-    <viewmodel:ThongKeViewModel x:Key="ThongKeVM"></viewmodel:ThongKeViewModel>
+    <viewmodel:ContractViewModel x:Key="CotractVM"></viewmodel:ContractViewModel>
+    <viewmodel:StatisticViewModel x:Key="StatisticVM"></viewmodel:StatisticViewModel>
     <viewmodel:SearchBarViewModel x:Key="SearchBarVM"></viewmodel:SearchBarViewModel>
     <viewmodel:WindowBarViewModel x:Key="WindowBarVM"></viewmodel:WindowBarViewModel>
 
@@ -22,28 +22,28 @@
         <uc:HomeUC></uc:HomeUC>
     </DataTemplate>
 
-    <DataTemplate DataType="{x:Type viewmodel:KhachHangViewModel}">
-        <uc:KhachHangUC></uc:KhachHangUC>
+    <DataTemplate DataType="{x:Type viewmodel:CustomerViewModel}">
+        <uc:CustomerUC></uc:CustomerUC>
     </DataTemplate>
 
-    <DataTemplate DataType="{x:Type viewmodel:NhanVienViewModel}">
-        <uc:NhanVienUC></uc:NhanVienUC>
+    <DataTemplate DataType="{x:Type viewmodel:StaffViewModel}">
+        <uc:StaffUC></uc:StaffUC>
     </DataTemplate>
 
-    <DataTemplate DataType="{x:Type viewmodel:VatTuViewModel}">
-        <uc:VatTuUC></uc:VatTuUC>
+    <DataTemplate DataType="{x:Type viewmodel:FacilityViewModel}">
+        <uc:FacilityUC></uc:FacilityUC>
     </DataTemplate>
 
-    <DataTemplate DataType="{x:Type viewmodel:GoiTapViewModel}">
-        <uc:GoiTapUC></uc:GoiTapUC>
+    <DataTemplate DataType="{x:Type viewmodel:CourseViewModel}">
+        <uc:CourseUC></uc:CourseUC>
     </DataTemplate>
 
-    <DataTemplate DataType="{x:Type viewmodel:HopDongViewModel}">
-        <uc:HopDongUC></uc:HopDongUC>
+    <DataTemplate DataType="{x:Type viewmodel:ContractViewModel}">
+        <uc:ContractUC></uc:ContractUC>
     </DataTemplate>
 
-    <DataTemplate DataType="{x:Type viewmodel:ThongKeViewModel}">
-        <uc:ThongKeUC></uc:ThongKeUC>
+    <DataTemplate DataType="{x:Type viewmodel:StatisticViewModel}">
+        <uc:StatisticUC></uc:StatisticUC>
     </DataTemplate>
 
 
@@ -63,15 +63,16 @@
     </Style>
 
     <Style x:Key="DataGridStyle" TargetType="DataGrid">
-        <Setter Property="Margin" Value="20 0 20 20"></Setter>
+        <Setter Property="Margin" Value="0 10 0 20"></Setter>
         <Setter Property="CanUserSortColumns" Value="True"></Setter>
         <Setter Property="CanUserAddRows" Value="False"></Setter>
         <Setter Property="AutoGenerateColumns" Value="False"></Setter>
         <Setter Property="CanUserResizeColumns" Value="False"></Setter>
         <Setter Property="CanUserDeleteRows" Value="False"></Setter>
         <Setter Property="GridLinesVisibility" Value="Horizontal"></Setter>
-        <Setter Property="HorizontalGridLinesBrush" Value="#FB8560"></Setter>
+        <Setter Property="HorizontalGridLinesBrush" Value="{StaticResource PrimaryHueLightBrush}"></Setter>
         <Setter Property="SelectionUnit" Value="FullRow"></Setter>
+        <Setter Property="SelectionMode" Value="Single"></Setter>
         <!--CanUserSortColumns="True"
                           AutoGenerateColumns="False"
                           HorizontalGridLinesBrush="#FB8560"
@@ -79,6 +80,13 @@
                           CanUserDeleteRows="False"
                           SelectionUnit="FullRow"
                           CanUserAddRows="True"-->
+    </Style>
+
+    <Style x:Key="TextboxDialog" TargetType="TextBox" BasedOn="{StaticResource MaterialDesignFloatingHintTextBox}">
+        <Setter Property="Width" Value="200"></Setter>
+        <Setter Property="Height" Value="40"></Setter>
+        <Setter Property="Margin" Value="20"></Setter>
+
     </Style>
     
     <Style x:Key="IconMenu" TargetType="materialDesign:PackIcon">
@@ -219,7 +227,7 @@
 
     <Style x:Key="Page_Style"
            TargetType="{x:Type UserControl}">
-
+        <Setter Property="Margin" Value="0 20 0 0"></Setter>
         <Setter Property="RenderTransform">
             <Setter.Value>
                 <TranslateTransform X="0"

@@ -1,7 +1,5 @@
-﻿using IT008_UIT.ViewModel;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 
 namespace IT008_UIT.Models
 {
@@ -13,10 +11,12 @@ namespace IT008_UIT.Models
             Contracts = new HashSet<Contract>();
             Ptcontracts = new HashSet<Ptcontract>();
         }
+
         public int CustomerId { get; set; }
-        public string? Name { get; set;}
+        public string? Name { get; set; }
         public string? IdentityNumber { get; set; }
         public string? Gender { get; set; }
+        public DateTime? Birthday { get; set; }
         public string? Phone { get; set; }
         public string? Email { get; set; }
         public string? Address { get; set; }
@@ -26,7 +26,5 @@ namespace IT008_UIT.Models
         public virtual ICollection<Booking> Bookings { get; set; }
         public virtual ICollection<Contract> Contracts { get; set; }
         public virtual ICollection<Ptcontract> Ptcontracts { get; set; }
-
-        
     }
 }

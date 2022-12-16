@@ -16,12 +16,12 @@ namespace IT008_UIT.ViewModel
     {
         // mọi thứ xử lý sẽ nằm trong này
         public ICommand HomeCommand { get; set; }
-        public ICommand KhachHangCommand { get; set; }
-        public ICommand NhanVienCommand { get; set; }
-        public ICommand VatTuCommand { get; set; }
-        public ICommand ThongKeCommand { get; set; }
-        public ICommand HopDongCommand { get; set; }
-        public ICommand GoiTapCommand { get; set; }
+        public ICommand CustomerCommand { get; set; }
+        public ICommand StaffCommand { get; set; }
+        public ICommand FacilityCommand { get; set; }
+        public ICommand StatisticCommand { get; set; }
+        public ICommand ContractCommand { get; set; }
+        public ICommand CourseCommand { get; set; }
         public ICommand ExitCommand { get; set; }
         private object _currentView;
         public object CurrentView
@@ -38,41 +38,41 @@ namespace IT008_UIT.ViewModel
                 CurrentView = new HomeViewModel();
             }
             );
-            KhachHangCommand = new RelayCommand<object>((p) => { return p == null ? false : true; }, (p) =>
+            CustomerCommand = new RelayCommand<object>((p) => { return p == null ? false : true; }, (p) =>
             {
-                CurrentView = new KhachHangViewModel();
+                CurrentView = new CustomerViewModel();
             }
             );
-            NhanVienCommand = new RelayCommand<object>((p) => { return p == null ? false : true; }, (p) =>
+            StaffCommand = new RelayCommand<object>((p) => { return p == null ? false : true; }, (p) =>
             {
-                CurrentView = new NhanVienViewModel();
+                CurrentView = new StaffViewModel();
             }
             );
-            VatTuCommand = new RelayCommand<object>((p) => { return p == null ? false : true; }, (p) =>
+            FacilityCommand = new RelayCommand<object>((p) => { return p == null ? false : true; }, (p) =>
             {
-                CurrentView = new VatTuViewModel();
+                CurrentView = new FacilityViewModel();
             }
             );
-            GoiTapCommand = new RelayCommand<object>((p) => { return p == null ? false : true; }, (p) =>
+            CourseCommand = new RelayCommand<object>((p) => { return p == null ? false : true; }, (p) =>
             {
-                CurrentView = new GoiTapViewModel();
+                CurrentView = new CourseViewModel();
             }
             );
-            HopDongCommand = new RelayCommand<object>((p) => { return p == null ? false : true; }, (p) =>
+            ContractCommand = new RelayCommand<object>((p) => { return p == null ? false : true; }, (p) =>
             {
-                CurrentView = new HopDongViewModel();
+                CurrentView = new ContractViewModel();
             }
             );
-            ThongKeCommand = new RelayCommand<object>((p) => { return p == null ? false : true; }, (p) =>
+            StatisticCommand = new RelayCommand<object>((p) => { return p == null ? false : true; }, (p) =>
             {
-                CurrentView = new ThongKeViewModel();
+                CurrentView = new StatisticViewModel();
             }
             );
             ExitCommand = new RelayCommand<Window>((p) => { return p == null ? false : true; }, (p) =>
             {
                 if (p != null)
                 {
-                    LoginScreen login = new LoginScreen();
+                    LoginWindow login = new LoginWindow();
                     login.Show();
                     p.Close();
                 }
