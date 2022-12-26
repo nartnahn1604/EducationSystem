@@ -26,5 +26,10 @@ namespace IT008_UIT
             InitializeComponent();
             //Main.Content = new HopDongCoBanPage();
         }
+
+        private void SelectedItem(object sender, RoutedPropertyChangedEventArgs<object> e)
+        {
+
+        }
     }
 }

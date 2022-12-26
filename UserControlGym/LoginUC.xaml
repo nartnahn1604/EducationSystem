@@ -6,7 +6,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:IT008_UIT.UserControlGym"
              mc:Ignorable="d" 
-             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" xmlns:validationrules="clr-namespace:IT008_UIT.ValidationRules"
              TextElement.Foreground="{DynamicResource MaterialDesignBody}"
              TextElement.FontWeight="Regular"
              TextElement.FontSize="13"
@@ -21,67 +21,78 @@
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition Width="1.5*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
             
-            <Grid Grid.Column="0">
-                <StackPanel Height="550" Width="550">
-                    <Image Source="/Images/logo_app.png" Stretch="Uniform" HorizontalAlignment="Left" Margin="20,0,0,0" Height="100"></Image>
-                    <TextBlock Grid.Row="1" FontSize="72" Foreground="White" Margin="20,0,0,0" 
-                                Style="{DynamicResource MaterialDesignDisplay4TextBlock}">
+                <Border Background="White" Grid.Column="0" CornerRadius="15 0 0 15">
+                    <StackPanel  Height="550" Width="450" >
+                        <Image Source="/Images/logo_app.png" Stretch="Uniform" HorizontalAlignment="Left" Margin="20,0,0,0" Height="100"></Image>
+                        <TextBlock Grid.Row="1" FontSize="68"  Margin="20,0,0,0" 
+                                Style="{DynamicResource MaterialDesignTitleTextBlock}">
                                 <Bold>Đăng nhập</Bold>
-                    </TextBlock>
-                    <TextBlock Grid.Row="1" Margin="20,0,0,30" Foreground="White" VerticalAlignment="Bottom"
-                            Style="{DynamicResource MaterialDesignBody2TextBlock}">
+                        </TextBlock>
+                        <TextBlock Grid.Row="1" Margin="20,0,0,30"  VerticalAlignment="Bottom"
+                            Style="{DynamicResource MaterialDesignSubheadingTextBlock}">
                                 Xin chào, đăng nhập để sử dụng ứng dụng nhé!
-                    </TextBlock>
+                        </TextBlock>
 
-                    <TextBox Text="{Binding UserEmail, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Center" VerticalAlignment="Top" Width="500" Margin="0,0,0,30"  Height="60"
-                        FontSize="24" Foreground="White" BorderBrush="White"
-                        materialDesign:HintAssist.Hint="Email" materialDesign:HintAssist.Foreground="White" 
-                Style="{DynamicResource MaterialDesignFloatingHintTextBox}" />
-                    <Grid>
+                    <TextBox  
+                        Margin="20"
+                        FontSize="20" 
+                        materialDesign:HintAssist.Hint="Email"
+                        Style="{DynamicResource MaterialDesignFloatingHintTextBox}">
+                            <TextBox.Text>
+                                <Binding Path="UserEmail" UpdateSourceTrigger="PropertyChanged">
+                                    <Binding.ValidationRules>
+                                        <validationrules:EmailValidationRules></validationrules:EmailValidationRules>
+                                    </Binding.ValidationRules>
+                                </Binding>
+                            </TextBox.Text>
+                        </TextBox>
+                        <Grid>
 
-                        <PasswordBox x:Name="txtPassword" PasswordChanged="txtPassword_PasswordChanged" Grid.Row="2" HorizontalAlignment="Center" Width="500" Margin="0,0,0,0" Height="56"
-                    FontSize="24" Foreground="White" BorderBrush="White" MaxLength="10"
-                    materialDesign:HintAssist.Hint="Mật khẩu" materialDesign:HintAssist.Foreground="White"
-                    Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" />
-                        <Button Grid.Row="2" HorizontalAlignment="Right" Margin="0,0,10,0" VerticalAlignment="Bottom"
-                    Background="Transparent"  BorderBrush="Transparent"
-                            Command="{Binding PasswordVisibleCommand}"
-                            CommandParameter="{Binding ElementName=txtPassword}">
-                            <materialDesign:PackIcon Kind="Eye" Width="25" Height="25"  />
-                        </Button>
-                    </Grid>
-                    <DockPanel Height="50">
-                        <CheckBox  Foreground="White"  HorizontalAlignment="Left" 
+                            <PasswordBox  Margin="20"
+                            x:Name="txtPassword" PasswordChanged="txtPassword_PasswordChanged" Grid.Row="2" 
+                            
+                            FontSize="20" MaxLength="10"
+                            materialDesign:HintAssist.Hint="Mật khẩu"
+                            Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" />
+                            <Button Grid.Row="2" HorizontalAlignment="Right" Margin="0,0,10,20" VerticalAlignment="Bottom"
+                                Background="Transparent"  BorderBrush="Transparent"
+                                Command="{Binding PasswordVisibleCommand}"
+                                CommandParameter="{Binding ElementName=txtPassword}">
+                                <materialDesign:PackIcon Kind="Eye" Width="25" Height="25" Foreground="Black" />
+                            </Button>
+                        </Grid>
+                        <DockPanel Height="50">
+                            <CheckBox  HorizontalAlignment="Left" 
                       Margin="20,0,0,0" VerticalAlignment="Bottom" FontSize="16"
                       Style="{StaticResource MaterialDesignCheckBox}">
-                            Nhớ tài khoản
-                        </CheckBox>
-                        <TextBlock  HorizontalAlignment="Right" 
+                                Nhớ tài khoản
+                            </CheckBox>
+                            <TextBlock  HorizontalAlignment="Right" 
                        VerticalAlignment="Bottom">
                 <Button Background="Transparent" BorderBrush="Transparent" 
                         Command="{x:Static materialDesign:Transitioner.MoveNextCommand}">
-                    <Label Foreground="White"   FontSize="16">
+                    <Label   FontSize="16">
                         <Underline><Italic> Quên mật khẩu?</Italic> </Underline>
                     </Label>
                 </Button>
 
-                        </TextBlock>
-                    </DockPanel>
+                            </TextBlock>
+                        </DockPanel>
 
-                    <Button  Background="#00ADB5" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,50,0,0"
-                Style="{DynamicResource MaterialDesignRaisedButton}" Width="400" Height="50"
-                         Command="{Binding DangNhapCommand}"
-                         CommandParameter="{Binding ElementName=ucLogin}"
-                         materialDesign:ElevationAssist.Elevation="Dp2">
-                        Đăng nhập
-                    </Button>
-                </StackPanel>
-            </Grid>
-            <Border Grid.Column="1" Background="White" CornerRadius="0 15 15 0" >
-                <Image Grid.Column="1" Source="\Images\Login_Picture.png">
+                        <Button  Background="#00ADB5" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,20,0,0"
+                             Style="{DynamicResource MaterialDesignRaisedButton}" Width="400" Height="45" BorderBrush="White"
+                             Command="{Binding DangNhapCommand}" CommandParameter="{Binding ElementName=ucLogin}"
+                             materialDesign:ElevationAssist.Elevation="Dp2" IsDefault="True">
+                            Đăng nhập
+                        </Button>
+                    </StackPanel>
+                </Border>
+
+            <Border Grid.Column="1" Background="#FB8560" CornerRadius="0 15 15 0" >
+                <Image Source="\Images\Login_Picture.png">
                 </Image>
             </Border>
            

@@ -5,12 +5,16 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:IT008_UIT.UserControlGym"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity" 
+             xmlns:converters="clr-namespace:IT008_UIT.Converters"
              mc:Ignorable="d" 
              x:Name="ucStaff"
-             DataContext="{StaticResource StaffVM}"
-             d:DesignHeight="720" d:DesignWidth="1024"
-              Style="{StaticResource Page_Style}">
-    <Grid>
+             d:DesignHeight="720" d:DesignWidth="1142"
+             Style="{StaticResource Page_Style}">
+    <UserControl.Resources>
+        <converters:InverseBooleanToVisibilityConverter x:Key="InverseBooleanToVisibilityConverter" />
+    </UserControl.Resources>
+    <Grid >
         <Grid.RowDefinitions>
             <RowDefinition Height="120"></RowDefinition>
             <RowDefinition></RowDefinition>
@@ -18,52 +22,206 @@
         <Grid Grid.Row="0">
             <local:SearchBarUC></local:SearchBarUC>
         </Grid>
-        <Grid Grid.Row="1">
-            <DataGrid x:Name="GridKhachHang"
-                          Style="{StaticResource DataGridStyle}"
-                          ItemsSource="{Binding StaffContext}" 
-                          
-                          SelectedItem="{Binding SelectedStaff, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
-                <DataGrid.InputBindings>
-                    <KeyBinding Key="Enter" Command="{Binding GridChangeCommand}" CommandParameter="{Binding ElementName=GridKhachHang}" />
-                </DataGrid.InputBindings>
 
-                <!--<i:Interaction.Triggers>
-                        <i:EventTrigger EventName="RowEditEnding">
-                            <i:InvokeCommandAction Command="{Binding GridChangeCommand}"
-                                                   CommandParameter="{Binding ElementName=GridKhachHang}"/>
-                        </i:EventTrigger>
-                        
-                    </i:Interaction.Triggers>-->
+
+        <ProgressBar Grid.Row="1" Visibility="{Binding IsLoading}" Foreground="White"
+                      Style="{StaticResource MaterialDesignCircularProgressBar}"
+                      Height="50" Width="50" Value="0" IsIndeterminate="True" />
+        <Border CornerRadius="0 0 15 0" Grid.Row="1" Background="White"
+                Visibility="{Binding IsLoading, Converter={StaticResource InverseBooleanToVisibilityConverter}}">
+
+            <DataGrid x:Name="GridStaff"
+                       BorderBrush="Transparent"
+                      Background="White"
+                      Style="{StaticResource DataGridStyle}"
+                      
+                      ItemsSource="{Binding StaffContext}"
+                      SelectedItem="{Binding SelectedStaff, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                <!--<DataGrid.InputBindings>
+                    <KeyBinding Key="Enter" Command="{Binding GridChangeCommand}" CommandParameter="{Binding ElementName=GridStaff}" />
+                </DataGrid.InputBindings>-->
+
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="RowEditEnding">
+                        <i:InvokeCommandAction Command="{Binding GridChangeCommand}"
+                                                   CommandParameter="{Binding ElementName=GridStaff}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
 
                 <DataGrid.Columns>
 
-                    <DataGridTextColumn Header="ID" Binding="{Binding Path=CustomerId, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True" ></DataGridTextColumn>
-                    <DataGridTextColumn Header="Name" Binding="{Binding Path=Name, UpdateSourceTrigger=PropertyChanged}"></DataGridTextColumn>
-                    <DataGridTextColumn Header="IdentityNumber" Binding="{Binding Path=IdentityNumber, UpdateSourceTrigger=PropertyChanged}"></DataGridTextColumn>
-                    <DataGridTextColumn Header="Gender" Binding="{Binding Path=Gender, UpdateSourceTrigger=PropertyChanged}"></DataGridTextColumn>
-                    <DataGridTextColumn Header="Phone" Binding="{Binding Path=Phone, UpdateSourceTrigger=PropertyChanged}"></DataGridTextColumn>
-                    <DataGridTextColumn Header="Email" Binding="{Binding Path=Email, UpdateSourceTrigger=PropertyChanged}"></DataGridTextColumn>
-                    <DataGridTextColumn Header="Address" Binding="{Binding Path=Address, UpdateSourceTrigger=PropertyChanged}"></DataGridTextColumn>
-                    <DataGridTemplateColumn Header="D.O.B">
+                    <DataGridTemplateColumn Header="ID" IsReadOnly="True">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
+                                <TextBlock VerticalAlignment="Center"  Text="{Binding Path=StaffId, UpdateSourceTrigger=PropertyChanged}">
+                                </TextBlock>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
 
+
+                    <DataGridTemplateColumn Header="Tên" IsReadOnly="True">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <materialDesign:Chip Height="30"
+                                    Content="{Binding Path=Name, UpdateSourceTrigger=PropertyChanged}">
+                                    <materialDesign:Chip.Icon>
+                                        <Image />
+                                    </materialDesign:Chip.Icon>
+                                </materialDesign:Chip>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                        <!--<DataGridTemplateColumn.CellEditingTemplate>
+                            <DataTemplate>
+                                <TextBox VerticalAlignment="Center" Style="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}"
+                                         MaxLength="30"
+                                         Text="{Binding Path=Name, UpdateSourceTrigger=PropertyChanged}">
+                                </TextBox>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellEditingTemplate>-->
+                    </DataGridTemplateColumn>
+
+                    <DataGridTemplateColumn Header="Vai trò">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock VerticalAlignment="Center"  Text="{Binding Path=Role.Name, UpdateSourceTrigger=PropertyChanged}">
+                                </TextBlock>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                         <DataGridTemplateColumn.CellEditingTemplate>
                             <DataTemplate>
-                                <DatePicker
-                                          Width="100"
-                                          materialDesign:HintAssist.Hint="Pick Date"/>
+                                <TextBox VerticalAlignment="Center" Style="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}"
+                                         MaxLength="12"
+                                         Text="{Binding Path=Role.Name, UpdateSourceTrigger=PropertyChanged}">
+                                </TextBox>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellEditingTemplate>
                     </DataGridTemplateColumn>
-                    <DataGridTextColumn Header="Avatar"  Binding="{Binding Path=Avatar, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True"></DataGridTextColumn>
-                    <DataGridCheckBoxColumn Header="Active"  Binding="{Binding Path=Active, UpdateSourceTrigger=PropertyChanged}"></DataGridCheckBoxColumn>
+                    
+                    <DataGridTemplateColumn Header="CCCD/ CMND">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock VerticalAlignment="Center"  Text="{Binding Path=IdentityNumber, UpdateSourceTrigger=PropertyChanged}">
+                                </TextBlock>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                        <DataGridTemplateColumn.CellEditingTemplate>
+                            <DataTemplate>
+                                <TextBox VerticalAlignment="Center" Style="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}"
+                                         MaxLength="12"
+                                         Text="{Binding Path=IdentityNumber, UpdateSourceTrigger=PropertyChanged}">
+                                </TextBox>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellEditingTemplate>
+                    </DataGridTemplateColumn>
+
+                    <DataGridTemplateColumn Header="Giới tính">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock VerticalAlignment="Center"  Text="{Binding Path=Gender, UpdateSourceTrigger=PropertyChanged}">
+                                </TextBlock>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                        <DataGridTemplateColumn.CellEditingTemplate>
+                            <DataTemplate>
+                                <TextBox VerticalAlignment="Center" Style="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}"
+                                         MaxLength="4"
+                                         Text="{Binding Path=Gender, UpdateSourceTrigger=PropertyChanged}">
+                                </TextBox>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellEditingTemplate>
+                    </DataGridTemplateColumn>
+
+                    <DataGridTemplateColumn Header="Số điên thoại" CanUserSort="True">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock VerticalAlignment="Center"  Text="{Binding Path=Phone, UpdateSourceTrigger=PropertyChanged}">
+                                </TextBlock>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                        <DataGridTemplateColumn.CellEditingTemplate>
+                            <DataTemplate>
+                                <TextBox VerticalAlignment="Center"   Style="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}"
+                                         MaxLength="10"
+                                         Text="{Binding Path=Phone, UpdateSourceTrigger=PropertyChanged}">
+                                </TextBox>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellEditingTemplate>
+                    </DataGridTemplateColumn>
+
+                    <DataGridTemplateColumn Header="Email">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock VerticalAlignment="Center" Text="{Binding Path=Email, UpdateSourceTrigger=PropertyChanged}">
+                                </TextBlock>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                        <DataGridTemplateColumn.CellEditingTemplate>
+                            <DataTemplate>
+                                <TextBox VerticalAlignment="Center"  Text="{Binding Path=Email, UpdateSourceTrigger=PropertyChanged}">
+                                </TextBox>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellEditingTemplate>
+                    </DataGridTemplateColumn>
+
+
+                    <DataGridTemplateColumn Header="Địa chỉ">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock VerticalAlignment="Center" Text="{Binding Path=Address, UpdateSourceTrigger=PropertyChanged}">
+                                </TextBlock>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                        <DataGridTemplateColumn.CellEditingTemplate>
+                            <DataTemplate>
+                                <TextBox VerticalAlignment="Center"  Text="{Binding Path=Address, UpdateSourceTrigger=PropertyChanged}">
+                                </TextBox>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellEditingTemplate>
+                    </DataGridTemplateColumn>
+
+                    <DataGridTemplateColumn Header="Ngày sinh">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock  VerticalAlignment="Center" 
+                                            Text="{Binding Path=Birthday, UpdateSourceTrigger=PropertyChanged}"></TextBlock>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                        <DataGridTemplateColumn.CellEditingTemplate>
+                            <DataTemplate>
+                                <DatePicker VerticalAlignment="Center"
+                                            materialDesign:HintAssist.Hint="Pick Date"
+                                            SelectedDate="{Binding Path=Birthday, UpdateSourceTrigger=PropertyChanged}"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellEditingTemplate>
+                    </DataGridTemplateColumn>
+
+
+                    <DataGridCheckBoxColumn Header="Còn hoạt động"
+                                            Binding="{Binding Active,UpdateSourceTrigger=PropertyChanged}"
+                                            ElementStyle="{StaticResource MaterialDesignDataGridCheckBoxColumnStyle}"
+                                            EditingElementStyle="{StaticResource MaterialDesignDataGridCheckBoxColumnEditingStyle}">
+                    </DataGridCheckBoxColumn>
+
+
+                    <DataGridTemplateColumn>
+                        <DataGridTemplateColumn.Header>
+                            <materialDesign:PackIcon Kind="Delete" />
+                        </DataGridTemplateColumn.Header>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Command="{Binding DataContext.DeleteCommand, ElementName=GridStaff}"
+                                        CommandParameter="{Binding ElementName=GridStaff}"
+                                        Width="30" Height="30"
+                                        Style="{StaticResource MaterialDesignFloatingActionMiniDarkButton}"
+                                        ToolTip="Xóa khách hàng">
+                                    <materialDesign:PackIcon Kind="Delete" Height="15" Width="15" />
+                                </Button>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
                 </DataGrid.Columns>
             </DataGrid>
-        </Grid>
-        
+        </Border>
     </Grid>
 </UserControl>

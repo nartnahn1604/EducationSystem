@@ -24,7 +24,7 @@
         Title="MainWindow" Height="768" Width="1366">
     <materialDesign:DialogHost DialogTheme="Inherit"
                                Identifier="RootDialog">
-        <Border Style="{DynamicResource BorderWindow}"  Background="#FB8560">
+        <Border Style="{DynamicResource BorderWindow}"  Background="White" >
         <Grid>
 
             <!--Window Bar-->     
@@ -46,7 +46,7 @@
                 <Border  
                         CornerRadius="15,0,0,15" Grid.Column="0" Background="White">
                     <StackPanel>
-                        <Image Source="/Images/logo_app.png" Width="150px" Margin="0,50,0,50"></Image>
+                        <Image Source="/Images/logo_app.png" Width="150px" Margin="0,50,0,20"></Image>
                         <Menu:Btn Style="{StaticResource BtnStyle}" Command="{Binding HomeCommand}" CommandParameter="{Binding ElementName=mainscreen}" IsChecked="true">
                             <Grid>
                                 <materialDesign:PackIcon Kind="Home" Style="{StaticResource IconMenu}"/>
@@ -81,11 +81,20 @@
                                 <materialDesign:PackIcon Kind="Gymnastics" Style="{StaticResource IconMenu}"/>
                                 <TextBlock
                             Style="{StaticResource Text_Style}" >
-                            Gói tập
+                            Gói tập cơ bản
                                 </TextBlock>
                             </Grid>
                         </Menu:Btn>
-                        <Menu:Btn Style="{StaticResource BtnStyle}" Command="{Binding FacilityCommand}" CommandParameter="{Binding ElementName=mainscreen}" >
+                            <Menu:Btn Style="{StaticResource BtnStyle}" Command="{Binding PtcourseCommand}" CommandParameter="{Binding ElementName=mainscreen}" >
+                                <Grid>
+                                    <materialDesign:PackIcon Kind="Package" Style="{StaticResource IconMenu}"/>
+                                    <TextBlock
+                            Style="{StaticResource Text_Style}" >
+                            Gói tập HLV
+                                    </TextBlock>
+                                </Grid>
+                            </Menu:Btn>
+                            <Menu:Btn Style="{StaticResource BtnStyle}" Command="{Binding FacilityCommand}" CommandParameter="{Binding ElementName=mainscreen}" >
                             <Grid>
                                 <materialDesign:PackIcon Kind="Dumbbell" Style="{StaticResource IconMenu}"/>
                                 <TextBlock
@@ -103,9 +112,20 @@
                                 </TextBlock>
                             </Grid>
                         </Menu:Btn>
-                        <Menu:Btn Style="{StaticResource BtnStyle}" Command="{Binding StatisticCommand}" CommandParameter="{Binding ElementName=mainscreen}" >
-                            <Grid>
-                                <materialDesign:PackIcon Kind="ViewDashboardVariant" Style="{StaticResource IconMenu}"/>
+
+                            
+                            <Menu:Btn Style="{StaticResource BtnStyle}" Command="{Binding PtCommand}" CommandParameter="{Binding ElementName=mainscreen}" >
+                                <Grid>
+                                    <materialDesign:PackIcon Kind="Pen" Style="{StaticResource IconMenu}"/>
+                                    <TextBlock
+                            Style="{StaticResource Text_Style}" >
+                            Đặt lịch
+                                    </TextBlock>
+                                </Grid>
+                            </Menu:Btn>
+                            <Menu:Btn Style="{StaticResource BtnStyle}" Command="{Binding StatisticCommand}" CommandParameter="{Binding ElementName=mainscreen}" >
+                                <Grid>
+                                    <materialDesign:PackIcon Kind="ViewDashboardVariant" Style="{StaticResource IconMenu}"/>
                                 <TextBlock
                             Style="{StaticResource Text_Style}" >
                             Thống kê
@@ -115,7 +135,7 @@
 
                         <!--Tùy chọn ứng dụng-->
 
-                        <Grid  Margin="0 80 0 0">
+                        <Grid  Margin="0 50 0 0">
                             <TextBlock
                             Style="{StaticResource Text_Style}" Focusable="False" >
                             Tùy chọn
@@ -148,13 +168,13 @@
                 
                 <!--Các màn hình chức năng-->
                 
-                <Grid Grid.Column="1">
-                    <ContentControl x:Name="Pages"
+                <Border Grid.Column="1" CornerRadius="0 15 15 0" Background="#FB8560">
+                    <ContentControl x:Name="Pages" Margin="5"
                             Content="{Binding CurrentView}"
                                     >
-                    </ContentControl>
+                        </ContentControl>
 
-                </Grid>
+                </Border>
             </Grid>
         </Grid>
     </Border>

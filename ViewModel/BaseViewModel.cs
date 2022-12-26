@@ -1,4 +1,6 @@
-﻿using System;
+﻿using IT008_UIT.UserControlGym;
+using MaterialDesignThemes.Wpf;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -22,6 +24,11 @@ namespace IT008_UIT.ViewModel
             // Please Implementation this method
         }
 
+        protected async Task ShowErrorDialog()
+        {
+            var view = new SampleErrorDialog();
+            var result = await DialogHost.Show(view, "RootDialog");
+        }
         public virtual void AddData()
         {
             // Please Implementation this method

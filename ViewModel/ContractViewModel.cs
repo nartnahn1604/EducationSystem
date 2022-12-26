@@ -15,6 +15,8 @@ using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Input;
+using System.Windows.Navigation;
+using System.Drawing;
 
 namespace IT008_UIT.ViewModel
 {
@@ -36,13 +38,22 @@ namespace IT008_UIT.ViewModel
         }
         private GymDbContext Context { get; set; }
 
-        private ObservableCollection<Contract> _ContractContext { get; set; }
+        private ObservableCollection<Contract> _contractContext { get; set; }
 
         public ObservableCollection<Contract> ContractContext
         {
-            get => _ContractContext;
-            set { _ContractContext = value; OnPropertyChanged(); }
+            get => _contractContext;
+            set { _contractContext = value; OnPropertyChanged(); }
         }
+
+        private ObservableCollection<Ptcontract> _ptcontractContext { get; set; }
+
+        public ObservableCollection<Ptcontract> PtContractContext
+        {
+            get => _ptcontractContext;
+            set { _ptcontractContext = value; OnPropertyChanged(); }
+        }
+
         public ICommand DeleteCommand { get; set; }
         public ICommand GridChangeCommand { get; set; }
 
@@ -53,14 +64,23 @@ namespace IT008_UIT.ViewModel
             {
                 using (Context = new GymDbContext())
                 {
-                    foreach (Contract cus in Context.Contracts.ToList())
+                    foreach (Contract con in Context.Contracts.ToList())
                     {
-                        Customer customer_name = Context.Customers.Where(s => s.CustomerId == cus.CustomerId).FirstOrDefault();
-                        Course course_name = Context.Courses.Where(s => s.CourseId == cus.CourseId).FirstOrDefault();
-                        cus.Customer.Name = customer_name.Name;
-                        cus.Course.Name = course_name.Name;
-                        _ContractContext.Add(cus);
+                        Customer customer_name = Context.Customers.Where(s => s.CustomerId == con.CustomerId).FirstOrDefault();
+                        Course course_name = Context.Courses.Where(s => s.CourseId == con.CourseId).FirstOrDefault();
+                        con.Customer = customer_name;
+                        con.Course = course_name;
+                        _contractContext.Add(con);
                     }
+                    foreach(Ptcontract con in Context.Ptcontracts.ToList())
+                    {
+                        Customer customer_name = Context.Customers.Where(s => s.CustomerId == con.CustomerId).FirstOrDefault();
+                        Ptcourse course_name = Context.Ptcourses.Where(s => s.PtcourseId == con.PtcourseId).FirstOrDefault();
+                        con.Customer = customer_name;
+                        con.Ptcourse = course_name;
+                        _ptcontractContext.Add(con);
+                    }
+                    
                 }
             });
         }
@@ -79,10 +99,10 @@ namespace IT008_UIT.ViewModel
                 {
                     //var Contract = Context.Contracts.Where(s => s.Name == content
                     //    || s.IdentityNumber == content).ToList();
-                    //_ContractContext.Clear();
+                    //_contractContext.Clear();
                     //foreach (Contract cus in Contract)
                     //{
-                    //    _ContractContext.Add(cus);
+                    //    _contractContext.Add(cus);
                     //}
 
                     //var stringProperties = typeof(Contract).GetProperties().Where(prop =>
@@ -92,13 +112,13 @@ namespace IT008_UIT.ViewModel
                     //prop.GetValue(Contract, null).ToString().ToLower()) == content)).ToList();
 
 
-                    //_ContractContext.Clear();
+                    //_contractContext.Clear();
                     //if (List != null)
                     //{
                     //    Debug.WriteLine("!= null");
                     //    foreach (Contract cus in List)
                     //    {
-                    //        _ContractContext.Add(cus);
+                    //        _contractContext.Add(cus);
                     //    }
                     //}
                 }
@@ -110,61 +130,122 @@ namespace IT008_UIT.ViewModel
             Debug.WriteLine($"In search... for {content}");
         }
 
-        private void ExtendedOpenedEventHandler(object sender, DialogOpenedEventArgs eventArgs)
-           => Debug.WriteLine("You could intercept the open and affect the dialog using eventArgs.Session.");
-
+        
         private async Task Add(Contract replace)
         {
             using (Context = new GymDbContext())
             {
                 Context.Add<Contract>(replace);
                 Context.SaveChanges();
-                _ContractContext.Add(replace);
+                _contractContext.Add(replace);
             }
         }
-        private void ExtendedClosingEventHandler(object sender, DialogClosingEventArgs eventArgs)
+        private  void ExtendedOpenedEventHandler(object sender, DialogOpenedEventArgs eventArgs)
+           => Debug.WriteLine("You could intercept the open and affect the dialog using eventArgs.Session.");
+
+        private async void ExtendedClosingEventHandler(object sender, DialogClosingEventArgs eventArgs)
         {
             Debug.WriteLine("You can intercept the closing event, cancel it, and do our own close after a little while.");
             if (eventArgs.Parameter is bool parameter &&
                 parameter == false) return;
 
 
-
-
-
             var view = eventArgs.Session.Content as AddContractUC;
             if (view != null) 
             {
                 var viewmodel = view.DataContext as AddContractViewModel;
-                var contract = viewmodel.GetData();
-               
+                if(viewmodel != null)
+                {
+                    await viewmodel.AddNewContractAsync();
+                    if(viewmodel.Flag == false)
+                    {
+                        await ShowErrorDialog();
+                    }
+                    eventArgs.Cancel();
+
+                    //...now, lets update the "session" with some new content!
+                    eventArgs.Session.UpdateContent(new SampleProgressDialog());
+                    //note, you can also grab the session when the dialog opens via the DialogOpenedEventHandler
+                    if (viewmodel.Flag != false)
+                    {
+                        _contractContext = viewmodel.NormalSync();
+                    }
+
+                    //lets run a fake operation for 3 seconds then close this baby.
+                    Task.Delay(TimeSpan.FromSeconds(3))
+                        .ContinueWith((t, _) => eventArgs.Session.Close(false), null,
+                            TaskScheduler.FromCurrentSynchronizationContext());
+                }
             }
-
-
-
             //OK, lets cancel the close...
-            eventArgs.Cancel();
             
-            //...now, lets update the "session" with some new content!
-            eventArgs.Session.UpdateContent(new SampleProgressDialog());
-            //note, you can also grab the session when the dialog opens via the DialogOpenedEventHandler
-
-            //lets run a fake operation for 3 seconds then close this baby.
-            Task.Delay(TimeSpan.FromSeconds(3))
-                .ContinueWith((t, _) => eventArgs.Session.Close(false), null,
-                    TaskScheduler.FromCurrentSynchronizationContext());
         }
+
+
+        
 
         private void ExtendedClosedEventHandler(object sender, DialogClosedEventArgs eventArgs)
             => Debug.WriteLine("You could intercept the closed event here (2).");
 
+        private async Task<List<string>> LoadCourseName()
+        {
+            List<string> courseList = new List<string>();
+            foreach (Course cor in Context.Courses.ToList())
+            {
+                if (cor != null)
+                {
+                    courseList.Add(cor.Name);
+                }
+            }
+            return courseList;
+        }
+
+        private async Task<List<string>> LoadPtCourse()
+        {
+            List<string> ptCourseList = new List<string>();
+            foreach (Ptcourse cor in Context.Ptcourses.ToList())
+            {
+                if (cor != null)
+                {
+                    ptCourseList.Add(cor.Name);
+                }
+            }
+            return ptCourseList;
+        }
+        private async Task<List<string>> LoadPt()
+        {
+            List<string> ptCourseList = new List<string>();
+            foreach (Pt pt in Context.Pts.ToList())
+            {
+                if (pt != null)
+                {
+                    ptCourseList.Add(pt.Name);
+                }
+            }
+            return ptCourseList;
+        }
+
         public override async void AddData()
         {
-            var view = new AddContractUC
+            if(IsLoading == false)
             {
-                DataContext = new AddContractViewModel()
-            };
-            var result = await DialogHost.Show(view, "RootDialog", ExtendedOpenedEventHandler, ExtendedClosingEventHandler, ExtendedClosedEventHandler);
+                using (Context = new GymDbContext())
+                {
+                    Task<List<string>> getCoursename = LoadCourseName();
+                    Task<List<string>> getPtCoursename = LoadPtCourse();
+                    Task<List<string>> getPtname = LoadPt();
+                    List<string> courseList = await getCoursename;
+                    List<string> ptcourseList = await getPtCoursename;
+                    List<string> ptList = await getPtname;
+
+                    
+                    var view = new AddContractUC
+                    {
+                        DataContext = new AddContractViewModel(_contractContext, _ptcontractContext, courseList, ptcourseList, ptList)
+                    };
+                    var result = await DialogHost.Show(view, "RootDialog", ExtendedOpenedEventHandler, ExtendedClosingEventHandler, ExtendedClosedEventHandler);
+                }
+            }
         }
 
         private async Task Update(Contract replace)
@@ -195,14 +276,14 @@ namespace IT008_UIT.ViewModel
                         //    current.Address = replace.Address;
                         //    current.Active = replace.Active;
                         //    Context.SaveChanges();
-                        //    //_ContractContext.Remove(current);
-                        //    //_ContractContext.Add(replace);
-                        //    for (int i = 0; i < _ContractContext.Count; i++)
+                        //    //_contractContext.Remove(current);
+                        //    //_contractContext.Add(replace);
+                        //    for (int i = 0; i < _contractContext.Count; i++)
                         //    {
-                        //        if (_ContractContext[i].ContractId == replace.ContractId)
-                        //            _ContractContext[i] = replace;
+                        //        if (_contractContext[i].ContractId == replace.ContractId)
+                        //            _contractContext[i] = replace;
                         //    }
-                        //    //_ContractContext.Clear();
+                        //    //_contractContext.Clear();
                         //    //await LoadData(Flag);
                         //}
                     }
@@ -212,7 +293,6 @@ namespace IT008_UIT.ViewModel
                 {
                     throw;
                 }
-
             }
         }
 
@@ -222,31 +302,28 @@ namespace IT008_UIT.ViewModel
             {
                 Context.Remove<Contract>(delete);
                 Context.SaveChanges();
-                _ContractContext.Remove(delete);
+                _contractContext.Remove(delete);
             }
         }
         public ContractViewModel()
         {
-            _ContractContext = new ObservableCollection<Contract>();
+            _contractContext = new ObservableCollection<Contract>();
+            _ptcontractContext = new ObservableCollection<Ptcontract>();
             Debug.WriteLine("In HopDongViewmodel...");
             BindingOperations.EnableCollectionSynchronization(ContractContext, _lockMutex);
+            BindingOperations.EnableCollectionSynchronization(PtContractContext, _lockMutex);
             LoadData();
             GridChangeCommand = new RelayCommand<DataGrid>((p) => { return p == null ? false : true; }, (p) =>
             {
                 Contract replace = SelectedContract;
-                using (Context = new GymDbContext())
+                try
                 {
-                    replace.Customer = Context.Customers.Where(s => s.CustomerId == replace.CustomerId).FirstOrDefault();
+                    Update(replace);
                 }
-                Debug.WriteLine("Course: " + replace.Customer.Name.ToString());
-                //try
-                //{
-                //    Update(replace);
-                //}
-                //catch (Exception)
-                //{
-                //    throw;
-                //}
+                catch (Exception)
+                {
+                    throw;
+                }
             });
             DeleteCommand = new RelayCommand<object>((p) => { return p == null ? false : true; }, (p) =>
             {

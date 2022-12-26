@@ -10,7 +10,6 @@
              mc:Ignorable="d" 
              d:DesignHeight="690" d:DesignWidth="1280"
              x:Name="ucContract"
-             
              Style="{StaticResource Page_Style}">
     <UserControl.Resources>
         <converters:InverseBooleanToVisibilityConverter x:Key="InverseBooleanToVisibilityConverter" />
@@ -26,9 +25,17 @@
         <ProgressBar Grid.Row="1" Visibility="{Binding IsLoading}" Foreground="White"
                       Style="{StaticResource MaterialDesignCircularProgressBar}"
                       Height="50" Width="50" Value="0" IsIndeterminate="True" />
-        <Border CornerRadius="0 0 15 0" Grid.Row="1" Background="White"
+        <Border CornerRadius="15" Grid.Row="1" Background="White"
                 Visibility="{Binding IsLoading, Converter={StaticResource InverseBooleanToVisibilityConverter}}">
-            <DataGrid x:Name="GridContract"
+            <materialDesign:Transitioner Name="UserControlView" SelectedIndex="0" AutoApplyTransitionOrigins="True">
+                <materialDesign:TransitionerSlide OpeningEffect="{materialDesign:TransitionEffect FadeIn}">
+                <StackPanel Margin="10">
+                <!--<materialDesign:Transitioner Name="UserControlView" SelectedIndex="0" AutoApplyTransitionOrigins="True">
+                    <Button Command="{x:Static materialDesign:Transitioner.MoveNextCommand}">HOPDONGCOBAN</Button>
+                    <Button Command="{x:Static materialDesign:Transitioner.MovePreviousCommand}">HOPDONGPT</Button>
+                </materialDesign:Transitioner>-->
+                <DataGrid x:Name="GridContract"
+                          Height="470"
                        BorderBrush="Transparent"
                       Background="White"
                       Style="{StaticResource DataGridStyle}"
@@ -38,14 +45,13 @@
                     <KeyBinding Key="Enter" Command="{Binding GridChangeCommand}" CommandParameter="{Binding ElementName=GridContract}" />
                 </DataGrid.InputBindings>-->
 
-                <i:Interaction.Triggers>
-                    <i:EventTrigger EventName="RowEditEnding">
-                        <i:InvokeCommandAction Command="{Binding GridChangeCommand}"
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="RowEditEnding">
+                            <i:InvokeCommandAction Command="{Binding GridChangeCommand}"
                                                    CommandParameter="{Binding ElementName=GridContract}"/>
-                    </i:EventTrigger>
-                </i:Interaction.Triggers>
-
-                <DataGrid.Columns>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                    <DataGrid.Columns>
 
                     <DataGridTemplateColumn Header="ID" IsReadOnly="True">
                         <DataGridTemplateColumn.CellTemplate>
@@ -128,15 +134,158 @@
                             </DataTemplate>
                         </DataGridTemplateColumn.CellEditingTemplate>
                     </DataGridTemplateColumn>
-                    <DataGridCheckBoxColumn Header="Active"
+                        <DataGridCheckBoxColumn Header="Active"
                                             Binding="{Binding Active,UpdateSourceTrigger=PropertyChanged}"
                                             ElementStyle="{StaticResource MaterialDesignDataGridCheckBoxColumnStyle}"
                                             EditingElementStyle="{StaticResource MaterialDesignDataGridCheckBoxColumnEditingStyle}">
-                    </DataGridCheckBoxColumn>
-
-
-                </DataGrid.Columns>
+                        </DataGridCheckBoxColumn>
+                    </DataGrid.Columns>
             </DataGrid>
+                
+                <StackPanel HorizontalAlignment="Right" VerticalAlignment="Bottom" Orientation="Horizontal">
+                    
+                    <Button Style="{StaticResource MaterialDesignRaisedLightButton}" Margin="10"
+                             Command="{x:Static materialDesign:Transitioner.MoveNextCommand}">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock>Hợp đồng HLV</TextBlock>
+                            <materialDesign:PackIcon Kind="ArrowRightBold" Height="20" Width="20" Margin="0 0 5 0"/>
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
+                
+            </StackPanel>
+                </materialDesign:TransitionerSlide>
+                <materialDesign:TransitionerSlide
+    OpeningEffect="{materialDesign:TransitionEffect FadeIn}">
+                <StackPanel Margin="10">
+                    
+                <!--<materialDesign:Transitioner Name="UserControlView" SelectedIndex="0" AutoApplyTransitionOrigins="True">
+                    <Button Command="{x:Static materialDesign:Transitioner.MoveNextCommand}">HOPDONGCOBAN</Button>
+                    <Button Command="{x:Static materialDesign:Transitioner.MovePreviousCommand}">HOPDONGPT</Button>
+                </materialDesign:Transitioner>-->
+                <DataGrid x:Name="GridContract2"
+                          Height="470"
+                       BorderBrush="Transparent"
+                      Background="White"
+                      Style="{StaticResource DataGridStyle}"
+                      ItemsSource="{Binding PtContractContext}"
+                      SelectedItem="{Binding SelectedPtContract, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                    <!--<DataGrid.InputBindings>
+                    <KeyBinding Key="Enter" Command="{Binding GridChangeCommand}" CommandParameter="{Binding ElementName=GridContract}" />
+                </DataGrid.InputBindings>-->
+
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="RowEditEnding">
+                            <i:InvokeCommandAction Command="{Binding GridChangeCommand}"
+                                                   CommandParameter="{Binding ElementName=GridContract}"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                    <DataGrid.Columns>
+
+                        <DataGridTemplateColumn Header="ID" IsReadOnly="True">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock VerticalAlignment="Center"  Text="{Binding Path=PtcontractId, UpdateSourceTrigger=PropertyChanged}">
+                                    </TextBlock>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+
+                        <DataGridTemplateColumn Header="Khách hàng" IsReadOnly="True">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <materialDesign:Chip Height="30"
+                                    Content="{Binding Path=Customer.Name, UpdateSourceTrigger=PropertyChanged}">
+                                        <materialDesign:Chip.Icon>
+                                            <Image />
+                                        </materialDesign:Chip.Icon>
+                                    </materialDesign:Chip>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                            <!--<DataGridTemplateColumn.CellEditingTemplate>
+                            <DataTemplate>
+                                <TextBox VerticalAlignment="Center" Style="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}"
+                                         MaxLength="30"
+                                         Text="{Binding Path=Name, UpdateSourceTrigger=PropertyChanged}">
+                                </TextBox>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellEditingTemplate>-->
+                        </DataGridTemplateColumn>
+
+                        <DataGridTemplateColumn Header="Course">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock VerticalAlignment="Center"  Text="{Binding Path=Ptcourse.Name, UpdateSourceTrigger=PropertyChanged}">
+                                    </TextBlock>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                            <DataGridTemplateColumn.CellEditingTemplate>
+                                <DataTemplate>
+                                    <TextBox VerticalAlignment="Center" Style="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}"
+                                         MaxLength="12"
+                                         Text="{Binding Path=Ptcourse.Name, UpdateSourceTrigger=PropertyChanged}">
+                                    </TextBox>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellEditingTemplate>
+                        </DataGridTemplateColumn>
+
+
+                        <DataGridTemplateColumn Header="CreateDate">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock  VerticalAlignment="Center" 
+                                            Text="{Binding Path=CreateDate, UpdateSourceTrigger=PropertyChanged}"></TextBlock>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                            <DataGridTemplateColumn.CellEditingTemplate>
+                                <DataTemplate>
+                                    <DatePicker VerticalAlignment="Center"
+                                            materialDesign:HintAssist.Hint="Pick Date"
+                                            SelectedDate="{Binding Path=CreateDate, UpdateSourceTrigger=PropertyChanged}"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellEditingTemplate>
+                        </DataGridTemplateColumn>
+
+
+                        <DataGridTemplateColumn Header="FinishDate">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock  VerticalAlignment="Center" 
+                                            Text="{Binding Path=FinishDate, UpdateSourceTrigger=PropertyChanged}"></TextBlock>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                            <DataGridTemplateColumn.CellEditingTemplate>
+                                <DataTemplate>
+                                    <DatePicker VerticalAlignment="Center"
+                                            materialDesign:HintAssist.Hint="Pick Date"
+                                            SelectedDate="{Binding Path=FinishDate, UpdateSourceTrigger=PropertyChanged}"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellEditingTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridCheckBoxColumn Header="Active"
+                                            Binding="{Binding Active,UpdateSourceTrigger=PropertyChanged}"
+                                            ElementStyle="{StaticResource MaterialDesignDataGridCheckBoxColumnStyle}"
+                                            EditingElementStyle="{StaticResource MaterialDesignDataGridCheckBoxColumnEditingStyle}">
+                        </DataGridCheckBoxColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+
+                <StackPanel HorizontalAlignment="Right" VerticalAlignment="Bottom" Orientation="Horizontal">
+                        <Button Style="{StaticResource MaterialDesignRaisedLightButton}" Margin="10" 
+                                Command="{x:Static materialDesign:Transitioner.MovePreviousCommand}">
+                        <StackPanel Orientation="Horizontal">
+
+                            <materialDesign:PackIcon Kind="ArrowLeftThick"  Height="20" Width="20" Margin="0 0 5 0"/>
+                            <TextBlock>Hợp đồng cơ bản</TextBlock>
+                        </StackPanel>
+                    </Button>
+                    
+                </StackPanel>
+
+            </StackPanel>
+                </materialDesign:TransitionerSlide>
+            </materialDesign:Transitioner>
         </Border>
     </Grid>
 </UserControl>

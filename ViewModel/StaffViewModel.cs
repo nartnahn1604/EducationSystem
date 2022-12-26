@@ -1,4 +1,6 @@
 ﻿using IT008_UIT.Models;
+using IT008_UIT.UserControlGym;
+using MaterialDesignThemes.Wpf;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -15,185 +17,136 @@ namespace IT008_UIT.ViewModel
 {
     public class StaffViewModel : BaseViewModel
     {
-        //private StaffId _selectedCustomer { get; set; }
-        //public StaffId SelectedCustomer
-        //{
-        //    get => _selectedCustomer;
-        //    set { _selectedCustomer = value; OnPropertyChanged(); }
-        //}
-        //private GymDbContext Context { get; set; }
+        private GymDbContext Context { get; set; }
+        private Staff _selectedStaff { get; set; }
+        public Staff SelectedStaff
+        {
+            get => _selectedStaff;
+            set { _selectedStaff = value; OnPropertyChanged(); }
+        }
 
-        //private ObservableCollection<StaffId> _customerContext { get; set; }
+        private bool _isLoading;
 
-        //public ObservableCollection<StaffId> CustomerContext
-        //{
-        //    get => _customerContext;
-        //    set { _customerContext = value; OnPropertyChanged(); }
-        //}
-        //public ICommand DeleteCommand { get; set; }
-        //public ICommand GridChangeCommand { get; set; }
+        public bool IsLoading
+        {
+            get { return _isLoading; }
+            set { _isLoading = value; OnPropertyChanged(nameof(IsLoading)); }
+        }
 
-        //private object _lockMutex = new object();
-        //private Task LoadDataAsync()
-        //{
-        //    return Task.Factory.StartNew(() =>
-        //    {
-        //        using (Context = new GymDbContext())
-        //        {
-        //            foreach (StaffId cus in Context.StaffIDs.ToList())
-        //            {
-        //                _customerContext.Add(cus);
-        //            }
-        //        }
-        //    });
-        //}
-        //public async Task LoadData()
-        //{
-        //    await Task.Delay(1000);
-        //    _ = LoadDataAsync();
-        //}
-        //private Task SearchDataAsync(String content)
-        //{
-        //    return Task.Factory.StartNew(() =>
-        //    {
-        //        using (Context = new GymDbContext())
-        //        {
-        //            //var customer = Context.Customers.Where(s => s.Name == content
-        //            //    || s.IdentityNumber == content).ToList();
-        //            //_customerContext.Clear();
-        //            //foreach (StaffId cus in customer)
-        //            //{
-        //            //    _customerContext.Add(cus);
-        //            //}
+        private ObservableCollection<Staff> _staffContext { get; set; }
 
-        //            //var stringProperties = typeof(StaffId).GetProperties().Where(prop =>
-        //            //prop.PropertyType == content.GetType());
-        //            //List<StaffId> List = Context.Customers.Where(customer => stringProperties.Any(prop =>
-        //            //((prop.GetValue(customer, null) == null) ? "" :
-        //            //prop.GetValue(customer, null).ToString().ToLower()) == content)).ToList();
+        public ObservableCollection<Staff> StaffContext
+        {
+            get => _staffContext;
+            set { _staffContext = value; OnPropertyChanged(); }
+        }
+        public ICommand DeleteCommand { get; set; }
+        public ICommand GridChangeCommand { get; set; }
+
+        private object _lockMutex = new object();
+        private Task LoadDataAsync()
+        {
+            return Task.Factory.StartNew(() =>
+            {
+                using (Context = new GymDbContext())
+                {
+                    foreach (Staff sta in Context.Staffs.ToList())
+                    {
+                        Role role = Context.Roles.Where(s => s.RoleId == sta.RoleId).FirstOrDefault();
+                        sta.Role = role;
+                        _staffContext.Add(sta);
+                    }
+                }
+            });
+        }
+        public async Task LoadData()
+        {
+            IsLoading = true;
+            _ = LoadDataAsync();
+            await Task.Delay(3500);
+            IsLoading = false;
+        }
+
+        private void ExtendedOpenedEventHandler(object sender, DialogOpenedEventArgs eventArgs)
+        {
+
+        }
+
+        private async void ExtendedClosingEventHandler(object sender, DialogClosingEventArgs eventArgs)
+        {
+            if (eventArgs.Parameter is bool parameter &&
+                parameter == false) return;
 
 
-        //            //_customerContext.Clear();
-        //            //if (List != null)
-        //            //{
-        //            //    Debug.WriteLine("!= null");
-        //            //    foreach (StaffId cus in List)
-        //            //    {
-        //            //        _customerContext.Add(cus);
-        //            //    }
-        //            //}
-        //        }
-        //    });
-        //}
-        //public override void SearchData(String content)
-        //{
-        //    _ = SearchDataAsync(content);
-        //    Debug.WriteLine($"In search... for {content}");
-        //}
+            var view = eventArgs.Session.Content as AddStaffUC;
+            if (view != null)
+            {
+                var viewmodel = view.DataContext as AddStaffViewModel;
+                if (viewmodel != null)
+                {
+                    await viewmodel.AddNewStaffAsync();
+                    if (viewmodel.Flag == false)
+                    {
+                        await ShowErrorDialog();
+                    }
+                    //OK, lets cancel the close...
+                    eventArgs.Cancel();
 
-        //private async Task Update(StaffId replace)
-        //{
-        //    using (Context = new GymDbContext())
-        //    {
-        //        try
-        //        {
-        //            StaffId current = Context.StaffIds.Where(t => t.StaffId1.Equals(replace.StaffId1)).FirstOrDefault();
-        //            if (current != null)
-        //            {
-        //                if (!(current.Name == replace.Name &&
-        //                    current.IdentityNumber == replace.IdentityNumber &&
-        //                    current.Gender == replace.Gender &&
-        //                    current.Phone == replace.Phone &&
-        //                    current.Email == replace.Email &&
-        //                    current.Birthday == replace.Birthday &&
-        //                    current.Address == replace.Address &&
-        //                    current.Active == replace.Active))
-        //                {
-        //                    current.Name = replace.Name;
-        //                    current.IdentityNumber = replace.IdentityNumber;
-        //                    current.Gender = replace.Gender;
-        //                    current.Phone = replace.Phone;
-        //                    current.Email = replace.Email;
-        //                    current.Birthday = replace.Birthday;
-        //                    current.Address = replace.Address;
-        //                    current.Active = replace.Active;
-        //                    Context.SaveChanges();
-        //                    //_customerContext.Remove(current);
-        //                    //_customerContext.Add(replace);
-        //                    for (int i = 0; i < _customerContext.Count; i++)
-        //                    {
-        //                        if (_customerContext[i].StaffId1 == replace.StaffId1)
-        //                            _customerContext[i] = replace;
-        //                    }
-        //                    //_customerContext.Clear();
-        //                    //await LoadData(Flag);
-        //                }
-        //            }
-        //            else await Add(replace);
-        //        }
-        //        catch (Exception)
-        //        {
-        //            throw;
-        //        }
+                    //...now, lets update the "session" with some new content!
+                    eventArgs.Session.UpdateContent(new SampleProgressDialog());
+                    //note, you can also grab the session when the dialog opens via the DialogOpenedEventHandler
 
-        //    }
-        //}
-        //private async Task Add(StaffId replace)
-        //{
-        //    using (Context = new GymDbContext())
-        //    {
-        //        Context.Add<StaffId>(replace);
-        //        Context.SaveChanges();
-        //        _customerContext.Add(replace);
-        //    }
-        //}
+                    if (viewmodel.Flag != false)
+                    {
+                        _staffContext = viewmodel.Sync();
+                    }
+                    
 
-        //private async Task Delete(StaffId delete)
-        //{
-        //    using (Context = new GymDbContext())
-        //    {
-        //        Context.Remove<StaffId>(delete);
-        //        Context.SaveChanges();
-        //        _customerContext.Remove(delete);
-        //    }
-        //}
+                    //lets run a fake operation for 3 seconds then close this baby.
+                    Task.Delay(TimeSpan.FromSeconds(3))
+                        .ContinueWith((t, _) => eventArgs.Session.Close(false), null,
+                            TaskScheduler.FromCurrentSynchronizationContext());
+
+                }
+
+            }
+
+
+
+            
+        }
+
+        private void ExtendedClosedEventHandler(object sender, DialogClosedEventArgs eventArgs)
+            => Debug.WriteLine("You could intercept the closed event here (2).");
+
+        public override async void AddData()
+        {
+            if (IsLoading == false)
+            {
+                using (Context = new GymDbContext())
+                {
+                    List<string> RoleList = new List<string>();
+                    foreach (Role role in Context.Roles.ToList())
+                    {
+                        if (role != null)
+                        {
+                            RoleList.Add(role.Name);
+                        }
+                    }
+                    var view = new AddStaffUC
+                    {
+                        DataContext = new AddStaffViewModel(_staffContext,RoleList)
+                    };
+                    var result = await DialogHost.Show(view, "RootDialog", ExtendedOpenedEventHandler, ExtendedClosingEventHandler, ExtendedClosedEventHandler);
+                }
+            }
+        }
+
         public StaffViewModel()
         {
-            //_customerContext = new ObservableCollection<StaffId>();
-            //Debug.WriteLine("In Viewmodel...");
-            //BindingOperations.EnableCollectionSynchronization(CustomerContext, _lockMutex);
-            //LoadData();
-            //GridChangeCommand = new RelayCommand<DataGrid>((p) => { return p == null ? false : true; }, (p) =>
-            //{
-            //    Debug.WriteLine("Here");
-            //    StaffId replace = SelectedCustomer;
-            //    try
-            //    {
-            //        Update(replace);
-            //    }
-            //    catch (Exception)
-            //    {
-            //        throw;
-            //    }
-            //});
-            //DeleteCommand = new RelayCommand<object>((p) => { return p == null ? false : true; }, (p) =>
-            //{
-            //    var Result = MessageBox.Show("Are you sure?", "Delete StaffId", MessageBoxButton.YesNo, MessageBoxImage.Warning);
-            //    if (Result == MessageBoxResult.Yes)
-            //    {
-            //        StaffId delete = SelectedCustomer;
-            //        try
-            //        {
-            //            Delete(delete);
-            //        }
-            //        catch (Exception)
-            //        {
-            //            throw;
-            //        }
-            //    }
-            //}
-            //);
-
+            _staffContext = new ObservableCollection<Staff>();
+            BindingOperations.EnableCollectionSynchronization(StaffContext, _lockMutex);
+            LoadData();
         }
 
 

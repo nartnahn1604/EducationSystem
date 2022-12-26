@@ -18,7 +18,7 @@ namespace IT008_UIT.ViewModel
         public string UserEmail { get => _UserEmail; set { _UserEmail = value; OnPropertyChanged(); } }
         private string _password;
         public string Password { get => _password; set { _password = value; OnPropertyChanged(); } }
-
+       
         public ICommand DangNhapCommand { get; set; }
         public ICommand QuenMatKhauCommand { get; set; }
         public ICommand PasswordVisibleCommand { get; set; }
@@ -58,9 +58,8 @@ namespace IT008_UIT.ViewModel
         }
         public LoginViewModel()
         {
-
             IsLoggedIn = false;
-            DangNhapCommand = new RelayCommand<Window>((p) => { return p == null ? false : true; }, async (p) =>
+            DangNhapCommand = new RelayCommand<UserControl>((p) => { return p == null ? false : true; }, async (p) =>
             {
                 Debug.WriteLine(this.UserEmail, this.Password);
                 //var isLogin = await FirebaseHelper.loginWithEmailAndPasswordAsync(this.UserEmail, this.Password);
@@ -69,31 +68,32 @@ namespace IT008_UIT.ViewModel
 
                 if (isLogin)
                 {
-                    //FrameworkElement window = GetWindowParent(p);
-                    //var w = window as Window;
-                    if (p != null)
+                    FrameworkElement window = GetWindowParent(p);
+                    var w = window as Window;
+                    if (w != null)
                     {
                         IsLoggedIn = true;
                         MainWindow homescreen = new MainWindow();
                         homescreen.Show();
-                        p.Close();
+                        w.Close();
                     }
                 }
                 else
                     MessageBox.Show("Login Failed! Check your email and password!");
             }
             );
+           
         }
-        //FrameworkElement GetWindowParent(UserControl p)
-        //{
-        //    FrameworkElement parent = p;
+        FrameworkElement GetWindowParent(UserControl p)
+        {
+            FrameworkElement parent = p;
 
-        //    while (parent.Parent != null)
-        //    {
-        //        parent = parent.Parent as FrameworkElement;
-        //    }
+            while (parent.Parent != null)
+            {
+                parent = parent.Parent as FrameworkElement;
+            }
 
-        //    return parent;
-        //}
+            return parent;
+        }
     }
 }

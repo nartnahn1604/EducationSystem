@@ -2,6 +2,7 @@
 using IT008_UIT.UserControlGym;
 using IT008_UIT.Utils;
 using LiveChartsCore.Geo;
+using MaterialDesignThemes.Wpf;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections;
@@ -53,18 +54,25 @@ namespace IT008_UIT.ViewModel
         }
         public ICommand DeleteCommand { get; set; }
         public ICommand GridChangeCommand { get; set; }
+        public ICommand ViewCommand { get; set; }
 
         private object _lockMutex = new object();
+        
+
         private Task LoadDataAsync()
         {
             return Task.Factory.StartNew(() =>
             {
                 using (Context = new GymDbContext())
                 {
-                    foreach (Customer cus in Context.Customers.ToList())
+                    foreach (Customer cus in Context.Customers.Include(s => s.Contracts)
+                    .Include(s=>s.Bookings).Include(s => s.Ptcontracts).ToList())
                     {
                         _customerContext.Add(cus);
+                       
                     }
+                    
+                    
                 }
             });
         }
@@ -174,6 +182,15 @@ namespace IT008_UIT.ViewModel
 
             }
         }
+
+        public override async void AddData()
+        {
+            if (IsLoading == false)
+            {
+                await ShowErrorDialog();
+            }
+        }
+
         private async Task Add(Customer replace)
         {
             using (Context = new GymDbContext())
@@ -193,29 +210,34 @@ namespace IT008_UIT.ViewModel
                 _customerContext.Remove(delete);
             }
         }
-        public CustomerViewModel()
+
+        private void ExtendedOpenedEventHandler(object sender, DialogOpenedEventArgs eventArgs)
+          => Debug.WriteLine("You could intercept the open and affect the dialog using eventArgs.Session.");
+
+        private void ExtendedClosedEventHandler(object sender, DialogClosedEventArgs eventArgs)
+            => Debug.WriteLine("You could intercept the closed event here (2).");
+
+        private void ExtendedClosingEventHandler(object sender, DialogClosingEventArgs eventArgs)
         {
-            _customerContext = new ObservableCollection<Customer>();
-            Debug.WriteLine("In Viewmodel...");
-            BindingOperations.EnableCollectionSynchronization(CustomerContext, _lockMutex);
-            LoadData();
-            GridChangeCommand = new RelayCommand<DataGrid>((p) => { return p == null ? false : true; }, (p) =>
+            Debug.WriteLine("You can intercept the closing event, cancel it, and do our own close after a little while.");
+            if (eventArgs.Parameter is bool parameter &&
+                parameter == false) return;
+
+
+            var view = eventArgs.Session.Content as ViewCustomerDetailInfoUC;
+            if (view != null)
             {
-                Debug.WriteLine("Here");
-                Customer replace = SelectedCustomer;
-                try
+                var viewmodel = view.DataContext as ViewCustomerDetailInfoViewModel;
+                if (viewmodel != null)
                 {
-                    Update(replace);
+                    
                 }
-                catch (Exception)
-                {
-                    throw;
-                }
-            });
-            DeleteCommand = new RelayCommand<object>((p) => { return p == null ? false : true; }, (p) =>
+
+            }
+            else
             {
-                var Result = MessageBox.Show("Are you sure?", "Delete Customer", MessageBoxButton.YesNo, MessageBoxImage.Warning);
-                if (Result == MessageBoxResult.Yes)
+                var view1 = eventArgs.Session.Content as SampleConfirmDialog;
+                if(view1 != null)
                 {
                     Customer delete = SelectedCustomer;
                     try
@@ -228,7 +250,77 @@ namespace IT008_UIT.ViewModel
                     }
                 }
             }
+            
+
+
+
+            //OK, lets cancel the close...
+            eventArgs.Cancel();
+
+            //...now, lets update the "session" with some new content!
+            eventArgs.Session.UpdateContent(new SampleProgressDialog());
+            //note, you can also grab the session when the dialog opens via the DialogOpenedEventHandler
+
+            //lets run a fake operation for 3 seconds then close this baby.
+            Task.Delay(TimeSpan.FromSeconds(3))
+                .ContinueWith((t, _) => eventArgs.Session.Close(false), null,
+                    TaskScheduler.FromCurrentSynchronizationContext());
+        }
+
+
+        public CustomerViewModel()
+        {
+            _customerContext = new ObservableCollection<Customer>();
+            Debug.WriteLine("In Viewmodel...");
+            BindingOperations.EnableCollectionSynchronization(CustomerContext, _lockMutex);
+            LoadData();
+            GridChangeCommand = new RelayCommand<DataGrid>((p) => { return p == null ? false : true; }, (p) =>
+            {
+                Customer replace = SelectedCustomer;
+                try
+                {
+                    Update(replace);
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+            });
+            DeleteCommand = new RelayCommand<object>((p) => { return p == null ? false : true; }, (p) =>
+            {
+                var view = new SampleConfirmDialog();
+                var result = DialogHost.Show(view, "RootDialog", ExtendedClosingEventHandler);
+                //if (result.)
+                //{
+                //    var Result = MessageBox.Show("Are you sure?", "Delete Customer", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+
+                //}
+                //var Result = MessageBox.Show("Are you sure?", "Delete Customer", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+                //if (Result == MessageBoxResult.Yes)
+                //{
+                //    Customer delete = SelectedCustomer;
+                //    try
+                //    {
+                //        Delete(delete);
+                //    }
+                //    catch (Exception)
+                //    {
+                //        throw;
+                //    }
+                //}
+            }
             );
+            ViewCommand = new RelayCommand<object>((p) => { return p == null ? false : true; }, async (p) =>
+            {
+                Customer customer = SelectedCustomer;
+                var view = new ViewCustomerDetailInfoUC
+                {
+                    DataContext = new ViewCustomerDetailInfoViewModel(customer)
+                };
+                var result = await DialogHost.Show(view, "RootDialog", ExtendedOpenedEventHandler, ExtendedClosingEventHandler, ExtendedClosedEventHandler);
+
+            }
+           );
 
         }
 

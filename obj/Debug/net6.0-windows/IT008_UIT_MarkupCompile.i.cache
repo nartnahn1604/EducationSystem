@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 C:\Learning\IT008_project\GymManagement\App.xaml
-22-1072005180
+332033727283
 
-582085670262
+83362681082
 237-578271273
-Login.xaml;LoginWindow.xaml;MainWindow.xaml;ResourceXAML\MainResource.xaml;UserControlGym\AddContractUC.xaml;UserControlGym\CloseWindowButton.xaml;UserControlGym\ContractUC.xaml;UserControlGym\CourseUC.xaml;UserControlGym\CustomerUC.xaml;UserControlGym\DoiMatKhauUC.xaml;UserControlGym\DynamicChartUC.xaml;UserControlGym\FacilityUC.xaml;UserControlGym\ForgetPasswordUC.xaml;UserControlGym\GoBackButton.xaml;UserControlGym\HomeUC.xaml;UserControlGym\LoginUC.xaml;UserControlGym\PieChartUC.xaml;UserControlGym\SampleProgressDialog.xaml;UserControlGym\SearchBarUC.xaml;UserControlGym\StaffUC.xaml;UserControlGym\StatisticUC.xaml;UserControlGym\WindowBarUC.xaml;
+LoginWindow.xaml;Main.xaml;MainWindow.xaml;ResourceXAML\MainResource.xaml;UserControlGym\AddContractUC.xaml;UserControlGym\AddCourseUC.xaml;UserControlGym\AddFacilityUC.xaml;UserControlGym\AddPtcourseUC.xaml;UserControlGym\AddStaffUC.xaml;UserControlGym\BookingUC.xaml;UserControlGym\CloseWindowButton.xaml;UserControlGym\ContractUC.xaml;UserControlGym\CourseUC.xaml;UserControlGym\CustomerUC.xaml;UserControlGym\DoiMatKhauUC.xaml;UserControlGym\DynamicChartUC.xaml;UserControlGym\FacilityUC.xaml;UserControlGym\ForgetPasswordUC.xaml;UserControlGym\GoBackButton.xaml;UserControlGym\HomeUC.xaml;UserControlGym\LoginUC.xaml;UserControlGym\PieChartUC.xaml;UserControlGym\PtcourseUC.xaml;UserControlGym\PtUC.xaml;UserControlGym\SampleConfirmDialog.xaml;UserControlGym\SampleErrorDialog.xaml;UserControlGym\SampleProgressDialog.xaml;UserControlGym\SearchBarUC.xaml;UserControlGym\StaffUC.xaml;UserControlGym\StatisticUC.xaml;UserControlGym\ViewCustomerDetailInfoUC.xaml;UserControlGym\ViewPtDetailInfoUC.xaml;UserControlGym\WindowBarUC.xaml;
 
 True
 

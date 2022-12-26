@@ -13,13 +13,28 @@
     <viewmodel:StaffViewModel x:Key="StaffVM"></viewmodel:StaffViewModel>
     <viewmodel:FacilityViewModel x:Key="FacilityVM"></viewmodel:FacilityViewModel>
     <viewmodel:HomeViewModel x:Key="HomeVM"></viewmodel:HomeViewModel>
+    <viewmodel:BookingViewModel x:Key="BookingVM"></viewmodel:BookingViewModel>
     <viewmodel:ContractViewModel x:Key="CotractVM"></viewmodel:ContractViewModel>
     <viewmodel:StatisticViewModel x:Key="StatisticVM"></viewmodel:StatisticViewModel>
     <viewmodel:SearchBarViewModel x:Key="SearchBarVM"></viewmodel:SearchBarViewModel>
     <viewmodel:WindowBarViewModel x:Key="WindowBarVM"></viewmodel:WindowBarViewModel>
+    <viewmodel:PtViewModel x:Key="PtVM"></viewmodel:PtViewModel>
+    <viewmodel:PtcourseViewModel x:Key="PtcourseVM"></viewmodel:PtcourseViewModel>
+
+    <DataTemplate DataType="{x:Type viewmodel:PtcourseViewModel}">
+        <uc:PtcourseUC></uc:PtcourseUC>
+    </DataTemplate>
 
     <DataTemplate DataType="{x:Type viewmodel:HomeViewModel}">
         <uc:HomeUC></uc:HomeUC>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type viewmodel:PtViewModel}">
+        <uc:PtUC></uc:PtUC>
+    </DataTemplate>
+    
+    <DataTemplate DataType="{x:Type viewmodel:BookingViewModel}">
+        <uc:BookingUC></uc:BookingUC>
     </DataTemplate>
 
     <DataTemplate DataType="{x:Type viewmodel:CustomerViewModel}">
@@ -86,7 +101,7 @@
         <Setter Property="Width" Value="200"></Setter>
         <Setter Property="Height" Value="40"></Setter>
         <Setter Property="Margin" Value="20"></Setter>
-
+        
     </Style>
     
     <Style x:Key="IconMenu" TargetType="materialDesign:PackIcon">
@@ -120,7 +135,7 @@
 
     </Style>
 
-
+   
 
     <Style x:Key="BtnStyle"
            TargetType="RadioButton">
@@ -224,6 +239,9 @@
         </Setter>
 
     </Style>
+
+   
+
 
     <Style x:Key="Page_Style"
            TargetType="{x:Type UserControl}">

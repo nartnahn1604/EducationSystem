@@ -27,11 +27,11 @@
          <ProgressBar Grid.Row="1" Visibility="{Binding IsLoading}" Foreground="White"
                       Style="{StaticResource MaterialDesignCircularProgressBar}"
                       Height="50" Width="50" Value="0" IsIndeterminate="True" /> 
-        <Border CornerRadius="0 0 15 0" Grid.Row="1" Background="White"
+        <Border CornerRadius="15 15 15 15" Grid.Row="1" Background="White"
                 Visibility="{Binding IsLoading, Converter={StaticResource InverseBooleanToVisibilityConverter}}">
             
             <DataGrid x:Name="GridCustomer"
-                       BorderBrush="Transparent"
+                      BorderBrush="Transparent"
                       Background="White"
                       Style="{StaticResource DataGridStyle}"
                       
@@ -187,19 +187,27 @@
                     </DataGridCheckBoxColumn>
                     
                     
-                    <DataGridTemplateColumn>
-                        <DataGridTemplateColumn.Header>
-                            <materialDesign:PackIcon Kind="Delete" />
-                        </DataGridTemplateColumn.Header>
+                    <DataGridTemplateColumn Header="Hành động">
+                       
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <Button Command="{Binding DataContext.DeleteCommand, ElementName=GridCustomer}"
+                                <DockPanel>
+                                    <Button Command="{Binding DataContext.ViewCommand, ElementName=GridCustomer}"
                                         CommandParameter="{Binding ElementName=GridCustomer}"
-                                        Width="30" Height="30"
-                                        Style="{StaticResource MaterialDesignFloatingActionMiniDarkButton}"
+                                        Width="30" Height="30" Margin="5"
+                                        Style="{StaticResource MaterialDesignFloatingActionMiniButton}"
+                                        ToolTip="Xem thông tin thêm khách hàng">
+                                        <materialDesign:PackIcon Kind="ViewSequential"   Height="15" Width="15"/>
+                                    </Button>
+                                    <Button Command="{Binding DataContext.DeleteCommand, ElementName=GridCustomer}"
+                                        CommandParameter="{Binding ElementName=GridCustomer}"
+                                        Width="30" Height="30" Margin="5"
+                                        Style="{StaticResource MaterialDesignFloatingActionMiniButton}"
                                         ToolTip="Xóa khách hàng">
-                                    <materialDesign:PackIcon Kind="Delete" Height="15" Width="15" />
-                                </Button>
+                                        <materialDesign:PackIcon Kind="Delete" Height="15" Width="15" />
+                                    </Button>
+                                </DockPanel>
+                                
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>

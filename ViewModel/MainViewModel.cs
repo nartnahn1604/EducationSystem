@@ -17,11 +17,13 @@ namespace IT008_UIT.ViewModel
         // mọi thứ xử lý sẽ nằm trong này
         public ICommand HomeCommand { get; set; }
         public ICommand CustomerCommand { get; set; }
+        public ICommand PtcourseCommand { get; set; }
         public ICommand StaffCommand { get; set; }
         public ICommand FacilityCommand { get; set; }
         public ICommand StatisticCommand { get; set; }
         public ICommand ContractCommand { get; set; }
         public ICommand CourseCommand { get; set; }
+        public ICommand PtCommand { get; set; }
         public ICommand ExitCommand { get; set; }
         private object _currentView;
         public object CurrentView
@@ -58,9 +60,19 @@ namespace IT008_UIT.ViewModel
                 CurrentView = new CourseViewModel();
             }
             );
+            PtcourseCommand = new RelayCommand<object>((p) => { return p == null ? false : true; }, (p) =>
+            {
+                CurrentView = new PtcourseViewModel();
+            }
+            );
             ContractCommand = new RelayCommand<object>((p) => { return p == null ? false : true; }, (p) =>
             {
                 CurrentView = new ContractViewModel();
+            }
+            );
+            PtCommand = new RelayCommand<object>((p) => { return p == null ? false : true; }, (p) =>
+            {
+                CurrentView = new PtViewModel();
             }
             );
             StatisticCommand = new RelayCommand<object>((p) => { return p == null ? false : true; }, (p) =>

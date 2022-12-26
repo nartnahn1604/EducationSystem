@@ -20,7 +20,7 @@
                     </Grid.RowDefinitions>
                     <DockPanel Grid.Row="0">
                         <StackPanel Orientation="Horizontal" materialDesign:RippleAssist.IsCentered="True">
-                            <materialDesign:ColorZone Mode="Standard"  Padding="8 4 8 4" CornerRadius="10" Panel.ZIndex="1" Margin="16 0 0 0"
+                            <materialDesign:ColorZone Mode="Standard"  Padding="8 4 8 4" CornerRadius="10" Panel.ZIndex="1" Margin="0 0 0 0"
                                                           materialDesign:ShadowAssist.ShadowDepth="Depth1" Width="1080" >
                                 <Grid>
                                     <Grid.ColumnDefinitions>
@@ -57,7 +57,7 @@
                                  materialDesign:ElevationAssist.Elevation="Dp2"
                                  Command="{Binding AddCommand,UpdateSourceTrigger=PropertyChanged}"
                                  CommandParameter="{Binding ElementName=ucSearchBar}">
-                            +Thêm
+                            <materialDesign:PackIcon Kind="Plus" />
                         </Button>
                     </StackPanel>
                 </Grid>

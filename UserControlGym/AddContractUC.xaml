@@ -6,11 +6,10 @@
              xmlns:local="clr-namespace:IT008_UIT.UserControlGym"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:wpf="clr-namespace:MaterialDesignThemes.Wpf;assembly=MaterialDesignThemes.Wpf"
-             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
-             xmlns:system="clr-namespace:System;assembly=mscorlib"
+             xmlns:validationrules="clr-namespace:IT008_UIT.ValidationRules"
              mc:Ignorable="d" 
-             
-             d:DesignHeight="500" d:DesignWidth="500">
+             xmlns:system="clr-namespace:System;assembly=mscorlib" 
+             d:DesignHeight="1000" d:DesignWidth="900">
     <!--<i:Interaction.Triggers>
         <i:EventTrigger EventName="MouseLeave">
             <i:InvokeCommandAction Command="{x:Static wpf:DialogHost.CloseDialogCommand}"/>
@@ -28,45 +27,103 @@
                 <RowDefinition></RowDefinition>
                 <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
-            <StackPanel Grid.Row="0">
-                <TextBlock Margin="20" Style="{StaticResource MaterialDesignHeadline4TextBlock}">
-                        Thông tin khách hàng
-                </TextBlock>
-                <WrapPanel>
-                    <TextBox materialDesign:HintAssist.Hint="Tên khách hàng"
+           
+            <ScrollViewer>
+                <materialDesign:Card
+  Background="{DynamicResource MaterialDesignBackground}">
+                    <StackPanel>
+                        <Expander Width="800" IsExpanded="True" HorizontalAlignment="Stretch"
+                              Header="Thông tin khách hàng">
+                            <StackPanel
+        Orientation="Vertical"
+        TextBlock.Foreground="{DynamicResource MaterialDesignBody}"
+        Margin="24,8,24,16">
+                                <WrapPanel>
+                                    <TextBox materialDesign:HintAssist.Hint="Tên khách hàng"
                              MaxLength="20"
-                             Text="{Binding CustomerName, UpdateSourceTrigger=PropertyChanged}"
-                             Style="{StaticResource TextboxDialog}" />
-                    <TextBox materialDesign:HintAssist.Hint="CMND/ CCCD" 
+                             Style="{StaticResource TextboxDialog}">
+                                        <TextBox.Text>
+                                            <Binding Path="CustomerName" UpdateSourceTrigger="PropertyChanged">
+                                                <Binding.ValidationRules>
+                                                    <validationrules:WordOnlyValidationRules ValidatesOnTargetUpdated="True"></validationrules:WordOnlyValidationRules>
+                                                </Binding.ValidationRules>
+                                            </Binding>
+                                        </TextBox.Text>
+                                    </TextBox>
+                                    <TextBox materialDesign:HintAssist.Hint="CMND/ CCCD" 
                              MaxLength="12"
-                             Text="{Binding IdentityNumber, UpdateSourceTrigger=PropertyChanged}"
-                             Style="{StaticResource TextboxDialog}" />
-                    <TextBox materialDesign:HintAssist.Hint="Email" 
+                             Style="{StaticResource TextboxDialog}">
+                                        <TextBox.Text>
+                                            <Binding Path="IdentityNumber" UpdateSourceTrigger="PropertyChanged">
+                                                <Binding.ValidationRules>
+                                                    <validationrules:NumberOnlyValidationRules ValidatesOnTargetUpdated="True"></validationrules:NumberOnlyValidationRules>
+                                                </Binding.ValidationRules>
+                                            </Binding>
+                                        </TextBox.Text>
+                                    </TextBox>
+                                    <TextBox materialDesign:HintAssist.Hint="Email" 
                              MaxLength="50"
-                             Text="{Binding Email, UpdateSourceTrigger=PropertyChanged}"
+                             Style="{StaticResource TextboxDialog}">
+                                        <TextBox.Text>
+                                            <Binding  Path="Email"  UpdateSourceTrigger="PropertyChanged" >
+                                                <Binding.ValidationRules>
+                                                    <validationrules:EmailValidationRules  ValidatesOnTargetUpdated="True"></validationrules:EmailValidationRules>
+                                                </Binding.ValidationRules>
+                                            </Binding>
+                                        </TextBox.Text>
+                                    </TextBox>
+                                    <TextBox materialDesign:HintAssist.Hint="Giới tính"
+                             MaxLength="4"
+                             Text="{Binding Gender, UpdateSourceTrigger=PropertyChanged}"
                              Style="{StaticResource TextboxDialog}" />
-                    <TextBox materialDesign:HintAssist.Hint="Số điện thoại"
-                             MaxLength="11"
-                             Text="{Binding Phone, UpdateSourceTrigger=PropertyChanged}"
-                             Style="{StaticResource TextboxDialog}" />
-                    <TextBox materialDesign:HintAssist.Hint="Địa chỉ" 
+                                    <TextBox materialDesign:HintAssist.Hint="Số điện thoại"
+                             MaxLength="10"
+                             Style="{StaticResource TextboxDialog}">
+                                        <TextBox.Text>
+                                            <Binding  Path="Phone" UpdateSourceTrigger="PropertyChanged" >
+                                                <Binding.ValidationRules>
+                                                    <validationrules:PhoneValidationRules  ValidatesOnTargetUpdated="True"></validationrules:PhoneValidationRules>
+                                                </Binding.ValidationRules>
+                                            </Binding>
+                                        </TextBox.Text>
+                                    </TextBox>
+                                    <TextBox materialDesign:HintAssist.Hint="Địa chỉ" 
                              MaxLength="50"
                              Text="{Binding Address, UpdateSourceTrigger=PropertyChanged}"
                              Style="{StaticResource TextboxDialog}" />
-
-                </WrapPanel>
-            </StackPanel>
-            <StackPanel Grid.Row="1">
-                <TextBlock Margin="20" Style="{StaticResource MaterialDesignHeadline4TextBlock}">
-                        Thông tin hợp đồng
-                </TextBlock>
-                <WrapPanel>
-                    <ComboBox materialDesign:HintAssist.Hint="Gói tập" ItemsSource="{Binding CourseList}" 
-                              SelectedItem="{Binding SelectedCourse, UpdateSourceTrigger=PropertyChanged}"
+                                </WrapPanel>
+                            </StackPanel>
+                        </Expander>
+                        <Border Background="{DynamicResource MaterialDesignDivider}" Height="1" 
+                            HorizontalAlignment="Stretch"
+                            SnapsToDevicePixels="True" />
+                        <Expander  Width="800"  HorizontalAlignment="Stretch" Header="Thông tin hợp đồng">
+                            <StackPanel Orientation="Vertical" TextBlock.Foreground="{DynamicResource MaterialDesignBody}"
+                                    Margin="24,8,24,16">
+                                <WrapPanel>
+                                    <ComboBox materialDesign:HintAssist.Hint="Hợp đồng" ItemsSource="{Binding ContractList}" 
+                              Style="{StaticResource MaterialDesignFloatingHintComboBox}"
+                              Margin="20" Width="200" Height="40" >
+                                        <ComboBox.Text>
+                                            <Binding Mode="TwoWay" Path="DefaultContractValue" UpdateSourceTrigger="PropertyChanged">
+                                                <Binding.ValidationRules>
+                                                    <validationrules:NotEmptyValidationRules ValidatesOnTargetUpdated="True"></validationrules:NotEmptyValidationRules>
+                                                </Binding.ValidationRules>
+                                            </Binding>
+                                        </ComboBox.Text>
+                                    </ComboBox>
+                                    <ComboBox materialDesign:HintAssist.Hint="Gói tập" ItemsSource="{Binding CourseList}" 
                               Style="{StaticResource MaterialDesignFloatingHintComboBox}"
                               Margin="20" Width="200" Height="40">
-                    </ComboBox>
-                    <TextBox
+                                        <ComboBox.Text>
+                                            <Binding Path="SelectedCourse" UpdateSourceTrigger="PropertyChanged">
+                                                <Binding.ValidationRules>
+                                                    <validationrules:NotEmptyValidationRules ValidatesOnTargetUpdated="True"></validationrules:NotEmptyValidationRules>
+                                                </Binding.ValidationRules>
+                                            </Binding>
+                                        </ComboBox.Text>
+                                    </ComboBox>
+                                    <TextBox
                         Width="400"
                         Margin="20"
                         Text="{Binding Description, UpdateSourceTrigger=PropertyChanged}"
@@ -76,10 +133,42 @@
                         TextWrapping="Wrap"
                         MaxLength="100"
                         MaxWidth="400"
-                        materialDesign:HintAssist.Hint="Ghi chú" />      
-                </WrapPanel>
-            </StackPanel>
+                        materialDesign:HintAssist.Hint="Ghi chú" />
+                                </WrapPanel>
+                            </StackPanel>
+                        </Expander>
+                        <Border
+      Background="{DynamicResource MaterialDesignDivider}"
+      Height="1"
+      HorizontalAlignment="Stretch"
+      SnapsToDevicePixels="True" />
+                        <Expander  Width="800"  IsEnabled="{Binding IsPtContract}"
+      HorizontalAlignment="Stretch"
+      Header="Thông tin PT">
+                            <StackPanel
+        Orientation="Vertical"
+        TextBlock.Foreground="{DynamicResource MaterialDesignBody}"
+        Margin="24,8,24,16">
+                                <WrapPanel>
 
+                                    <ComboBox materialDesign:HintAssist.Hint="Pt" ItemsSource="{Binding PtList}" 
+                              Style="{StaticResource MaterialDesignFloatingHintComboBox}"
+                              Margin="20" Width="200" Height="40" >
+                                        <ComboBox.Text>
+                                            <Binding Path="SelectedPt" UpdateSourceTrigger="PropertyChanged">
+                                                <Binding.ValidationRules>
+                                                    <validationrules:NotEmptyValidationRules ValidatesOnTargetUpdated="True"></validationrules:NotEmptyValidationRules>
+                                                </Binding.ValidationRules>
+                                            </Binding>
+                                        </ComboBox.Text>
+                                    </ComboBox>
+                                </WrapPanel>
+                            </StackPanel>
+                        </Expander>
+                    </StackPanel>
+                </materialDesign:Card>
+            </ScrollViewer>
+           
         </Grid>
         <StackPanel Grid.Row="1"
                 Margin="0,16,0,0"
@@ -90,7 +179,7 @@
                 <Button.CommandParameter>
                     <system:Boolean>True</system:Boolean>
                 </Button.CommandParameter>
-                ACCEPT
+                XÁC NHẬN
             </Button>
             <Button Margin="8,0,0,0"
               Command="{x:Static wpf:DialogHost.CloseDialogCommand}"
@@ -99,7 +188,7 @@
                 <Button.CommandParameter>
                     <system:Boolean>False</system:Boolean>
                 </Button.CommandParameter>
-                CANCEL
+                HỦY BỎ
             </Button>
         </StackPanel>
     </Grid>
