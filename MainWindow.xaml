@@ -21,10 +21,10 @@
         FontFamily="{DynamicResource MaterialDesignFont}"
         DataContext="{StaticResource MainVM}"
         x:Name="mainscreen"
-        Title="MainWindow" Height="768" Width="1366">
+        Title="MainWindow" Height="768" Width="1400">
     <materialDesign:DialogHost DialogTheme="Inherit"
                                Identifier="RootDialog">
-        <Border Style="{DynamicResource BorderWindow}"  Background="White" >
+        <Border Style="{DynamicResource BorderWindow}" Background="#fafafa" >
         <Grid>
 
             <!--Window Bar-->     
@@ -37,15 +37,15 @@
                 
                 
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="224"></ColumnDefinition>
+                    <ColumnDefinition Width="250"></ColumnDefinition>
                     <ColumnDefinition ></ColumnDefinition>
                 </Grid.ColumnDefinitions>
                 
                 <!--Menu Navigation-->
 
-                <Border  
-                        CornerRadius="15,0,0,15" Grid.Column="0" Background="White">
-                    <StackPanel>
+                <Border  Margin="8" BorderBrush="Gray" BorderThickness="1"
+                        CornerRadius="30" Grid.Column="0" Background="White">
+                    <StackPanel >
                         <Image Source="/Images/logo_app.png" Width="150px" Margin="0,50,0,20"></Image>
                         <Menu:Btn Style="{StaticResource BtnStyle}" Command="{Binding HomeCommand}" CommandParameter="{Binding ElementName=mainscreen}" IsChecked="true">
                             <Grid>
@@ -135,7 +135,7 @@
 
                         <!--Tùy chọn ứng dụng-->
 
-                        <Grid  Margin="0 50 0 0">
+                        <Grid  Margin="0 20 0 0">
                             <TextBlock
                             Style="{StaticResource Text_Style}" Focusable="False" >
                             Tùy chọn
@@ -168,7 +168,7 @@
                 
                 <!--Các màn hình chức năng-->
                 
-                <Border Grid.Column="1" CornerRadius="0 15 15 0" Background="#FB8560">
+                <Border Grid.Column="1" CornerRadius="0 15 15 0" >
                     <ContentControl x:Name="Pages" Margin="5"
                             Content="{Binding CurrentView}"
                                     >

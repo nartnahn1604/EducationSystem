@@ -29,13 +29,13 @@
                 Visibility="{Binding IsLoading, Converter={StaticResource InverseBooleanToVisibilityConverter}}">
             <materialDesign:Transitioner Name="UserControlView" SelectedIndex="0" AutoApplyTransitionOrigins="True">
                 <materialDesign:TransitionerSlide OpeningEffect="{materialDesign:TransitionEffect FadeIn}">
-                <StackPanel Margin="10">
+                <StackPanel Margin="0 10 10 10">
                 <!--<materialDesign:Transitioner Name="UserControlView" SelectedIndex="0" AutoApplyTransitionOrigins="True">
                     <Button Command="{x:Static materialDesign:Transitioner.MoveNextCommand}">HOPDONGCOBAN</Button>
                     <Button Command="{x:Static materialDesign:Transitioner.MovePreviousCommand}">HOPDONGPT</Button>
                 </materialDesign:Transitioner>-->
                 <DataGrid x:Name="GridContract"
-                          Height="470"
+                          Height="520"
                        BorderBrush="Transparent"
                       Background="White"
                       Style="{StaticResource DataGridStyle}"
@@ -144,7 +144,7 @@
                 
                 <StackPanel HorizontalAlignment="Right" VerticalAlignment="Bottom" Orientation="Horizontal">
                     
-                    <Button Style="{StaticResource MaterialDesignRaisedLightButton}" Margin="10"
+                    <Button Style="{StaticResource MaterialDesignRaisedLightButton}" Margin="0 0 0 0"
                              Command="{x:Static materialDesign:Transitioner.MoveNextCommand}">
                         <StackPanel Orientation="Horizontal">
                             <TextBlock>Hợp đồng HLV</TextBlock>
@@ -163,8 +163,8 @@
                     <Button Command="{x:Static materialDesign:Transitioner.MoveNextCommand}">HOPDONGCOBAN</Button>
                     <Button Command="{x:Static materialDesign:Transitioner.MovePreviousCommand}">HOPDONGPT</Button>
                 </materialDesign:Transitioner>-->
-                <DataGrid x:Name="GridContract2"
-                          Height="470"
+                <DataGrid x:Name="GridPtContract"
+                          Height="520"
                        BorderBrush="Transparent"
                       Background="White"
                       Style="{StaticResource DataGridStyle}"
@@ -177,7 +177,7 @@
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="RowEditEnding">
                             <i:InvokeCommandAction Command="{Binding GridChangeCommand}"
-                                                   CommandParameter="{Binding ElementName=GridContract}"/>
+                                                   CommandParameter="{Binding ElementName=GridPtContract}"/>
                         </i:EventTrigger>
                     </i:Interaction.Triggers>
                     <DataGrid.Columns>
@@ -272,7 +272,7 @@
                 </DataGrid>
 
                 <StackPanel HorizontalAlignment="Right" VerticalAlignment="Bottom" Orientation="Horizontal">
-                        <Button Style="{StaticResource MaterialDesignRaisedLightButton}" Margin="10" 
+                        <Button Style="{StaticResource MaterialDesignRaisedLightButton}" Margin="0" 
                                 Command="{x:Static materialDesign:Transitioner.MovePreviousCommand}">
                         <StackPanel Orientation="Horizontal">
 

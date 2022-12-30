@@ -138,8 +138,8 @@
                                             ElementStyle="{StaticResource MaterialDesignDataGridCheckBoxColumnStyle}"
                                             EditingElementStyle="{StaticResource MaterialDesignDataGridCheckBoxColumnEditingStyle}">
                     </DataGridCheckBoxColumn>
-                    <DataGridTemplateColumn Header="Hành động">
 
+                    <DataGridTemplateColumn Header="Hành động">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <DockPanel>

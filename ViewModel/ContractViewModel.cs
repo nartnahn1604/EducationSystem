@@ -156,6 +156,7 @@ namespace IT008_UIT.ViewModel
                 var viewmodel = view.DataContext as AddContractViewModel;
                 if(viewmodel != null)
                 {
+                   
                     await viewmodel.AddNewContractAsync();
                     if(viewmodel.Flag == false)
                     {
@@ -163,11 +164,12 @@ namespace IT008_UIT.ViewModel
                     }
                     eventArgs.Cancel();
 
-                    //...now, lets update the "session" with some new content!
-                    eventArgs.Session.UpdateContent(new SampleProgressDialog());
+                    
                     //note, you can also grab the session when the dialog opens via the DialogOpenedEventHandler
                     if (viewmodel.Flag != false)
                     {
+                        //...now, lets update the "session" with some new content!
+                        eventArgs.Session.UpdateContent(new SampleProgressDialog());
                         _contractContext = viewmodel.NormalSync();
                     }
 

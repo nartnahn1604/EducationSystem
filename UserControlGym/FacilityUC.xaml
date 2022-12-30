@@ -149,6 +149,23 @@
                         </DataGridTemplateColumn.CellEditingTemplate>
                     </DataGridTemplateColumn>
 
+                    <DataGridTemplateColumn Header="Hành động">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <DockPanel>
+
+                                    <Button Command="{Binding DataContext.DeleteCommand, ElementName=GridFacility}"
+                                        CommandParameter="{Binding ElementName=GridFacility}"
+                                        Width="30" Height="30" Margin="5"
+                                        Style="{StaticResource MaterialDesignFloatingActionMiniButton}"
+                                        ToolTip="Xóa khách hàng">
+                                        <materialDesign:PackIcon Kind="Delete" Height="15" Width="15" />
+                                    </Button>
+                                </DockPanel>
+
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
 
 
                 </DataGrid.Columns>

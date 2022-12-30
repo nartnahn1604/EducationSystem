@@ -64,7 +64,15 @@ namespace IT008_UIT.ViewModel
             await Task.Delay(3000);
             IsLoading = false;
         }
-
+        private async Task DeleteFacility(Facility delete)
+        {
+            using (Context = new GymDbContext())
+            {
+                Context.Remove<Facility>(delete);
+                Context.SaveChanges();
+                _facilityContext.Remove(delete);
+            }
+        }
         public override async void AddData()
         {
             if (IsLoading == false)
@@ -98,6 +106,7 @@ namespace IT008_UIT.ViewModel
 
 
             var view = eventArgs.Session.Content as AddFacilityUC;
+
             if (view != null)
             {
                 var viewmodel = view.DataContext as AddFacilityViewModel;
@@ -111,26 +120,44 @@ namespace IT008_UIT.ViewModel
                     //OK, lets cancel the close...
                     eventArgs.Cancel();
 
-                    //...now, lets update the "session" with some new content!
-                    eventArgs.Session.UpdateContent(new SampleProgressDialog());
-                    //note, you can also grab the session when the dialog opens via the DialogOpenedEventHandler
+                    
                     if (viewmodel.Flag != false)
                     {
+                        //...now, lets update the "session" with some new content!
+                        eventArgs.Session.UpdateContent(new SampleProgressDialog());
+                        //note, you can also grab the session when the dialog opens via the DialogOpenedEventHandler
                         _facilityContext = viewmodel.Sync();
+                        //lets run a fake operation for 3 seconds then close this baby.
+                        Task.Delay(TimeSpan.FromSeconds(3))
+                            .ContinueWith((t, _) => eventArgs.Session.Close(false), null,
+                                TaskScheduler.FromCurrentSynchronizationContext());
                     }
-                    
+                }
+            }
+            else
+            {
+                var view1 = eventArgs.Session.Content as SampleConfirmDialog;
+                if (view1 != null)
+                {
+                    eventArgs.Cancel();
 
+                    Facility fac = SelectedFacility;
+                    try
+                    {
+                        await DeleteFacility(fac);
+                    }
+                    catch (Exception ex)
+                    {
+                        Debug.WriteLine(ex);
+                    }
                     //lets run a fake operation for 3 seconds then close this baby.
-                    Task.Delay(TimeSpan.FromSeconds(3))
+                    Task.Delay(TimeSpan.FromSeconds(0))
                         .ContinueWith((t, _) => eventArgs.Session.Close(false), null,
                             TaskScheduler.FromCurrentSynchronizationContext());
-
                 }
 
+                
             }
-
-            
-            
         }
 
         private void ExtendedClosedEventHandler(object sender, DialogClosedEventArgs eventArgs)
@@ -159,7 +186,8 @@ namespace IT008_UIT.ViewModel
             });
             DeleteCommand = new RelayCommand<object>((p) => { return p == null ? false : true; }, (p) =>
             {
-
+                var view = new SampleConfirmDialog();
+                var result = DialogHost.Show(view, "RootDialog", ExtendedClosingEventHandler);
             }
             );
         }

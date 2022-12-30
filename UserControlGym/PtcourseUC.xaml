@@ -29,12 +29,12 @@
 
         <Border CornerRadius="0 0 15 0" Grid.Row="1" Background="White"
                 Visibility="{Binding IsLoading, Converter={StaticResource InverseBooleanToVisibilityConverter}}">
-            <DataGrid x:Name="GridCourse"
+            <DataGrid x:Name="GridPtCourse"
                        BorderBrush="Transparent"
                       Background="White"
                       Style="{StaticResource DataGridStyle}"
                       ItemsSource="{Binding PtcourseContext}"
-                      SelectedItem="{Binding SelectedCourse, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                      SelectedItem="{Binding SelectedPtcourse, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
                 <!--<DataGrid.InputBindings>
                     <KeyBinding Key="Enter" Command="{Binding GridChangeCommand}" CommandParameter="{Binding ElementName=GridContract}" />
                 </DataGrid.InputBindings>-->
@@ -42,7 +42,7 @@
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="RowEditEnding">
                         <i:InvokeCommandAction Command="{Binding GridChangeCommand}"
-                                                   CommandParameter="{Binding ElementName=GridCourse}"/>
+                                                   CommandParameter="{Binding ElementName=GridPtCourse}"/>
                     </i:EventTrigger>
                 </i:Interaction.Triggers>
 
@@ -133,12 +133,29 @@
                         </DataGridTemplateColumn.CellEditingTemplate>
                     </DataGridTemplateColumn>
 
-                    <DataGridCheckBoxColumn Header="Active"
+                    <DataGridCheckBoxColumn Header="Còn hoạt động"
                                             Binding="{Binding Active,UpdateSourceTrigger=PropertyChanged}"
                                             ElementStyle="{StaticResource MaterialDesignDataGridCheckBoxColumnStyle}"
                                             EditingElementStyle="{StaticResource MaterialDesignDataGridCheckBoxColumnEditingStyle}">
                     </DataGridCheckBoxColumn>
 
+                    <DataGridTemplateColumn Header="Hành động">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <DockPanel>
+
+                                    <Button Command="{Binding DataContext.DeleteCommand, ElementName=GridPtCourse}"
+                                        CommandParameter="{Binding ElementName=GridPtCourse}"
+                                        Width="30" Height="30" Margin="5"
+                                        Style="{StaticResource MaterialDesignFloatingActionMiniButton}"
+                                        ToolTip="Xóa khách hàng">
+                                        <materialDesign:PackIcon Kind="Delete" Height="15" Width="15" />
+                                    </Button>
+                                </DockPanel>
+
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
 
                 </DataGrid.Columns>
             </DataGrid>

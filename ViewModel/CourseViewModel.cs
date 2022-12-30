@@ -9,11 +9,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Data;
+using System.Windows.Input;
 
 namespace IT008_UIT.ViewModel
 {
     public class CourseViewModel : BaseViewModel
     {
+
+
         private bool _isLoading;
 
         public bool IsLoading
@@ -38,6 +41,8 @@ namespace IT008_UIT.ViewModel
             set { _courseContext = value; OnPropertyChanged(); }
         }
 
+       
+
         private object _lockMutex = new object();
         private Task LoadDataAsync()
         {
@@ -52,15 +57,28 @@ namespace IT008_UIT.ViewModel
                 }
             });
         }
-        private async Task Delete(Course delete)
+        private bool DeleteFlag;
+        private async Task DeleteCourse(Course delete)
         {
             using (Context = new GymDbContext())
             {
-                Context.Remove<Course>(delete);
-                Context.SaveChanges();
-                _courseContext.Remove(delete);
+                var v = Context.Contracts.Where(s => s.CourseId == delete.CourseId).FirstOrDefault();
+                if (v == null)
+                {
+                    DeleteFlag = true;
+                    Context.Remove<Course>(delete);
+                    Context.SaveChanges();
+                    _courseContext.Remove(delete);
+                }
+                else
+                {
+                    DeleteFlag = false;
+                }
+                
             }
         }
+
+        
 
 
 
@@ -86,6 +104,7 @@ namespace IT008_UIT.ViewModel
 
 
             var view = eventArgs.Session.Content as AddCourseUC;
+            
             if (view != null)
             {
                 var viewmodel = view.DataContext as AddCourseViewModel;
@@ -113,15 +132,36 @@ namespace IT008_UIT.ViewModel
                     Task.Delay(TimeSpan.FromSeconds(3))
                         .ContinueWith((t, _) => eventArgs.Session.Close(false), null,
                             TaskScheduler.FromCurrentSynchronizationContext());
-
                 }
-
             }
-
-
-
-            
-
+            else
+            {
+                var view1 = eventArgs.Session.Content as SampleConfirmDialog;
+                if (view1 != null)
+                {
+                    eventArgs.Cancel();
+                    Course delete = SelectedCourse;
+                    
+                    try
+                    {
+                        await DeleteCourse(delete);
+                    }
+                    catch (Exception) 
+                    {
+                        throw;
+                    }
+                    if (DeleteFlag == false)
+                    {
+                        eventArgs.Session.UpdateContent(new SampleErrorDialog());
+                    }
+                    else
+                    {
+                        Task.Delay(TimeSpan.FromSeconds(0))
+                           .ContinueWith((t, _) => eventArgs.Session.Close(false), null,
+                               TaskScheduler.FromCurrentSynchronizationContext());
+                    }
+                }
+            }
         }
 
 
@@ -137,7 +177,7 @@ namespace IT008_UIT.ViewModel
                 
             }
         }
-
+        public ICommand DeleteCommand { get; set; }
 
         public CourseViewModel() 
         {
@@ -145,6 +185,13 @@ namespace IT008_UIT.ViewModel
             Debug.WriteLine("In HopDongViewmodel...");
             BindingOperations.EnableCollectionSynchronization(CourseContext, _lockMutex);
             LoadData();
+            DeleteCommand = new RelayCommand<object>((p) => { return p == null ? false : true; }, (p) =>
+            {
+                var view = new SampleConfirmDialog();
+                var result = DialogHost.Show(view, "RootDialog", ExtendedClosingEventHandler);
+               
+            }
+            );
         }    
     }
 }

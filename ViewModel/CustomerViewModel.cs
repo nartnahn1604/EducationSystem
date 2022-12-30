@@ -201,13 +201,24 @@ namespace IT008_UIT.ViewModel
             }
         }
 
+        private bool DeleteFlag;
         private async Task Delete(Customer delete)
         {
             using (Context = new GymDbContext())
             {
-                Context.Remove<Customer>(delete);
-                Context.SaveChanges();
-                _customerContext.Remove(delete);
+                var v = Context.Contracts.Where(s => s.CustomerId == delete.CustomerId).FirstOrDefault();
+                if (v == null)
+                {
+                    DeleteFlag = true;
+                    Context.Remove<Customer>(delete);
+                    Context.SaveChanges();
+                    _customerContext.Remove(delete);
+                }
+                else
+                {
+                    DeleteFlag = false;
+                }
+                
             }
         }
 
@@ -217,7 +228,7 @@ namespace IT008_UIT.ViewModel
         private void ExtendedClosedEventHandler(object sender, DialogClosedEventArgs eventArgs)
             => Debug.WriteLine("You could intercept the closed event here (2).");
 
-        private void ExtendedClosingEventHandler(object sender, DialogClosingEventArgs eventArgs)
+        private async void ExtendedClosingEventHandler(object sender, DialogClosingEventArgs eventArgs)
         {
             Debug.WriteLine("You can intercept the closing event, cancel it, and do our own close after a little while.");
             if (eventArgs.Parameter is bool parameter &&
@@ -225,46 +236,33 @@ namespace IT008_UIT.ViewModel
 
 
             var view = eventArgs.Session.Content as ViewCustomerDetailInfoUC;
-            if (view != null)
-            {
-                var viewmodel = view.DataContext as ViewCustomerDetailInfoViewModel;
-                if (viewmodel != null)
-                {
-                    
-                }
-
-            }
-            else
+            if (view == null)
             {
                 var view1 = eventArgs.Session.Content as SampleConfirmDialog;
                 if(view1 != null)
                 {
+                    eventArgs.Cancel();
                     Customer delete = SelectedCustomer;
                     try
                     {
-                        Delete(delete);
+                        await Delete(delete);
                     }
                     catch (Exception)
                     {
                         throw;
                     }
+                    if (DeleteFlag == false)
+                    {
+                        eventArgs.Session.UpdateContent(new SampleErrorDialog());
+                    }
+                    else
+                    {
+                        Task.Delay(TimeSpan.FromSeconds(0))
+                           .ContinueWith((t, _) => eventArgs.Session.Close(false), null,
+                               TaskScheduler.FromCurrentSynchronizationContext());
+                    }
                 }
             }
-            
-
-
-
-            //OK, lets cancel the close...
-            eventArgs.Cancel();
-
-            //...now, lets update the "session" with some new content!
-            eventArgs.Session.UpdateContent(new SampleProgressDialog());
-            //note, you can also grab the session when the dialog opens via the DialogOpenedEventHandler
-
-            //lets run a fake operation for 3 seconds then close this baby.
-            Task.Delay(TimeSpan.FromSeconds(3))
-                .ContinueWith((t, _) => eventArgs.Session.Close(false), null,
-                    TaskScheduler.FromCurrentSynchronizationContext());
         }
 
 

@@ -66,7 +66,15 @@ namespace IT008_UIT.ViewModel
             await Task.Delay(3500);
             IsLoading = false;
         }
-
+        private async Task DeleteStaff(Staff delete)
+        {
+            using (Context = new GymDbContext())
+            {
+                Context.Remove<Staff>(delete);
+                Context.SaveChanges();
+                _staffContext.Remove(delete);
+            }
+        }
         private void ExtendedOpenedEventHandler(object sender, DialogOpenedEventArgs eventArgs)
         {
 
@@ -92,12 +100,13 @@ namespace IT008_UIT.ViewModel
                     //OK, lets cancel the close...
                     eventArgs.Cancel();
 
-                    //...now, lets update the "session" with some new content!
-                    eventArgs.Session.UpdateContent(new SampleProgressDialog());
+                    
                     //note, you can also grab the session when the dialog opens via the DialogOpenedEventHandler
 
                     if (viewmodel.Flag != false)
                     {
+                        //...now, lets update the "session" with some new content!
+                        eventArgs.Session.UpdateContent(new SampleProgressDialog());
                         _staffContext = viewmodel.Sync();
                     }
                     
@@ -110,10 +119,33 @@ namespace IT008_UIT.ViewModel
                 }
 
             }
+            else
+            {
+                var view1 = eventArgs.Session.Content as SampleConfirmDialog;
+                if (view1 != null)
+                {
+                    eventArgs.Cancel();
+
+                    Staff sta = SelectedStaff;
+                    try
+                    {
+                        await DeleteStaff(sta);
+                    }
+                    catch (Exception ex)
+                    {
+                        Debug.WriteLine(ex);
+                    }
+                    //lets run a fake operation for 3 seconds then close this baby.
+                    Task.Delay(TimeSpan.FromSeconds(0))
+                        .ContinueWith((t, _) => eventArgs.Session.Close(false), null,
+                            TaskScheduler.FromCurrentSynchronizationContext());
+                }
+
+            }
 
 
 
-            
+
         }
 
         private void ExtendedClosedEventHandler(object sender, DialogClosedEventArgs eventArgs)
@@ -147,6 +179,24 @@ namespace IT008_UIT.ViewModel
             _staffContext = new ObservableCollection<Staff>();
             BindingOperations.EnableCollectionSynchronization(StaffContext, _lockMutex);
             LoadData();
+            GridChangeCommand = new RelayCommand<DataGrid>((p) => { return p == null ? false : true; }, (p) =>
+            {
+                Staff replace = SelectedStaff;
+                try
+                {
+                    //Update(replace);
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+            });
+            DeleteCommand = new RelayCommand<object>((p) => { return p == null ? false : true; }, (p) =>
+            {
+                var view = new SampleConfirmDialog();
+                var result = DialogHost.Show(view, "RootDialog", ExtendedClosingEventHandler);
+            }
+            );
         }
 
 

@@ -29,6 +29,7 @@ namespace IT008_UIT.ViewModel
             var view = new SampleErrorDialog();
             var result = await DialogHost.Show(view, "RootDialog");
         }
+
         public virtual void AddData()
         {
             // Please Implementation this method

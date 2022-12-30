@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Data;
+using System.Windows.Input;
 
 namespace IT008_UIT.ViewModel
 {
@@ -38,6 +39,8 @@ namespace IT008_UIT.ViewModel
             set { _ptcourseContext = value; OnPropertyChanged(); }
         }
 
+        public ICommand DeleteCommand { get;  set; }
+
         private object _lockMutex = new object();
         private Task LoadDataAsync()
         {
@@ -52,7 +55,25 @@ namespace IT008_UIT.ViewModel
                 }
             });
         }
-
+        private bool DeleteFlag;
+        private async Task DeletePtCourse(Ptcourse delete)
+        {
+            using (Context = new GymDbContext())
+            {
+                var v = Context.Ptcontracts.Where(s => s.PtcourseId == delete.PtcourseId).FirstOrDefault();
+                if (v == null)
+                {
+                    DeleteFlag = true;
+                    Context.Remove<Ptcourse>(delete);
+                    Context.SaveChanges();
+                    _ptcourseContext.Remove(delete);
+                }
+                else
+                {
+                    DeleteFlag = false;
+                }
+            }
+        }
         public async Task LoadData()
         {
             IsLoading = true;
@@ -69,7 +90,6 @@ namespace IT008_UIT.ViewModel
 
         private async void ExtendedClosingEventHandler(object sender, DialogClosingEventArgs eventArgs)
         {
-            Debug.WriteLine("You can intercept the closing event, cancel it, and do our own close after a little while.");
             if (eventArgs.Parameter is bool parameter &&
                 parameter == false) return;
 
@@ -77,32 +97,60 @@ namespace IT008_UIT.ViewModel
             var view = eventArgs.Session.Content as AddPtcourseUC;
             if (view != null)
             {
+
                 var viewmodel = view.DataContext as AddPtcourseViewModel;
                 if (viewmodel != null)
                 {
                     await viewmodel.AddNewPtcourseAsync();
-                    if (viewmodel.Flag == false)
+                    bool flag = viewmodel.Flag;
+                    if (flag  == false)
                     {
+                        eventArgs.Cancel();
                         await ShowErrorDialog();
                     }
-                    eventArgs.Cancel();
 
-                    //...now, lets update the "session" with some new content!
-                    eventArgs.Session.UpdateContent(new SampleProgressDialog());
                     //note, you can also grab the session when the dialog opens via the DialogOpenedEventHandler
-                    if (viewmodel.Flag != false)
+                    else if (flag != false)
                     {
+                        //...now, lets update the "session" with some new content!
+                        eventArgs.Session.UpdateContent(new SampleProgressDialog());
                         _ptcourseContext = viewmodel.Sync();
+                        //lets run a fake operation for 3 seconds then close this baby.
+                        Task.Delay(TimeSpan.FromSeconds(3))
+                            .ContinueWith((t, _) => eventArgs.Session.Close(false), null,
+                                TaskScheduler.FromCurrentSynchronizationContext());
                     }
-
-                    //lets run a fake operation for 3 seconds then close this baby.
-                    Task.Delay(TimeSpan.FromSeconds(3))
-                        .ContinueWith((t, _) => eventArgs.Session.Close(false), null,
-                            TaskScheduler.FromCurrentSynchronizationContext());
                 }
-
             }
 
+            else
+            {
+                var view1 = eventArgs.Session.Content as SampleConfirmDialog;
+                if (view1 != null)
+                {
+                    eventArgs.Cancel();
+                   
+                    Ptcourse pt = SelectedPtcourse;
+                    try
+                    {
+                        await DeletePtCourse(pt);
+                    } 
+                    catch (Exception ex) 
+                    {
+                        Debug.WriteLine(ex);
+                    }
+                    if (DeleteFlag == false)
+                    {
+                        eventArgs.Session.UpdateContent(new SampleErrorDialog());
+                    }
+                    else
+                    {
+                        Task.Delay(TimeSpan.FromSeconds(0))
+                           .ContinueWith((t, _) => eventArgs.Session.Close(false), null,
+                               TaskScheduler.FromCurrentSynchronizationContext());
+                    }
+                }
+            }  
         }
 
 
@@ -125,6 +173,12 @@ namespace IT008_UIT.ViewModel
             _ptcourseContext = new ObservableCollection<Ptcourse>();
             BindingOperations.EnableCollectionSynchronization(PtcourseContext, _lockMutex);
             LoadData();
+            DeleteCommand = new RelayCommand<object>((p) => { return p == null ? false : true; }, (p) =>
+            {
+                var view = new SampleConfirmDialog();
+                var result = DialogHost.Show(view, "RootDialog", ExtendedClosingEventHandler);
+            }
+           );
         }
         
     }
