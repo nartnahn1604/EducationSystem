@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
-namespace IT008_UIT.Models
+namespace GymManagement.Models
 {
-    public partial class GymDbContext : DbContext
+    public partial class GymManagementDbContext : DbContext
     {
-        public GymDbContext()
+        public GymManagementDbContext()
         {
         }
 
-        public GymDbContext(DbContextOptions<GymDbContext> options)
+        public GymManagementDbContext(DbContextOptions<GymManagementDbContext> options)
             : base(options)
         {
         }
@@ -22,19 +22,19 @@ namespace IT008_UIT.Models
         public virtual DbSet<Course> Courses { get; set; } = null!;
         public virtual DbSet<Customer> Customers { get; set; } = null!;
         public virtual DbSet<Facility> Facilities { get; set; } = null!;
-        public virtual DbSet<Pt> Pts { get; set; } = null!;
-        public virtual DbSet<Ptcontract> Ptcontracts { get; set; } = null!;
-        public virtual DbSet<Ptcourse> Ptcourses { get; set; } = null!;
         public virtual DbSet<Role> Roles { get; set; } = null!;
-        public virtual DbSet<Staff> Staffs { get; set; } = null!;
+        public virtual DbSet<TypesOfCourse> TypesOfCourses { get; set; } = null!;
         public virtual DbSet<TypesOfFacility> TypesOfFacilities { get; set; } = null!;
+        public virtual DbSet<Staff> Staffs { get; set; } = null!;
 
+
+        private string ConnectionString = "Data Source=(local);Initial Catalog=GymManagementDb;Integrated Security=True";
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseSqlServer("Data Source=(local);Initial Catalog=GymDb;Integrated Security=True");
+                optionsBuilder.UseSqlServer(ConnectionString);
             }
         }
 
@@ -59,7 +59,7 @@ namespace IT008_UIT.Models
                 entity.HasOne(d => d.Staff)
                     .WithMany(p => p.Accounts)
                     .HasForeignKey(d => d.StaffId)
-                    .HasConstraintName("FK_Accounts_StaffID");
+                    .HasConstraintName("FK_Accounts_Staff");
             });
 
             modelBuilder.Entity<Booking>(entity =>
@@ -68,33 +68,29 @@ namespace IT008_UIT.Models
 
                 entity.Property(e => e.BookingId).HasColumnName("BookingID");
 
+                entity.Property(e => e.ContractId).HasColumnName("ContractID");
+
                 entity.Property(e => e.CreateDate).HasColumnType("date");
 
                 entity.Property(e => e.CustomerId).HasColumnName("CustomerID");
 
-                entity.Property(e => e.PtcontractId).HasColumnName("PTContractID");
+                entity.Property(e => e.StaffId).HasColumnName("StaffID");
 
-                entity.Property(e => e.Ptid).HasColumnName("PTID");
+
+                entity.HasOne(d => d.Contract)
+                   .WithMany(p => p.Bookings)
+                   .HasForeignKey(d => d.CustomerId)
+                   .HasConstraintName("FK_Booking_Contracts");
 
                 entity.HasOne(d => d.Customer)
                     .WithMany(p => p.Bookings)
                     .HasForeignKey(d => d.CustomerId)
                     .HasConstraintName("FK_Booking_Customers");
 
-                entity.HasOne(d => d.Ptcontract)
+                entity.HasOne(d => d.Staff)
                     .WithMany(p => p.Bookings)
-                    .HasForeignKey(d => d.PtcontractId)
-                    .HasConstraintName("FK_Booking_PTContracts");
-
-                entity.HasOne(d => d.PtcontractNavigation)
-                    .WithMany(p => p.Bookings)
-                    .HasForeignKey(d => d.PtcontractId)
-                    .HasConstraintName("FK_Booking_PTCourses");
-
-                entity.HasOne(d => d.Pt)
-                    .WithMany(p => p.Bookings)
-                    .HasForeignKey(d => d.Ptid)
-                    .HasConstraintName("FK_Booking_PTs");
+                    .HasForeignKey(d => d.StaffId)
+                    .HasConstraintName("FK_Booking_Staff");
             });
 
             modelBuilder.Entity<Contract>(entity =>
@@ -109,6 +105,8 @@ namespace IT008_UIT.Models
 
                 entity.Property(e => e.FinishDate).HasColumnType("date");
 
+                entity.Property(e => e.StaffId).HasColumnName("StaffID");
+
                 entity.HasOne(d => d.Course)
                     .WithMany(p => p.Contracts)
                     .HasForeignKey(d => d.CourseId)
@@ -118,6 +116,11 @@ namespace IT008_UIT.Models
                     .WithMany(p => p.Contracts)
                     .HasForeignKey(d => d.CustomerId)
                     .HasConstraintName("FK_Contracts_Customers");
+
+                entity.HasOne(d => d.Staff)
+                    .WithMany(p => p.Contracts)
+                    .HasForeignKey(d => d.StaffId)
+                    .HasConstraintName("FK_Contracts_Staffs");
             });
 
             modelBuilder.Entity<Course>(entity =>
@@ -125,6 +128,11 @@ namespace IT008_UIT.Models
                 entity.Property(e => e.CourseId).HasColumnName("CourseID");
 
                 entity.Property(e => e.Name).HasMaxLength(50);
+
+                entity.HasOne(d => d.TypeNavigation)
+                    .WithMany(p => p.Courses)
+                    .HasForeignKey(d => d.Type)
+                    .HasConstraintName("FK_Courses_TypesOfCourse");
             });
 
             modelBuilder.Entity<Customer>(entity =>
@@ -136,7 +144,7 @@ namespace IT008_UIT.Models
                 entity.Property(e => e.Birthday).HasColumnType("date");
 
                 entity.Property(e => e.Email)
-                    .HasMaxLength(50)
+                    .HasMaxLength(30)
                     .IsFixedLength();
 
                 entity.Property(e => e.Gender).HasMaxLength(10);
@@ -166,86 +174,41 @@ namespace IT008_UIT.Models
                     .HasConstraintName("FK_Facilities_TypesOfFacility");
             });
 
-            modelBuilder.Entity<Pt>(entity =>
-            {
-                entity.ToTable("PTs");
-
-                entity.Property(e => e.Ptid).HasColumnName("PTID");
-
-                entity.Property(e => e.Birthday).HasColumnType("date");
-
-                entity.Property(e => e.Email)
-                    .HasMaxLength(50)
-                    .IsFixedLength();
-
-                entity.Property(e => e.Gender).HasMaxLength(10);
-
-                entity.Property(e => e.IdentityNumber)
-                    .HasMaxLength(12)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.Name).HasMaxLength(50);
-
-                entity.Property(e => e.Phone)
-                    .HasMaxLength(10)
-                    .IsUnicode(false);
-            });
-
-            modelBuilder.Entity<Ptcontract>(entity =>
-            {
-                entity.ToTable("PTContracts");
-
-                entity.Property(e => e.PtcontractId).HasColumnName("PTContractID");
-
-                entity.Property(e => e.CreateDate).HasColumnType("date");
-
-                entity.Property(e => e.CustomerId).HasColumnName("CustomerID");
-
-                entity.Property(e => e.FinishDate).HasColumnType("date");
-
-                entity.Property(e => e.PtcourseId).HasColumnName("PTCourseID");
-
-                entity.Property(e => e.Ptid).HasColumnName("PTID");
-
-                entity.HasOne(d => d.Customer)
-                    .WithMany(p => p.Ptcontracts)
-                    .HasForeignKey(d => d.CustomerId)
-                    .HasConstraintName("FK_PTContracts_Customers");
-
-                entity.HasOne(d => d.Ptcourse)
-                    .WithMany(p => p.Ptcontracts)
-                    .HasForeignKey(d => d.PtcourseId)
-                    .HasConstraintName("FK_PTContracts_PTCourses");
-
-                entity.HasOne(d => d.Pt)
-                    .WithMany(p => p.Ptcontracts)
-                    .HasForeignKey(d => d.Ptid)
-                    .HasConstraintName("FK_PTContracts_PTs");
-            });
-
-            modelBuilder.Entity<Ptcourse>(entity =>
-            {
-                entity.ToTable("PTCourses");
-
-                entity.Property(e => e.PtcourseId).HasColumnName("PTCourseID");
-
-                entity.Property(e => e.Name).HasMaxLength(50);
-            });
-
             modelBuilder.Entity<Role>(entity =>
             {
                 entity.Property(e => e.RoleId).HasColumnName("RoleID");
 
                 entity.Property(e => e.Name)
-                    .HasMaxLength(10)
+                    .HasMaxLength(30)
                     .IsFixedLength();
+            });
+
+            modelBuilder.Entity<TypesOfCourse>(entity =>
+            {
+                entity.HasKey(e => e.TypeId)
+                    .HasName("PK_TypeOfCourse");
+
+                entity.ToTable("TypesOfCourse");
+
+                entity.Property(e => e.TypeId).HasColumnName("TypeID");
+
+                entity.Property(e => e.Name).HasMaxLength(50);
+            });
+
+            modelBuilder.Entity<TypesOfFacility>(entity =>
+            {
+                entity.HasKey(e => e.TypeId);
+
+                entity.ToTable("TypesOfFacility");
+
+                entity.Property(e => e.TypeId).HasColumnName("TypeID");
+
+                entity.Property(e => e.Name).HasMaxLength(50);
             });
 
             modelBuilder.Entity<Staff>(entity =>
             {
-                entity.HasKey(e => e.StaffId);
-
-                entity.ToTable("StaffID");
+                entity.ToTable("Staff");
 
                 entity.Property(e => e.StaffId).HasColumnName("StaffID");
 
@@ -272,20 +235,9 @@ namespace IT008_UIT.Models
                 entity.Property(e => e.RoleId).HasColumnName("RoleID");
 
                 entity.HasOne(d => d.Role)
-                    .WithMany(p => p.Staffs)
+                    .WithMany(p => p.staff)
                     .HasForeignKey(d => d.RoleId)
-                    .HasConstraintName("FK_StaffID_Roles");
-            });
-
-            modelBuilder.Entity<TypesOfFacility>(entity =>
-            {
-                entity.HasKey(e => e.TypeId);
-
-                entity.ToTable("TypesOfFacility");
-
-                entity.Property(e => e.TypeId).HasColumnName("TypeID");
-
-                entity.Property(e => e.Name).HasMaxLength(50);
+                    .HasConstraintName("FK_Staff_Roles");
             });
 
             OnModelCreatingPartial(modelBuilder);

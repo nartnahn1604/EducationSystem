@@ -1,13 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace IT008_UIT.Models
+namespace GymManagement.Models
 {
     public partial class Staff
     {
         public Staff()
         {
             Accounts = new HashSet<Account>();
+            Bookings = new HashSet<Booking>();
+            Contracts = new HashSet<Contract>();
         }
 
         public int StaffId { get; set; }
@@ -24,5 +26,7 @@ namespace IT008_UIT.Models
 
         public virtual Role? Role { get; set; }
         public virtual ICollection<Account> Accounts { get; set; }
+        public virtual ICollection<Booking> Bookings { get; set; }
+        public virtual ICollection<Contract> Contracts { get; set; }
     }
 }
