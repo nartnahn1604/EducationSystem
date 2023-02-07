@@ -3,16 +3,16 @@ using System.Collections.Generic;
 
 namespace GymManagement.Models
 {
-    public partial class TypesOfFacility
+    public partial class TypesOfCourse
     {
-        public TypesOfFacility()
+        public TypesOfCourse()
         {
-            Facilities = new HashSet<Facility>();
+            Courses = new HashSet<Course>();
         }
 
         public int TypeId { get; set; }
         public string? Name { get; set; }
 
-        public virtual ICollection<Facility> Facilities { get; set; }
+        public virtual ICollection<Course> Courses { get; set; }
     }
 }

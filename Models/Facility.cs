@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace IT008_UIT.Models
+namespace GymManagement.Models
 {
     public partial class Facility
     {
