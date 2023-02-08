@@ -7,7 +7,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 
-namespace IT008_UIT.ValidationRules
+namespace GymManagement.ValidationRules
 {
     class WordOnlyValidationRules : ValidationRule
     {
