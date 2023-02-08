@@ -8,7 +8,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 
-namespace IT008_UIT.ValidationRules
+namespace GymManagement.ValidationRules
 {
     class EmailValidationRules : ValidationRule
     {
@@ -27,7 +27,7 @@ namespace IT008_UIT.ValidationRules
                     return new ValidationResult(false, "Email required");
                 }
             }
-            else return new ValidationResult(false, "Field is required");
+            else return ValidationResult.ValidResult;
             
         }
     }
