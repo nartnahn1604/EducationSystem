@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Data;
 
-namespace IT008_UIT.Converters
+namespace GymManagement.Converters
 {
     internal class InverseBooleanToVisibilityConverter : IValueConverter
     {
